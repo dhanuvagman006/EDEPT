@@ -213,12 +213,6 @@ function applyParticipantsFilter() {
   });
 
   renderParticipantsList(filtered);
-
-  if (nameQ || eventQ) {
-    setParticipantsStatus(`Showing ${filtered.length} of ${allParticipants.length}`);
-  } else {
-    setParticipantsStatus(`Loaded ${allParticipants.length} participant(s)`);
-  }
 }
 
 async function loadParticipants() {
