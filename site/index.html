@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>E-DEPT Viewer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1 id="pageTitle">Participants</h1>
+          <p class="muted" id="pageSubtitle">Shows the contents of <code>response.json</code>.</p>
+        </div>
+
+        <nav class="nav" aria-label="Views">
+          <button id="participantsNavBtn" type="button" aria-current="page">Participants</button>
+          <button id="teamsNavBtn" type="button">Teams</button>
+          <a href="./department.html" title="Login by department to see only registered students">Department</a>
+        </nav>
+      </header>
+
+      <section id="participantsView" class="view">
+        <section class="summary" id="summary" aria-live="polite"></section>
+
+        <section>
+          <div class="toolbar">
+            <label class="search" aria-label="Search participants by name">
+              <span class="searchIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input id="searchInput" type="search" placeholder="Search name…" autocomplete="off" />
+            </label>
+            <label class="search" aria-label="Search participants by event">
+              <span class="searchIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input id="eventSearchInput" type="search" placeholder="Search event…" autocomplete="off" />
+            </label>
+            <button id="reloadBtn" type="button">Reload data</button>
+            <span class="muted" id="status"></span>
+          </div>
+          <div id="content" class="content"></div>
+        </section>
+      </section>
+
+      <section id="teamsView" class="view" hidden>
+        <section class="summary" id="teamsSummary" aria-live="polite"></section>
+
+        <section>
+          <div class="toolbar">
+            <label class="search" aria-label="Search teams">
+              <span class="searchIcon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input id="teamsSearchInput" type="search" placeholder="Search team…" autocomplete="off" />
+            </label>
+            <button id="teamsReloadBtn" type="button">Reload data</button>
+            <span class="muted" id="teamsStatus"></span>
+          </div>
+          <div id="teamsContent" class="content"></div>
+        </section>
+      </section>
+
+      <footer class="footer muted">
+        💾 Data auto-refreshes every 10 minutes. Run <code>npm run fetch</code> and <code>npm run fetch:teams</code> to refresh manually.
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

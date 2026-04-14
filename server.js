@@ -1,0 +1,243 @@
+const http = require('node:http');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const { URL } = require('node:url');
+const { spawn } = require('node:child_process');
+const { DEPARTMENTS } = require('./departments');
+
+const ROOT = __dirname;
+const PORT = Number(process.env.PORT || 3000);
+
+const AUTO_REFRESH = String(process.env.AUTO_REFRESH || '').toLowerCase() !== '0';
+const REFRESH_INTERVAL_MINUTES = Number(process.env.REFRESH_INTERVAL_MINUTES || 10);
+const REFRESH_INTERVAL_MS = Number.isFinite(REFRESH_INTERVAL_MINUTES) && REFRESH_INTERVAL_MINUTES > 0
+  ? REFRESH_INTERVAL_MINUTES * 60 * 1000
+  : 0;
+
+let refreshInProgress = false;
+
+function runNodeScript(scriptFile) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(ROOT, scriptFile)], {
+      cwd: ROOT,
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        QUIET: '1',
+      },
+    });
+
+    child.on('error', reject);
+    child.on('exit', (code) => {
+      if (code === 0) resolve();
+      else reject(new Error(`${scriptFile} exited with code ${code}`));
+    });
+  });
+}
+
+async function refreshData() {
+  if (refreshInProgress) return;
+  refreshInProgress = true;
+
+  const startedAt = Date.now();
+  try {
+    await runNodeScript('fetch_participents.js');
+    await runNodeScript('team_details.js');
+    const ms = Date.now() - startedAt;
+    console.log(`Data refreshed in ${ms}ms`);
+  } catch (e) {
+    console.error('Data refresh failed:', e?.message || e);
+  } finally {
+    refreshInProgress = false;
+  }
+}
+
+const contentTypes = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain; charset=utf-8',
+};
+
+function send(res, status, headers, body) {
+  res.writeHead(status, headers);
+  res.end(body);
+}
+
+function sendJson(res, status, payload) {
+  send(
+    res,
+    status,
+    {
+      'content-type': 'application/json; charset=utf-8',
+      'cache-control': 'no-store',
+    },
+    Buffer.from(JSON.stringify(payload, null, 2), 'utf8')
+  );
+}
+
+function normalize(str) {
+  return String(str || '').trim().toLowerCase();
+}
+
+function extractArray(payload) {
+  if (Array.isArray(payload)) return payload;
+  if (payload && Array.isArray(payload.data)) return payload.data;
+  if (payload && Array.isArray(payload.items)) return payload.items;
+  if (payload && Array.isArray(payload.participants)) return payload.participants;
+  return null;
+}
+
+async function readJsonFile(fileName) {
+  const filePath = path.join(ROOT, fileName);
+  const text = await fs.readFile(filePath, 'utf8');
+  return JSON.parse(text);
+}
+
+function filterParticipantsForDepartment(participants, dept) {
+  const allowed = new Set((dept.events || []).map(normalize));
+  return participants.filter((p) => {
+    const events = Array.isArray(p.events) ? p.events : [];
+    const teams = Array.isArray(p.teams) ? p.teams : [];
+
+    const inEvents = events.some((e) => allowed.has(normalize(e)));
+    const inTeams = teams.some((t) => allowed.has(normalize(t && t.eventName)));
+    return inEvents || inTeams;
+  });
+}
+
+function safeJoin(rootDir, requestPath) {
+  const decoded = decodeURIComponent(requestPath);
+  const rel = decoded.replace(/^\/+/, '');
+  const full = path.resolve(rootDir, rel);
+  if (!full.startsWith(path.resolve(rootDir) + path.sep) && full !== path.resolve(rootDir)) {
+    return null;
+  }
+  return full;
+}
+
+async function serveFile(res, filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  const ct = contentTypes[ext] || 'application/octet-stream';
+
+  try {
+    const data = await fs.readFile(filePath);
+    send(res, 200, {
+      'content-type': ct,
+      'cache-control': 'no-store',
+    }, data);
+  } catch (e) {
+    if (e && e.code === 'ENOENT') {
+      send(res, 404, { 'content-type': 'text/plain; charset=utf-8' }, 'Not found');
+      return;
+    }
+    send(res, 500, { 'content-type': 'text/plain; charset=utf-8' }, 'Server error');
+  }
+}
+
+const server = http.createServer(async (req, res) => {
+  const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
+
+  // API
+  if (url.pathname === '/api/departments') {
+    const list = DEPARTMENTS.map((d) => ({ key: d.key, name: d.name, events: d.events }));
+    sendJson(res, 200, { data: list });
+    return;
+  }
+
+  const deptMatch = url.pathname.match(/^\/api\/departments\/([^/]+)\/participants$/);
+  if (deptMatch) {
+    const deptKey = deptMatch[1];
+    const dept = DEPARTMENTS.find((d) => d.key === deptKey);
+    if (!dept) {
+      sendJson(res, 404, { error: 'Unknown department', deptKey });
+      return;
+    }
+
+    try {
+      const payload = await readJsonFile('response.json');
+      const participants = extractArray(payload);
+      if (!participants) {
+        sendJson(res, 500, { error: 'response.json has unexpected shape' });
+        return;
+      }
+
+      const filtered = filterParticipantsForDepartment(participants, dept);
+      sendJson(res, 200, { department: { key: dept.key, name: dept.name }, data: filtered });
+      return;
+    } catch (e) {
+      sendJson(res, 500, { error: 'Failed to read response.json' });
+      return;
+    }
+  }
+
+  // Basic routing
+  if (url.pathname === '/') {
+    res.writeHead(302, { location: '/site/' });
+    res.end();
+    return;
+  }
+
+  if (url.pathname === '/site') {
+    res.writeHead(302, { location: '/site/' });
+    res.end();
+    return;
+  }
+
+  // Serve /site/* from the site folder
+  if (url.pathname.startsWith('/site/')) {
+    const rel = url.pathname.replace(/^\/site\//, '');
+    const target = rel === '' ? 'index.html' : rel;
+    const filePath = safeJoin(path.join(ROOT, 'site'), target);
+    if (!filePath) {
+      send(res, 400, { 'content-type': 'text/plain; charset=utf-8' }, 'Bad request');
+      return;
+    }
+    await serveFile(res, filePath);
+    return;
+  }
+
+  // Serve response.json at /response.json
+  if (url.pathname === '/response.json') {
+    const filePath = path.join(ROOT, 'response.json');
+    await serveFile(res, filePath);
+    return;
+  }
+
+  // Serve teams.json at /teams.json
+  if (url.pathname === '/teams.json') {
+    const filePath = path.join(ROOT, 'teams.json');
+    await serveFile(res, filePath);
+    return;
+  }
+
+  send(res, 404, { 'content-type': 'text/plain; charset=utf-8' }, 'Not found');
+});
+
+server.on('error', (err) => {
+  if (err && err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use.`);
+    console.error('Stop the other server, or run with a different port:');
+    console.error('  PowerShell: $env:PORT = 3001; npm start');
+    process.exit(1);
+  }
+  console.error(err);
+  process.exit(1);
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running: http://localhost:${PORT}/site/`);
+
+  if (AUTO_REFRESH) {
+    console.log(`Auto-refresh: ON${REFRESH_INTERVAL_MS ? ` (every ${REFRESH_INTERVAL_MINUTES} min)` : ''}`);
+    refreshData();
+    if (REFRESH_INTERVAL_MS) {
+      setInterval(refreshData, REFRESH_INTERVAL_MS);
+    }
+  } else {
+    console.log('Auto-refresh: OFF (set AUTO_REFRESH=1 to enable)');
+  }
+});

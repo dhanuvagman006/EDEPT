@@ -1,0 +1,4919 @@
+{
+  "data": [
+    {
+      "id": 320,
+      "studentName": "Mohammed Tabrez",
+      "email": "mohammedtabrez1413@gmail.com",
+      "phone": "6364566158",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": "Flash Force",
+          "members": [
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610343625159",
+      "registeredAt": "2026-04-13T17:41:10.981Z"
+    },
+    {
+      "id": 317,
+      "studentName": "Prajwal HA",
+      "email": "prajwalha892@gmail.com",
+      "phone": "9980621931",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Feast Fiesta(Eating Challenge)"
+      ],
+      "teams": [
+        {
+          "eventName": "Feast Fiesta(Eating Challenge)",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Prajwal HA",
+              "envId": "ENV-000444",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610313109017",
+      "registeredAt": "2026-04-13T17:05:43.975Z"
+    },
+    {
+      "id": 315,
+      "studentName": "Sinchana Marpadka",
+      "email": "sinchanamarpadka@gmail.com",
+      "phone": "8660394823",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "Circuit Heist"
+      ],
+      "teams": [
+        {
+          "eventName": "Circuit Heist",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Sinchana Marpadka",
+              "envId": "ENV-000439",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "121561993030",
+      "registeredAt": "2026-04-13T17:00:13.028Z"
+    },
+    {
+      "id": 313,
+      "studentName": "Muhammed Saif ",
+      "email": "0xs41f@gmail.com",
+      "phone": "7624827684",
+      "college": "Bearys Institute of Technology (BIT), Boliyar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Muhammed Saif ",
+              "envId": "ENV-000431",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "001696623981",
+      "registeredAt": "2026-04-13T16:46:32.649Z"
+    },
+    {
+      "id": 310,
+      "studentName": "Priya ",
+      "email": "priyapoojary1611@gmail.com",
+      "phone": "8073423642",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Rahasya"
+      ],
+      "teams": [
+        {
+          "eventName": "Rahasya",
+          "department": "Technical",
+          "teamName": "Luna the charms ",
+          "members": [
+            {
+              "name": "Priya ",
+              "envId": "ENV-000296",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646907313175",
+      "registeredAt": "2026-04-13T16:09:38.024Z"
+    },
+    {
+      "id": 308,
+      "studentName": "Fathima amrin ",
+      "email": "ammiamrin36@gmail.com",
+      "phone": "9447011046",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Super Minute"
+      ],
+      "teams": [
+        {
+          "eventName": "Super Minute",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Fathima amrin ",
+              "envId": "ENV-000432",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "212017006135",
+      "registeredAt": "2026-04-13T15:51:04.751Z"
+    },
+    {
+      "id": 306,
+      "studentName": "FARAZ FARAH",
+      "email": "farazfarah29@gmail.com",
+      "phone": "9591592582",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "FARAZ FARAH",
+              "envId": "ENV-000429",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646932523571",
+      "registeredAt": "2026-04-13T15:30:18.080Z"
+    },
+    {
+      "id": 304,
+      "studentName": "C K Prakhyath",
+      "email": "ckprakhyath8@gmail.com",
+      "phone": "8088700961",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "C K Prakhyath",
+              "envId": "ENV-000056",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "002134741229",
+      "registeredAt": "2026-04-13T15:07:40.633Z"
+    },
+    {
+      "id": 302,
+      "studentName": "Harshitha SP",
+      "email": "spharshitha7@gmail.com",
+      "phone": "8549072635",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harshitha SP",
+              "envId": "ENV-000052",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "121555481835",
+      "registeredAt": "2026-04-13T15:06:32.600Z"
+    },
+    {
+      "id": 301,
+      "studentName": "ANKITH ACHARYA",
+      "email": "ankithacharya238@gmail.com",
+      "phone": "8549072635",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": "Spectrum Studio",
+          "members": [
+            {
+              "name": "ANKITH ACHARYA",
+              "envId": "ENV-000055",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610397722319",
+      "registeredAt": "2026-04-13T14:54:56.938Z"
+    },
+    {
+      "id": 299,
+      "studentName": "Hisham Razak",
+      "email": "hishamrazak1995@gmail.com",
+      "phone": "8050694074",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Hisham Razak",
+              "envId": "ENV-000428",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610388342269",
+      "registeredAt": "2026-04-13T14:53:34.176Z"
+    },
+    {
+      "id": 297,
+      "studentName": "Mahamood Mashhoor ",
+      "email": "mahamoodunofficial@gmail.com",
+      "phone": "9535531334",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": "Amigos SDIT",
+          "members": [
+            {
+              "name": "Mahamood Mashhoor ",
+              "envId": "ENV-000427",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610372913819",
+      "registeredAt": "2026-04-13T14:30:19.845Z"
+    },
+    {
+      "id": 293,
+      "studentName": "Ayush Banavalikar",
+      "email": "ayushbanavalikar284@gmail.com",
+      "phone": "9353509117",
+      "college": "Srinivas University Institute of Engineering & Technology, Mukka",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Ayush Banavalikar",
+              "envId": "ENV-000073",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610380631726",
+      "registeredAt": "2026-04-13T14:26:07.034Z"
+    },
+    {
+      "id": 291,
+      "studentName": "PRATHIKA ",
+      "email": "prathikakulal2@gmail.com",
+      "phone": "7411062290",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "PRATHIKA ",
+              "envId": "ENV-000424",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610375495512",
+      "registeredAt": "2026-04-13T14:16:43.639Z"
+    },
+    {
+      "id": 284,
+      "studentName": "Neha Pc",
+      "email": "asifpcneha@gmail.com",
+      "phone": "6362067843",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Super Minute"
+      ],
+      "teams": [
+        {
+          "eventName": "Super Minute",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Neha Pc",
+              "envId": "ENV-000097",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610389113503",
+      "registeredAt": "2026-04-13T13:22:42.596Z"
+    },
+    {
+      "id": 282,
+      "studentName": " Deeksha",
+      "email": "deeksha.kulal3010@gmail.com",
+      "phone": "7760384710",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": " Deeksha",
+              "envId": "ENV-000338",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "637471747835",
+      "registeredAt": "2026-04-13T13:08:55.090Z"
+    },
+    {
+      "id": 280,
+      "studentName": "Krishna Reddy",
+      "email": "kr9684198@gmail.com",
+      "phone": "8792015038",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Dumb Charades"
+      ],
+      "teams": [
+        {
+          "eventName": "Dumb Charades",
+          "department": "Non-Technical",
+          "teamName": "KVA",
+          "members": [
+            {
+              "name": "Krishna Reddy",
+              "envId": "ENV-000318",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "962803458144",
+      "registeredAt": "2026-04-13T10:45:44.875Z"
+    },
+    {
+      "id": 275,
+      "studentName": "Sowjna R Achar",
+      "email": "sowjnaachar17@gmail.com",
+      "phone": "09741413639",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Rahasya"
+      ],
+      "teams": [
+        {
+          "eventName": "Rahasya",
+          "department": "Technical",
+          "teamName": "S-squad",
+          "members": [
+            {
+              "name": "Sowjna R Achar",
+              "envId": "ENV-000301",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610324872003",
+      "registeredAt": "2026-04-13T10:40:15.983Z"
+    },
+    {
+      "id": 273,
+      "studentName": " Shravya ",
+      "email": "sjv3shetty@gmail.com",
+      "phone": "8073630519",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "Circuit Heist"
+      ],
+      "teams": [
+        {
+          "eventName": "Circuit Heist",
+          "department": "Technical",
+          "teamName": "Innovators ",
+          "members": [
+            {
+              "name": " Shravya ",
+              "envId": "ENV-000294",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610382291901",
+      "registeredAt": "2026-04-13T10:37:28.325Z"
+    },
+    {
+      "id": 271,
+      "studentName": "Daneshwari Kamadod",
+      "email": "daneshwari.kamadod@gmail.com",
+      "phone": "7019635207",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Mr or Ms Envision"
+      ],
+      "teams": [
+        {
+          "eventName": "Mr or Ms Envision",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Daneshwari Kamadod",
+              "envId": "ENV-000298",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "288402165576",
+      "registeredAt": "2026-04-13T10:36:08.258Z"
+    },
+    {
+      "id": 270,
+      "studentName": "JEWEL Glaston",
+      "email": "jewelglaston7025@gmail.com",
+      "phone": "7025920747",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Nautical Rides"
+      ],
+      "teams": [
+        {
+          "eventName": "Nautical Rides",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "JEWEL Glaston",
+              "envId": "ENV-000295",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610381799609",
+      "registeredAt": "2026-04-13T10:31:05.023Z"
+    },
+    {
+      "id": 266,
+      "studentName": "champana D S",
+      "email": "champanads2005@gmail.com",
+      "phone": "09448835864",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "Yeah_Fahh",
+          "members": [
+            {
+              "name": "champana D S",
+              "envId": "ENV-000290",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "001686977350",
+      "registeredAt": "2026-04-13T10:18:27.140Z"
+    },
+    {
+      "id": 265,
+      "studentName": "Shravya",
+      "email": "shravyajogi59@gmail.com",
+      "phone": "8147780717",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shravya",
+              "envId": "ENV-000288",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646993778594",
+      "registeredAt": "2026-04-13T10:18:16.568Z"
+    },
+    {
+      "id": 263,
+      "studentName": "Abhay",
+      "email": "abhaynv10@gmail.com",
+      "phone": "8075114849",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Slow Bike Racing"
+      ],
+      "teams": [
+        {
+          "eventName": "Slow Bike Racing",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Abhay",
+              "envId": "ENV-000289",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610380726491",
+      "registeredAt": "2026-04-13T10:13:28.155Z"
+    },
+    {
+      "id": 262,
+      "studentName": "mahshooq",
+      "email": "mahshooqmuneer007@gmail.com",
+      "phone": "9497403911",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Slow Bike Racing"
+      ],
+      "teams": [
+        {
+          "eventName": "Slow Bike Racing",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "mahshooq",
+              "envId": "ENV-000287",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610383580911",
+      "registeredAt": "2026-04-13T10:12:57.543Z"
+    },
+    {
+      "id": 259,
+      "studentName": "Anwith Shetty",
+      "email": "beastanwith08@gmail.com",
+      "phone": "9380233935",
+      "college": "Srinivas University Institute of Engineering & Technology, Mukka",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Anwith Shetty",
+              "envId": "ENV-000283",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610344628039",
+      "registeredAt": "2026-04-13T10:05:57.300Z"
+    },
+    {
+      "id": 258,
+      "studentName": "Srujan S S",
+      "email": "srujusrujan118@gmail.com",
+      "phone": "9019885706",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Reverse Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Reverse Coding",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Srujan S S",
+              "envId": "ENV-000282",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646971897526",
+      "registeredAt": "2026-04-13T10:05:41.848Z"
+    },
+    {
+      "id": 256,
+      "studentName": "Harshavardhan",
+      "email": "1harsha3vardhan@gmail.com",
+      "phone": "9964499730",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harshavardhan",
+              "envId": "ENV-000284",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610306962850",
+      "registeredAt": "2026-04-13T10:04:55.987Z"
+    },
+    {
+      "id": 254,
+      "studentName": "sachin Gaonkar",
+      "email": "gangadhargaonkar1965@gmail.com",
+      "phone": "7483269808",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Reverse Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Reverse Coding",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "sachin Gaonkar",
+              "envId": "ENV-000278",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "618685300191",
+      "registeredAt": "2026-04-13T10:01:09.681Z"
+    },
+    {
+      "id": 252,
+      "studentName": "Jnanesh L",
+      "email": "jnaneshl587@gmail.com",
+      "phone": "77609891920",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "Infrared Eye (IR-eye)",
+          "members": [
+            {
+              "name": "Jnanesh L",
+              "envId": "ENV-000082",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "934780841036",
+      "registeredAt": "2026-04-13T09:59:43.317Z"
+    },
+    {
+      "id": 250,
+      "studentName": "Abhishek Kumbar",
+      "email": "kumbarabhishek277@gmail.com",
+      "phone": "7483441969",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Abhishek Kumbar",
+              "envId": "ENV-000280",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "081600256832",
+      "registeredAt": "2026-04-13T09:59:10.487Z"
+    },
+    {
+      "id": 248,
+      "studentName": "Megha Sajan",
+      "email": "meghasajan06@gmail.com",
+      "phone": "9741214580",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Megha Sajan",
+              "envId": "ENV-000279",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610379562547",
+      "registeredAt": "2026-04-13T09:57:25.929Z"
+    },
+    {
+      "id": 245,
+      "studentName": "Rohit R",
+      "email": "rohithrohith8709@gmail.com",
+      "phone": "7892174334",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": "R A Square",
+          "members": [
+            {
+              "name": "Rohit R",
+              "envId": "ENV-000275",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "728443252606",
+      "registeredAt": "2026-04-13T09:50:31.551Z"
+    },
+    {
+      "id": 244,
+      "studentName": "sanika k m",
+      "email": "sanikakm555@gmail.com",
+      "phone": "6363833165",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "SanikaSurabhi",
+          "members": [
+            {
+              "name": "sanika k m",
+              "envId": "ENV-000272",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "919251319671",
+      "registeredAt": "2026-04-13T09:41:24.992Z"
+    },
+    {
+      "id": 241,
+      "studentName": "Bharath K.J",
+      "email": "k.jbharath2006@gmail.com",
+      "phone": "8867525045",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Bharath K.J",
+              "envId": "ENV-000271",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "203915672061",
+      "registeredAt": "2026-04-13T09:36:13.925Z"
+    },
+    {
+      "id": 239,
+      "studentName": "Sukruti Jadhav",
+      "email": "sukrutijadhav15@gmail.com",
+      "phone": "6362982365",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Sukruti Jadhav",
+              "envId": "ENV-000270",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "183994433106",
+      "registeredAt": "2026-04-13T09:28:44.568Z"
+    },
+    {
+      "id": 238,
+      "studentName": "Nikitha Shetty",
+      "email": "nikithashetty279@gmail.com",
+      "phone": "7306856990",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nikitha Shetty",
+              "envId": "ENV-000268",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646911897181",
+      "registeredAt": "2026-04-13T09:19:19.875Z"
+    },
+    {
+      "id": 236,
+      "studentName": "Amani muhammed N",
+      "email": "zorillex@gmail.com",
+      "phone": "6235006344",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Amani muhammed N",
+              "envId": "ENV-000222",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610375793691",
+      "registeredAt": "2026-04-13T09:01:03.883Z"
+    },
+    {
+      "id": 234,
+      "studentName": "Hithesh R Shetty",
+      "email": "shettyhitheshr@gmail.com",
+      "phone": "9148963100",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": "Pickachu ",
+          "members": [
+            {
+              "name": "Hithesh R Shetty",
+              "envId": "ENV-000263",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646902784774",
+      "registeredAt": "2026-04-13T08:56:39.330Z"
+    },
+    {
+      "id": 232,
+      "studentName": "Ahyan Ar",
+      "email": "ahyanar4@gmail.com",
+      "phone": "8147152854",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Ahyan Ar",
+              "envId": "ENV-000202",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610371972016",
+      "registeredAt": "2026-04-13T08:46:34.579Z"
+    },
+    {
+      "id": 231,
+      "studentName": "Harsha Priya",
+      "email": "harshapriya266@gmail.com",
+      "phone": "9663951528",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harsha Priya",
+              "envId": "ENV-000219",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "118680738766",
+      "registeredAt": "2026-04-13T08:44:44.451Z"
+    },
+    {
+      "id": 230,
+      "studentName": "Akshaj Roopesh",
+      "email": "akshajroopesh187@gmail.com",
+      "phone": "6238368827",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Akshaj Roopesh",
+              "envId": "ENV-000199",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646922373997",
+      "registeredAt": "2026-04-13T08:44:03.141Z"
+    },
+    {
+      "id": 228,
+      "studentName": "Durgaprasad m",
+      "email": "durgaprasadm647@gmail.com",
+      "phone": "9353330385",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": "Zorojuro",
+          "members": [
+            {
+              "name": "Durgaprasad m",
+              "envId": "ENV-000209",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646982855995",
+      "registeredAt": "2026-04-13T08:42:03.507Z"
+    },
+    {
+      "id": 227,
+      "studentName": "Vaishnav Krishna P",
+      "email": "vaishnavtop1@gmail.com",
+      "phone": "8921293525",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Vaishnav Krishna P",
+              "envId": "ENV-000200",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610374390827",
+      "registeredAt": "2026-04-13T08:41:16.141Z"
+    },
+    {
+      "id": 225,
+      "studentName": "Roshan Kumar",
+      "email": "roshpadavu@gmail.com",
+      "phone": "9901158977",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Super Minute"
+      ],
+      "teams": [
+        {
+          "eventName": "Super Minute",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Roshan Kumar",
+              "envId": "ENV-000207",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646995586142",
+      "registeredAt": "2026-04-13T08:38:25.660Z"
+    },
+    {
+      "id": 223,
+      "studentName": "Ahmad",
+      "email": "ahmadbnomar09@gmail.com",
+      "phone": "9686930573",
+      "college": "Bearys Institute of Technology (BIT), Boliyar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "Beyonder",
+          "members": [
+            {
+              "name": "Ahmad",
+              "envId": "ENV-000101",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "956872134641",
+      "registeredAt": "2026-04-13T08:34:05.129Z"
+    },
+    {
+      "id": 220,
+      "studentName": "Roshan Kumar",
+      "email": "roshpadavu@gmail.com",
+      "phone": "9901158977",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Feast Fiesta(Eating Challenge)"
+      ],
+      "teams": [
+        {
+          "eventName": "Feast Fiesta(Eating Challenge)",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Roshan Kumar",
+              "envId": "ENV-000207",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646988886420",
+      "registeredAt": "2026-04-13T08:32:40.284Z"
+    },
+    {
+      "id": 218,
+      "studentName": "Vaishnavi Shetty",
+      "email": "vaishnavishetty027@gmail.com",
+      "phone": "7019882501",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Vaishnavi Shetty",
+              "envId": "ENV-000260",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610370864046",
+      "registeredAt": "2026-04-13T08:19:42.192Z"
+    },
+    {
+      "id": 215,
+      "studentName": "Arpitha K J",
+      "email": "arpithakj0925@gmail.com",
+      "phone": "9611031825",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Arpitha K J",
+              "envId": "ENV-000235",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121530625946",
+      "registeredAt": "2026-04-13T08:13:41.953Z"
+    },
+    {
+      "id": 213,
+      "studentName": "Shreya Bhandary",
+      "email": "shreyabhandary0@gmail.com",
+      "phone": "9108594207",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shreya Bhandary",
+              "envId": "ENV-000089",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610371851983",
+      "registeredAt": "2026-04-13T08:09:24.164Z"
+    },
+    {
+      "id": 210,
+      "studentName": "Sharath Tilavalli",
+      "email": "rockeysharath994@gmail.com",
+      "phone": "8310309750",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Dumb Charades"
+      ],
+      "teams": [
+        {
+          "eventName": "Dumb Charades",
+          "department": "Non-Technical",
+          "teamName": "rcb",
+          "members": [
+            {
+              "name": "Sharath Tilavalli",
+              "envId": "ENV-000251",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "318458666948",
+      "registeredAt": "2026-04-13T07:35:27.330Z"
+    },
+    {
+      "id": 209,
+      "studentName": "Nidhi Naik",
+      "email": "nnaik5298@gmail.com",
+      "phone": "08296870242",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nidhi Naik",
+              "envId": "ENV-000232",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "744890322607",
+      "registeredAt": "2026-04-13T07:32:29.575Z"
+    },
+    {
+      "id": 206,
+      "studentName": "Preeti Prabhu",
+      "email": "preetiprabhu21@gmail.com",
+      "phone": "9482309487",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": "PN Rockers",
+          "members": [
+            {
+              "name": "Preeti Prabhu",
+              "envId": "ENV-000250",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610368627925",
+      "registeredAt": "2026-04-13T07:28:39.459Z"
+    },
+    {
+      "id": 204,
+      "studentName": "Zayan Sheikh",
+      "email": "zayan16sheikh@gmail.com",
+      "phone": "7411042532",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Zayan Sheikh",
+              "envId": "ENV-000168",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610381466419",
+      "registeredAt": "2026-04-13T07:26:52.135Z"
+    },
+    {
+      "id": 201,
+      "studentName": "Kartik Nilekani",
+      "email": "kartiknilekani568@gmail.com",
+      "phone": "9353985703",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Feast Fiesta(Eating Challenge)"
+      ],
+      "teams": [
+        {
+          "eventName": "Feast Fiesta(Eating Challenge)",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Kartik Nilekani",
+              "envId": "ENV-000133",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "536742017871",
+      "registeredAt": "2026-04-13T07:00:42.187Z"
+    },
+    {
+      "id": 200,
+      "studentName": "Akash Suvarna",
+      "email": "suvarnaakash953@gmail.com",
+      "phone": "77483985265",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Akash Suvarna",
+              "envId": "ENV-000230",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610366600619",
+      "registeredAt": "2026-04-13T06:59:00.528Z"
+    },
+    {
+      "id": 198,
+      "studentName": "Darshan Gunaga",
+      "email": "darshangunaga99@gmail.com",
+      "phone": "8050667371",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": "J Boss",
+          "members": [
+            {
+              "name": "Darshan Gunaga",
+              "envId": "ENV-000228",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610366181292",
+      "registeredAt": "2026-04-13T06:53:55.339Z"
+    },
+    {
+      "id": 196,
+      "studentName": "PRANAV",
+      "email": "pranavprajwal2007@gmail.com",
+      "phone": "8904116280",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "PRANAV",
+              "envId": "ENV-000221",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646953283988",
+      "registeredAt": "2026-04-13T06:52:35.901Z"
+    },
+    {
+      "id": 194,
+      "studentName": "Nidhisha Kulal",
+      "email": "nidhishakulal07@gmail.com",
+      "phone": "7349579664",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nidhisha Kulal",
+              "envId": "ENV-000206",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646925155288",
+      "registeredAt": "2026-04-13T06:50:54.404Z"
+    },
+    {
+      "id": 193,
+      "studentName": "Manesh nb",
+      "email": "maneshnb27@gmail.com",
+      "phone": "9449365912",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Manesh nb",
+              "envId": "ENV-000225",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646995264185",
+      "registeredAt": "2026-04-13T06:50:43.764Z"
+    },
+    {
+      "id": 192,
+      "studentName": "IMADH SHAIKH",
+      "email": "imadhshaikh005@gmail.com",
+      "phone": "9535867883",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Geo-Guesser"
+      ],
+      "teams": [
+        {
+          "eventName": "Geo-Guesser",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "IMADH SHAIKH",
+              "envId": "ENV-000227",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "956692507453",
+      "registeredAt": "2026-04-13T06:50:42.603Z"
+    },
+    {
+      "id": 190,
+      "studentName": "Shravya",
+      "email": "shravyarajesh06@gmail.com",
+      "phone": "9746813939",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shravya",
+              "envId": "ENV-000224",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646981576411",
+      "registeredAt": "2026-04-13T06:45:28.853Z"
+    },
+    {
+      "id": 188,
+      "studentName": "Divine JJ",
+      "email": "divinejj05@gmail.com",
+      "phone": "9902445460",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Feast Fiesta(Eating Challenge)"
+      ],
+      "teams": [
+        {
+          "eventName": "Feast Fiesta(Eating Challenge)",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Divine JJ",
+              "envId": "ENV-000217",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "931106583343",
+      "registeredAt": "2026-04-13T06:42:15.523Z"
+    },
+    {
+      "id": 187,
+      "studentName": "Mohammed Salman",
+      "email": "mmohammedsalman63903@gmail.com",
+      "phone": "7676785844",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Feast Fiesta(Eating Challenge)"
+      ],
+      "teams": [
+        {
+          "eventName": "Feast Fiesta(Eating Challenge)",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Mohammed Salman",
+              "envId": "ENV-000193",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610379760050",
+      "registeredAt": "2026-04-13T06:42:10.187Z"
+    },
+    {
+      "id": 186,
+      "studentName": "Mohammed Salman",
+      "email": "mmohammedsalman63903@gmail.com",
+      "phone": "7676785844",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Mohammed Salman",
+              "envId": "ENV-000193",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "243240931949",
+      "registeredAt": "2026-04-13T06:40:48.257Z"
+    },
+    {
+      "id": 185,
+      "studentName": "Amani muhammed N",
+      "email": "zorillex@gmail.com",
+      "phone": "6235006344",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Amani muhammed N",
+              "envId": "ENV-000222",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "121525550930",
+      "registeredAt": "2026-04-13T06:40:11.379Z"
+    },
+    {
+      "id": 184,
+      "studentName": "Harsha Priya",
+      "email": "harshapriya266@gmail.com",
+      "phone": "9663951528",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harsha Priya",
+              "envId": "ENV-000219",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "624238636295",
+      "registeredAt": "2026-04-13T06:40:10.529Z"
+    },
+    {
+      "id": 180,
+      "studentName": "Divine JJ",
+      "email": "divinejj05@gmail.com",
+      "phone": "9902445460",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Divine JJ",
+              "envId": "ENV-000217",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "396838838425",
+      "registeredAt": "2026-04-13T06:37:10.943Z"
+    },
+    {
+      "id": 179,
+      "studentName": "Subrahmanya Achari",
+      "email": "subrahmanyaachari143@gmail.com",
+      "phone": "6366004556",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Subrahmanya Achari",
+              "envId": "ENV-000198",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610393955844",
+      "registeredAt": "2026-04-13T06:37:05.019Z"
+    },
+    {
+      "id": 177,
+      "studentName": "Rishan kunder",
+      "email": "kunderrishan84@gmail.com",
+      "phone": "4975865397",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Rishan kunder",
+              "envId": "ENV-000213",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646981465759",
+      "registeredAt": "2026-04-13T06:34:30.237Z"
+    },
+    {
+      "id": 176,
+      "studentName": "Durgaprasad m",
+      "email": "durgaprasadm647@gmail.com",
+      "phone": "9353330385",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Durgaprasad m",
+              "envId": "ENV-000209",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646981445702",
+      "registeredAt": "2026-04-13T06:34:28.383Z"
+    },
+    {
+      "id": 173,
+      "studentName": "Ranjith G R",
+      "email": "ranjithgundimajalu@gmail.com",
+      "phone": "9591736206",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Ranjith G R",
+              "envId": "ENV-000212",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "121525256843",
+      "registeredAt": "2026-04-13T06:34:20.396Z"
+    },
+    {
+      "id": 172,
+      "studentName": "Nidhisha Kulal",
+      "email": "nidhishakulal07@gmail.com",
+      "phone": "7349579664",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nidhisha Kulal",
+              "envId": "ENV-000206",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646951384798",
+      "registeredAt": "2026-04-13T06:34:03.294Z"
+    },
+    {
+      "id": 171,
+      "studentName": "Roshan Kumar",
+      "email": "roshpadavu@gmail.com",
+      "phone": "9901158977",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "CamBot",
+          "members": [
+            {
+              "name": "Roshan Kumar",
+              "envId": "ENV-000207",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646960664528",
+      "registeredAt": "2026-04-13T06:33:52.254Z"
+    },
+    {
+      "id": 168,
+      "studentName": "Manish Waingankar",
+      "email": "manishwaingankar517@gmail.com",
+      "phone": "6363407066",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Mad Ad"
+      ],
+      "teams": [
+        {
+          "eventName": "Mad Ad",
+          "department": "Technical",
+          "teamName": "Rahul enterprises",
+          "members": [
+            {
+              "name": "Manish Waingankar",
+              "envId": "ENV-000188",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "316309309413",
+      "registeredAt": "2026-04-13T06:31:35.829Z"
+    },
+    {
+      "id": 164,
+      "studentName": "Ahyan Ar",
+      "email": "ahyanar4@gmail.com",
+      "phone": "8147152854",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Ahyan Ar",
+              "envId": "ENV-000202",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610304433753",
+      "registeredAt": "2026-04-13T06:29:36.860Z"
+    },
+    {
+      "id": 162,
+      "studentName": "Akshaj Roopesh",
+      "email": "akshajroopesh187@gmail.com",
+      "phone": "6238368827",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Akshaj Roopesh",
+              "envId": "ENV-000199",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646996371921",
+      "registeredAt": "2026-04-13T06:28:23.820Z"
+    },
+    {
+      "id": 161,
+      "studentName": "Shamil Kp",
+      "email": "muhdshamil043@gmail.com",
+      "phone": "7510612481",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shamil Kp",
+              "envId": "ENV-000197",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610364212217",
+      "registeredAt": "2026-04-13T06:28:06.838Z"
+    },
+    {
+      "id": 160,
+      "studentName": "Vaishnav Krishna P",
+      "email": "vaishnavtop1@gmail.com",
+      "phone": "8921293525",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "VR Flight Landing"
+      ],
+      "teams": [
+        {
+          "eventName": "VR Flight Landing",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Vaishnav Krishna P",
+              "envId": "ENV-000200",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610364222699",
+      "registeredAt": "2026-04-13T06:27:24.778Z"
+    },
+    {
+      "id": 156,
+      "studentName": "Akash r",
+      "email": "akashrakashr787@gmail.com",
+      "phone": "7204769941",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Akash r",
+              "envId": "ENV-000186",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646994770605",
+      "registeredAt": "2026-04-13T06:07:23.264Z"
+    },
+    {
+      "id": 154,
+      "studentName": "Jagath",
+      "email": "vikijagath@gmail.com",
+      "phone": "8951580391",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": "Team SDIT",
+          "members": [
+            {
+              "name": "Jagath",
+              "envId": "ENV-000181",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "937683510590",
+      "registeredAt": "2026-04-13T05:59:32.342Z"
+    },
+    {
+      "id": 151,
+      "studentName": "Mohammed Tabrez",
+      "email": "mohammedtabrez1413@gmail.com",
+      "phone": "6364566158",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": []
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610356224541",
+      "registeredAt": "2026-04-13T04:37:32.033Z"
+    },
+    {
+      "id": 149,
+      "studentName": "Neha Pc",
+      "email": "asifpcneha@gmail.com",
+      "phone": "6362067843",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Mr or Ms Envision"
+      ],
+      "teams": [
+        {
+          "eventName": "Mr or Ms Envision",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Neha Pc",
+              "envId": "ENV-000097",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646970061908",
+      "registeredAt": "2026-04-13T04:23:08.504Z"
+    },
+    {
+      "id": 147,
+      "studentName": "Srujan Ps",
+      "email": "srujanps58@gmail.com",
+      "phone": "8431710233",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": "Spartans Valachil",
+          "members": [
+            {
+              "name": "Srujan Ps",
+              "envId": "ENV-000034",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121518560997",
+      "registeredAt": "2026-04-13T04:18:20.398Z"
+    },
+    {
+      "id": 129,
+      "studentName": "Manish G suvarna",
+      "email": "manishgsuvarna40@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Group Dance"
+      ],
+      "teams": [
+        {
+          "eventName": "Group Dance",
+          "department": "Mega",
+          "teamName": "TEST ADMIN TEAM",
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000015",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": null,
+      "registeredAt": "2026-04-12T18:56:16.382Z"
+    },
+    {
+      "id": 145,
+      "studentName": "Kaushik Harikantra",
+      "email": "kaushikharikantra2@gmail.com",
+      "phone": "9611930502",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Kaushik Harikantra",
+              "envId": "ENV-000127",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "001677481806",
+      "registeredAt": "2026-04-12T18:06:10.600Z"
+    },
+    {
+      "id": 144,
+      "studentName": "Shay_ Pagi_",
+      "email": "shaieshsubhashpagi@gmail.com",
+      "phone": "8618698968",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shay_ Pagi_",
+              "envId": "ENV-000156",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "646878230403",
+      "registeredAt": "2026-04-12T18:00:17.263Z"
+    },
+    {
+      "id": 142,
+      "studentName": "Prajeet Gunagi",
+      "email": "prajeetgunagi85@gmail.com",
+      "phone": "7892241059",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Prajeet Gunagi",
+              "envId": "ENV-000126",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "001677440192",
+      "registeredAt": "2026-04-12T17:57:28.671Z"
+    },
+    {
+      "id": 140,
+      "studentName": "Sarvesh Marathe",
+      "email": "marathesarvesh334@gmail.com",
+      "phone": "8217310056",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Sarvesh Marathe",
+              "envId": "ENV-000124",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "138666465202",
+      "registeredAt": "2026-04-12T17:38:04.455Z"
+    },
+    {
+      "id": 138,
+      "studentName": "Pundlik Marathe",
+      "email": "pundlikmarathe9765@gmail.com",
+      "phone": "8088257052",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "Kaala Hit",
+          "members": [
+            {
+              "name": "Pundlik Marathe",
+              "envId": "ENV-000083",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "450436389801",
+      "registeredAt": "2026-04-12T17:19:35.970Z"
+    },
+    {
+      "id": 135,
+      "studentName": " Mohammed junaid ",
+      "email": "mbalimbid@gmail.com",
+      "phone": "8073109441",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": " Mohammed junaid ",
+              "envId": "ENV-000050",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610284110910",
+      "registeredAt": "2026-04-12T16:26:44.645Z"
+    },
+    {
+      "id": 134,
+      "studentName": "Sameed Ahmed",
+      "email": "sameedahmed232@gmail.com",
+      "phone": "8050984873",
+      "college": "Bearys Institute of Technology (BIT), Boliyar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Sameed Ahmed",
+              "envId": "ENV-000113",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "610239561983",
+      "registeredAt": "2026-04-12T16:26:27.670Z"
+    },
+    {
+      "id": 127,
+      "studentName": "Nandan Nayak",
+      "email": "nandannayak2102@gmail.com",
+      "phone": "8073250279",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nandan Nayak",
+              "envId": "ENV-000053",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "552200204701",
+      "registeredAt": "2026-04-12T14:17:35.549Z"
+    },
+    {
+      "id": 126,
+      "studentName": "SADHANA",
+      "email": "244008@sdmcujire.in",
+      "phone": "8095002725",
+      "college": "SDM College (Autonomous), Ujire",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "Hunter",
+          "members": [
+            {
+              "name": "SADHANA",
+              "envId": "ENV-000106",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121498763661",
+      "registeredAt": "2026-04-12T14:08:28.981Z"
+    },
+    {
+      "id": 125,
+      "studentName": "moksha murdeshwar",
+      "email": "mokshamurdeshwar19@gmail.com",
+      "phone": "7892061360",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "Soluna",
+          "members": [
+            {
+              "name": "moksha murdeshwar",
+              "envId": "ENV-000107",
+              "isLeader": true
+            },
+            {
+              "name": " Mohammed junaid ",
+              "envId": "ENV-000050",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "193221893921",
+      "registeredAt": "2026-04-12T14:02:58.262Z"
+    },
+    {
+      "id": 124,
+      "studentName": "Akash Patkar",
+      "email": "akashpatkar236@gmail.com",
+      "phone": "7019426912",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Akash Patkar",
+              "envId": "ENV-000100",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "163913723778",
+      "registeredAt": "2026-04-12T11:10:12.606Z"
+    },
+    {
+      "id": 123,
+      "studentName": "Manish G suvarna",
+      "email": "mackd2556@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000079",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "999445522277",
+      "registeredAt": "2026-04-12T10:57:58.818Z"
+    },
+    {
+      "id": 122,
+      "studentName": "Manish G suvarna",
+      "email": "manishgsuvarna40@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "Admjn",
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000015",
+              "isLeader": true
+            },
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000079",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "335577994411",
+      "registeredAt": "2026-04-12T10:57:16.643Z"
+    },
+    {
+      "id": 121,
+      "studentName": "Chirag.B",
+      "email": "chiragbchiragb4@gmail.com",
+      "phone": "9480675351",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": "Core",
+          "members": [
+            {
+              "name": "Chirag.B",
+              "envId": "ENV-000004",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "222222222222",
+      "registeredAt": "2026-04-12T10:19:53.658Z"
+    },
+    {
+      "id": 120,
+      "studentName": "Manish G suvarna",
+      "email": "mackd2556@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Blind Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Blind Coding",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000079",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "997788667755",
+      "registeredAt": "2026-04-12T09:50:16.706Z"
+    },
+    {
+      "id": 119,
+      "studentName": "Rohan Mendon",
+      "email": "rohanmendon26@gmail.com",
+      "phone": "9743067675",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "Memoria ",
+          "members": [
+            {
+              "name": "Rohan Mendon",
+              "envId": "ENV-000147",
+              "isLeader": true
+            },
+            {
+              "name": "Nandan Nayak",
+              "envId": "ENV-000053",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "001665828496",
+      "registeredAt": "2026-04-12T09:22:31.805Z"
+    },
+    {
+      "id": 118,
+      "studentName": "NNM24IS169 PRATHIK KINI M",
+      "email": "nnm24is169@nmamit.in",
+      "phone": "6361889740",
+      "college": "NMAM Institute of Technology (NMAMIT), Nitte",
+      "events": [
+        "Dance Battle"
+      ],
+      "teams": [
+        {
+          "eventName": "Dance Battle",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "NNM24IS169 PRATHIK KINI M",
+              "envId": "ENV-000099",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 200,
+      "utrId": "121479481330",
+      "registeredAt": "2026-04-12T08:16:09.196Z"
+    },
+    {
+      "id": 117,
+      "studentName": "Sankethacharya31",
+      "email": "sanketh.acharya3117@gmail.com",
+      "phone": "6360684639",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Dance Battle"
+      ],
+      "teams": [
+        {
+          "eventName": "Dance Battle",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Sankethacharya31",
+              "envId": "ENV-000002",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 200,
+      "utrId": "610299627644",
+      "registeredAt": "2026-04-12T07:31:49.830Z"
+    },
+    {
+      "id": 116,
+      "studentName": "Kalmesh Mahadevappa Kumbar",
+      "email": "kalmeshmk007@gmail.com",
+      "phone": "6361837249",
+      "college": "Laxmi Memorial College",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Kalmesh Mahadevappa Kumbar",
+              "envId": "ENV-000093",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121466894802",
+      "registeredAt": "2026-04-12T04:20:35.759Z"
+    },
+    {
+      "id": 115,
+      "studentName": "Alen Francis",
+      "email": "alenfrancis888@gmail.com",
+      "phone": "9074135989",
+      "college": "A.J. Institute of Medical Sciences, Mangaluru",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Alen Francis",
+              "envId": "ENV-000091",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121466740673",
+      "registeredAt": "2026-04-12T04:16:07.324Z"
+    },
+    {
+      "id": 114,
+      "studentName": "Preetham M",
+      "email": "preetham.m323@gmail.com",
+      "phone": "9746226299",
+      "college": "Laxmi Memorial College",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Preetham M",
+              "envId": "ENV-000178",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610282167596",
+      "registeredAt": "2026-04-12T03:49:07.574Z"
+    },
+    {
+      "id": 113,
+      "studentName": "Adit Rodrigues",
+      "email": "aditrodrigues12@gmail.com",
+      "phone": "7907194391",
+      "college": "Laxmi Memorial College",
+      "events": [
+        "Free Fire"
+      ],
+      "teams": [
+        {
+          "eventName": "Free Fire",
+          "department": "Non-Technical",
+          "teamName": "UN Espada",
+          "members": [
+            {
+              "name": "Adit Rodrigues",
+              "envId": "ENV-000090",
+              "isLeader": true
+            },
+            {
+              "name": "Preetham M",
+              "envId": "ENV-000178",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610264716016",
+      "registeredAt": "2026-04-12T02:57:09.852Z"
+    },
+    {
+      "id": 112,
+      "studentName": "Hamsika hv",
+      "email": "hamsikabaradwaja@gmail.com",
+      "phone": "8088719471",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Hamsika hv",
+              "envId": "ENV-000078",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "285849551287",
+      "registeredAt": "2026-04-11T16:14:53.465Z"
+    },
+    {
+      "id": 111,
+      "studentName": "Nikhil Bajantri",
+      "email": "nikhilbajantri86@gmail.com",
+      "phone": "9019647142",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Reverse Engineering"
+      ],
+      "teams": [
+        {
+          "eventName": "Reverse Engineering",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Nikhil Bajantri",
+              "envId": "ENV-000023",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "789456123789",
+      "registeredAt": "2026-04-11T14:38:46.204Z"
+    },
+    {
+      "id": 110,
+      "studentName": "Pannaga Bhat",
+      "email": "pannagabhat920@gmail.com",
+      "phone": "9108433969",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Pannaga Bhat",
+              "envId": "ENV-000085",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646781510592",
+      "registeredAt": "2026-04-11T14:12:44.922Z"
+    },
+    {
+      "id": 109,
+      "studentName": "ANANTHRAMA HOLLA P",
+      "email": "ananthrama.25ec008@sode-edu.in",
+      "phone": "7760903177",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "ANANTHRAMA HOLLA P",
+              "envId": "ENV-000035",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "001651664231",
+      "registeredAt": "2026-04-11T13:50:03.598Z"
+    },
+    {
+      "id": 108,
+      "studentName": "VEDANTH S NAGARAMATH",
+      "email": "vedanth.25cs137@sode-edu.in",
+      "phone": "6363687014",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "VEDANTH S NAGARAMATH",
+              "envId": "ENV-000084",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "190755902765",
+      "registeredAt": "2026-04-11T13:38:25.739Z"
+    },
+    {
+      "id": 107,
+      "studentName": "Harshil Shetty",
+      "email": "harshilshetty11@gmail.com",
+      "phone": "7204948423",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harshil Shetty",
+              "envId": "ENV-000048",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646756511150",
+      "registeredAt": "2026-04-11T13:30:36.839Z"
+    },
+    {
+      "id": 106,
+      "studentName": "Varshashree bhat",
+      "email": "varshashreebkvarsha@gmail.com",
+      "phone": "8762241384",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Varshashree bhat",
+              "envId": "ENV-000195",
+              "isLeader": true
+            },
+            {
+              "name": "Harshil Shetty",
+              "envId": "ENV-000048",
+              "isLeader": false
+            },
+            {
+              "name": "Dheeksha G R ",
+              "envId": "ENV-000049",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610158636401",
+      "registeredAt": "2026-04-11T12:36:18.237Z"
+    },
+    {
+      "id": 105,
+      "studentName": "Manish G suvarna",
+      "email": "manishgsuvarna40@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Blind Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Blind Coding",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000015",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "331122445566",
+      "registeredAt": "2026-04-11T12:33:04.223Z"
+    },
+    {
+      "id": 104,
+      "studentName": "Dheeksha G R ",
+      "email": "raodheeksha9@gmail.com",
+      "phone": "8088215721",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Dheeksha G R ",
+              "envId": "ENV-000049",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "434791994969",
+      "registeredAt": "2026-04-11T12:30:12.125Z"
+    },
+    {
+      "id": 103,
+      "studentName": "Karthik Acharya",
+      "email": "karthikacharya96111@gmail.com",
+      "phone": "9740245546",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Karthik Acharya",
+              "envId": "ENV-000076",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121436723366",
+      "registeredAt": "2026-04-11T11:54:46.252Z"
+    },
+    {
+      "id": 102,
+      "studentName": "Gagan Kotharkar",
+      "email": "kotharkargagan884@gmail.com",
+      "phone": "09353325885",
+      "college": "Srinivas University Institute of Engineering & Technology, Mukka",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Gagan Kotharkar",
+              "envId": "ENV-000062",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "052252874903",
+      "registeredAt": "2026-04-11T11:47:17.952Z"
+    },
+    {
+      "id": 101,
+      "studentName": " Mohammed junaid ",
+      "email": "mbalimbid@gmail.com",
+      "phone": "8073109441",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": " Mohammed junaid ",
+              "envId": "ENV-000050",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610195399147",
+      "registeredAt": "2026-04-11T11:01:18.154Z"
+    },
+    {
+      "id": 100,
+      "studentName": "AKSHAY MOOLYA",
+      "email": "akshaymoolya19@gmail.com",
+      "phone": "6361451425",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "AKSHAY MOOLYA",
+              "envId": "ENV-000174",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121433499634",
+      "registeredAt": "2026-04-11T10:53:03.449Z"
+    },
+    {
+      "id": 99,
+      "studentName": "MAURESH NAIK",
+      "email": "naikmanjunath67@gmail.com",
+      "phone": "7483865610",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "MAURESH NAIK",
+              "envId": "ENV-000065",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646768208308",
+      "registeredAt": "2026-04-11T10:44:19.811Z"
+    },
+    {
+      "id": 98,
+      "studentName": "Arya Desai",
+      "email": "aryyadesai@gmail.com",
+      "phone": "9353699255",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Arya Desai",
+              "envId": "ENV-000064",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610186697025",
+      "registeredAt": "2026-04-11T10:42:51.932Z"
+    },
+    {
+      "id": 97,
+      "studentName": "OMKAR NARAYAN RANE ",
+      "email": "omkarrane68635@gmail.com",
+      "phone": "8951155918",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": "OMX",
+          "members": [
+            {
+              "name": "OMKAR NARAYAN RANE ",
+              "envId": "ENV-000066",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "550576859006",
+      "registeredAt": "2026-04-11T10:42:03.200Z"
+    },
+    {
+      "id": 96,
+      "studentName": "Venkatesh K s",
+      "email": "ksvenkateshbhat@gmail.com",
+      "phone": "9901391858",
+      "college": "Srinivas University Institute of Engineering & Technology, Mukka",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": "SE7EN ESPORTS",
+          "members": [
+            {
+              "name": "Venkatesh K s",
+              "envId": "ENV-000061",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610103542065",
+      "registeredAt": "2026-04-11T10:21:37.671Z"
+    },
+    {
+      "id": 95,
+      "studentName": "THEJAS B K",
+      "email": "thejas.24cs175@sode-edu.in",
+      "phone": "09880714014",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Rahasya"
+      ],
+      "teams": [
+        {
+          "eventName": "Rahasya",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "THEJAS B K",
+              "envId": "ENV-000005",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610198253583",
+      "registeredAt": "2026-04-11T09:48:41.183Z"
+    },
+    {
+      "id": 94,
+      "studentName": "Shreya K",
+      "email": "shreyakshreya2006@gmail.com",
+      "phone": "9036289532",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Rahasya"
+      ],
+      "teams": [
+        {
+          "eventName": "Rahasya",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shreya K",
+              "envId": "ENV-000001",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610137208406",
+      "registeredAt": "2026-04-11T09:34:48.486Z"
+    },
+    {
+      "id": 93,
+      "studentName": "Lathaks86",
+      "email": "lathaks088@gmail.com",
+      "phone": "8217215372",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Lathaks86",
+              "envId": "ENV-000060",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610134505373",
+      "registeredAt": "2026-04-11T08:55:06.318Z"
+    },
+    {
+      "id": 92,
+      "studentName": "Aditya M Bhat",
+      "email": "adityabhatmofficial@gmail.com",
+      "phone": "9480422194",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Group Dance"
+      ],
+      "teams": [
+        {
+          "eventName": "Group Dance",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Aditya M Bhat",
+              "envId": "ENV-000029",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "012345678911",
+      "registeredAt": "2026-04-11T08:54:53.271Z"
+    },
+    {
+      "id": 91,
+      "studentName": "Megharaj Gururaj naik",
+      "email": "megharajgururajnaik002@gmail.com",
+      "phone": "7899012116",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Megharaj Gururaj naik",
+              "envId": "ENV-000059",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121427890404",
+      "registeredAt": "2026-04-11T08:50:51.347Z"
+    },
+    {
+      "id": 90,
+      "studentName": "Chintana Naik",
+      "email": "chintananaik2006@gmail.com",
+      "phone": "8088300896",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Chintana Naik",
+              "envId": "ENV-000057",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121427684422",
+      "registeredAt": "2026-04-11T08:49:22.247Z"
+    },
+    {
+      "id": 89,
+      "studentName": "C K Prakhyath",
+      "email": "ckprakhyath8@gmail.com",
+      "phone": "8088700961",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "C K Prakhyath",
+              "envId": "ENV-000056",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "151424099530",
+      "registeredAt": "2026-04-11T08:49:21.389Z"
+    },
+    {
+      "id": 88,
+      "studentName": "Chaithresh Chinnu",
+      "email": "chinnuchaithresh7@gmail.com",
+      "phone": "9591728705",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Chaithresh Chinnu",
+              "envId": "ENV-000054",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610109172542",
+      "registeredAt": "2026-04-11T08:49:17.097Z"
+    },
+    {
+      "id": 87,
+      "studentName": "AISHWARYA H",
+      "email": "ishwarya636314@gmail.com",
+      "phone": "6363142938",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "AISHWARYA H",
+              "envId": "ENV-000058",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "138735986102",
+      "registeredAt": "2026-04-11T08:49:14.014Z"
+    },
+    {
+      "id": 86,
+      "studentName": "ANKITH ACHARYA",
+      "email": "ankithacharya238@gmail.com",
+      "phone": "8549072635",
+      "college": "Shree Devi Institute of Technology, Kenjar",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "ANKITH ACHARYA",
+              "envId": "ENV-000055",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610102942144",
+      "registeredAt": "2026-04-11T08:49:13.176Z"
+    },
+    {
+      "id": 19,
+      "studentName": "Harshitha SP",
+      "email": "spharshitha7@gmail.com",
+      "phone": "8549072635",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "ONE PIECE",
+          "members": [
+            {
+              "name": "Harshitha SP",
+              "envId": "ENV-000052",
+              "isLeader": true
+            },
+            {
+              "name": "C K Prakhyath",
+              "envId": "ENV-000056",
+              "isLeader": false
+            },
+            {
+              "name": "ANKITH ACHARYA",
+              "envId": "ENV-000055",
+              "isLeader": false
+            },
+            {
+              "name": "Megharaj Gururaj naik",
+              "envId": "ENV-000059",
+              "isLeader": false
+            },
+            {
+              "name": "AISHWARYA H",
+              "envId": "ENV-000058",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121426688271",
+      "registeredAt": "2026-04-11T08:28:45.434Z"
+    },
+    {
+      "id": 15,
+      "studentName": "Krithi Shetty",
+      "email": "krithishetty2006@gmail.com",
+      "phone": "9591728705",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "Scavenger hunt ",
+          "members": [
+            {
+              "name": "Krithi Shetty",
+              "envId": "ENV-000051",
+              "isLeader": true
+            },
+            {
+              "name": "Chaithresh Chinnu",
+              "envId": "ENV-000054",
+              "isLeader": false
+            },
+            {
+              "name": "Chintana Naik",
+              "envId": "ENV-000057",
+              "isLeader": false
+            },
+            {
+              "name": "Lathaks86",
+              "envId": "ENV-000060",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            },
+            {
+              "name": "Mohammed Tabrez",
+              "envId": "ENV-000136",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "577070202524",
+      "registeredAt": "2026-04-11T08:27:39.081Z"
+    },
+    {
+      "id": 14,
+      "studentName": "Rohan Mendon",
+      "email": "rohanmendon26@gmail.com",
+      "phone": "9743067675",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Anime Quiz"
+      ],
+      "teams": [
+        {
+          "eventName": "Anime Quiz",
+          "department": "Non-Technical",
+          "teamName": "Team Z",
+          "members": [
+            {
+              "name": "Rohan Mendon",
+              "envId": "ENV-000147",
+              "isLeader": true
+            },
+            {
+              "name": " Mohammed junaid ",
+              "envId": "ENV-000050",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610162923050",
+      "registeredAt": "2026-04-11T08:26:14.232Z"
+    },
+    {
+      "id": 13,
+      "studentName": "Harshil Shetty",
+      "email": "harshilshetty11@gmail.com",
+      "phone": "7204948423",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Harshil Shetty",
+              "envId": "ENV-000048",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121424480606",
+      "registeredAt": "2026-04-11T07:47:51.512Z"
+    },
+    {
+      "id": 12,
+      "studentName": "Adhithya Acharya",
+      "email": "adhithyaacharya86@gmail.com",
+      "phone": "9164654546",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Adhithya Acharya",
+              "envId": "ENV-000046",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "131013262204",
+      "registeredAt": "2026-04-11T07:42:03.892Z"
+    },
+    {
+      "id": 11,
+      "studentName": "KRRISH KRRISH B POOJARI",
+      "email": "krrishbpoojarikrrish@gmail.com",
+      "phone": "7795625661",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "KRRISH KRRISH B POOJARI",
+              "envId": "ENV-000039",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "586554588998",
+      "registeredAt": "2026-04-11T07:27:30.757Z"
+    },
+    {
+      "id": 10,
+      "studentName": "KRRISH KRRISH B POOJARI",
+      "email": "krrishbpoojarikrrish@gmail.com",
+      "phone": "7795625661",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "KRRISH KRRISH B POOJARI",
+              "envId": "ENV-000039",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610102885281",
+      "registeredAt": "2026-04-11T07:21:27.034Z"
+    },
+    {
+      "id": 9,
+      "studentName": "Manu D Acharya",
+      "email": "manu.d.acharya15@gmail.com",
+      "phone": "7996028302",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Manu D Acharya",
+              "envId": "ENV-000025",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610113379760",
+      "registeredAt": "2026-04-11T07:19:06.659Z"
+    },
+    {
+      "id": 8,
+      "studentName": "Prajwal G Moily",
+      "email": "prajwalprajwalgmoliy@gmail.com",
+      "phone": "7619301796",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Prajwal G Moily",
+              "envId": "ENV-000024",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "203761579440",
+      "registeredAt": "2026-04-11T07:13:12.153Z"
+    },
+    {
+      "id": 7,
+      "studentName": "Swizel rebelo",
+      "email": "swizelrebelo@gmail.com",
+      "phone": "9022028395",
+      "college": "SDM College (Autonomous), Ujire",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Swizel rebelo",
+              "envId": "ENV-000021",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121418472253",
+      "registeredAt": "2026-04-11T05:58:01.533Z"
+    },
+    {
+      "id": 6,
+      "studentName": "Shrisha Avadhani",
+      "email": "shrishaavadhani@gmail.com",
+      "phone": "8762407195",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shrisha Avadhani",
+              "envId": "ENV-000011",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "566460236194",
+      "registeredAt": "2026-04-11T05:51:55.001Z"
+    },
+    {
+      "id": 5,
+      "studentName": "Thanvith Poojary",
+      "email": "thanvithpoojary02@gmail.com",
+      "phone": "9742566760",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Thanvith Poojary",
+              "envId": "ENV-000013",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "586268482176",
+      "registeredAt": "2026-04-11T05:50:48.676Z"
+    },
+    {
+      "id": 4,
+      "studentName": "Tejas",
+      "email": "poojarysanjeeva57@gmail.com",
+      "phone": "8549907675",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Tejas",
+              "envId": "ENV-000012",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "794388721904",
+      "registeredAt": "2026-04-11T05:48:51.403Z"
+    },
+    {
+      "id": 3,
+      "studentName": "Vishwas G",
+      "email": "vishwasg0730@gmail.com",
+      "phone": "9449924470",
+      "college": "A.J. Institute of Engineering and Technology (AJIET), Kottara Chowki",
+      "events": [
+        "BGMI"
+      ],
+      "teams": [
+        {
+          "eventName": "BGMI",
+          "department": "Non-Technical",
+          "teamName": "AJIET",
+          "members": [
+            {
+              "name": "Vishwas G",
+              "envId": "ENV-000179",
+              "isLeader": true
+            },
+            {
+              "name": "Shrisha Avadhani",
+              "envId": "ENV-000011",
+              "isLeader": false
+            },
+            {
+              "name": "Thanvith Poojary",
+              "envId": "ENV-000013",
+              "isLeader": false
+            },
+            {
+              "name": "Tejas",
+              "envId": "ENV-000012",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "938375931137",
+      "registeredAt": "2026-04-11T05:47:03.295Z"
+    },
+    {
+      "id": 2,
+      "studentName": "Shamna Ayisha",
+      "email": "244017@sdmcujire.in",
+      "phone": "9588486156",
+      "college": "SDM College (Autonomous), Ujire",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shamna Ayisha",
+              "envId": "ENV-000010",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121417509591",
+      "registeredAt": "2026-04-11T05:39:50.323Z"
+    },
+    {
+      "id": 1,
+      "studentName": "SHASHANK KAMATH",
+      "email": "shashank.24cs137@sode-edu.in",
+      "phone": "9886117717",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "HackOrbit ",
+          "members": [
+            {
+              "name": "SHASHANK KAMATH",
+              "envId": "ENV-000196",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610117961780",
+      "registeredAt": "2026-04-11T05:10:54.833Z"
+    },
+    {
+      "id": 46,
+      "studentName": "Shay_ Pagi_",
+      "email": "shaieshsubhashpagi@gmail.com",
+      "phone": "8618698968",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Reverse Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Reverse Coding",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Shay_ Pagi_",
+              "envId": "ENV-000156",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610079619943",
+      "registeredAt": "2026-04-10T16:50:47.449Z"
+    },
+    {
+      "id": 45,
+      "studentName": "Manjunath Achari",
+      "email": "manjunathachari6361@gmail.com",
+      "phone": "6361092050",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Operation Cipher Chase"
+      ],
+      "teams": [
+        {
+          "eventName": "Operation Cipher Chase",
+          "department": "Technical",
+          "teamName": "Which_team_eliminated",
+          "members": [
+            {
+              "name": "Manjunath Achari",
+              "envId": "ENV-000159",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "001636398440",
+      "registeredAt": "2026-04-10T16:30:09.213Z"
+    },
+    {
+      "id": 44,
+      "studentName": "Varshashree bhat",
+      "email": "varshashreebkvarsha@gmail.com",
+      "phone": "8762241384",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Varshashree bhat",
+              "envId": "ENV-000195",
+              "isLeader": true
+            },
+            {
+              "name": "Harshil Shetty",
+              "envId": "ENV-000048",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610014244426",
+      "registeredAt": "2026-04-10T15:38:26.469Z"
+    },
+    {
+      "id": 43,
+      "studentName": "Pruthvi Shetty",
+      "email": "pruthvishetty152@gmail.com",
+      "phone": "7338201204",
+      "college": "SDM College (Autonomous), Ujire",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Pruthvi Shetty",
+              "envId": "ENV-000180",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121379995530",
+      "registeredAt": "2026-04-10T11:57:05.580Z"
+    },
+    {
+      "id": 42,
+      "studentName": "Navaneeth A N",
+      "email": "navnavaneeth581@gmail.com",
+      "phone": "9353768271",
+      "college": "SDM College (Autonomous), Ujire",
+      "events": [
+        "Treasure Hunt"
+      ],
+      "teams": [
+        {
+          "eventName": "Treasure Hunt",
+          "department": "Non-Technical",
+          "teamName": "Navaneeth A N ",
+          "members": [
+            {
+              "name": "Navaneeth A N",
+              "envId": "ENV-000164",
+              "isLeader": true
+            },
+            {
+              "name": "Pruthvi Shetty",
+              "envId": "ENV-000180",
+              "isLeader": false
+            },
+            {
+              "name": "Shamna Ayisha",
+              "envId": "ENV-000010",
+              "isLeader": false
+            },
+            {
+              "name": "Shamna Ayisha",
+              "envId": "ENV-000010",
+              "isLeader": false
+            },
+            {
+              "name": "Swizel rebelo",
+              "envId": "ENV-000021",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121379867461",
+      "registeredAt": "2026-04-10T10:42:55.668Z"
+    },
+    {
+      "id": 41,
+      "studentName": "Ayshatul Faahiza",
+      "email": "ayshatulfaahiza@gmail.com",
+      "phone": "9164431664",
+      "college": "P.A. College of Engineering (PACE), Nadupadavu",
+      "events": [
+        "Dumb Charades"
+      ],
+      "teams": [
+        {
+          "eventName": "Dumb Charades",
+          "department": "Non-Technical",
+          "teamName": "Team flash",
+          "members": [
+            {
+              "name": "Ayshatul Faahiza",
+              "envId": "ENV-000176",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121376669325",
+      "registeredAt": "2026-04-10T09:30:21.191Z"
+    },
+    {
+      "id": 40,
+      "studentName": " Muhammad Musthafa ",
+      "email": "m.musthafa2721@gmail.com",
+      "phone": "7676247905",
+      "college": "P.A. College of Engineering (PACE), Nadupadavu",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": " Muhammad Musthafa ",
+              "envId": "ENV-000170",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "222015898345",
+      "registeredAt": "2026-04-10T06:00:24.238Z"
+    },
+    {
+      "id": 39,
+      "studentName": "Hassan Nisham",
+      "email": "mohammednisham56@gmail.com",
+      "phone": "8970716701",
+      "college": "P.A. College of Engineering (PACE), Nadupadavu",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Hassan Nisham",
+              "envId": "ENV-000167",
+              "isLeader": true
+            },
+            {
+              "name": "Mayan sheik",
+              "envId": "ENV-000111",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "646692160808",
+      "registeredAt": "2026-04-10T05:52:29.449Z"
+    },
+    {
+      "id": 38,
+      "studentName": "Adnan Mohammed",
+      "email": "adnan02mohammed@gmail.com",
+      "phone": "6366223209",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Memoria"
+      ],
+      "teams": [
+        {
+          "eventName": "Memoria",
+          "department": "Technical",
+          "teamName": "Digital duo",
+          "members": [
+            {
+              "name": "Adnan Mohammed",
+              "envId": "ENV-000166",
+              "isLeader": true
+            },
+            {
+              "name": " Muhammad Musthafa ",
+              "envId": "ENV-000170",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "808709472680",
+      "registeredAt": "2026-04-10T05:32:00.716Z"
+    },
+    {
+      "id": 37,
+      "studentName": "Mayan sheik",
+      "email": "mayansheik1@gmail.com",
+      "phone": "8105186306",
+      "college": "P.A. College of Engineering (PACE), Nadupadavu",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "Pheonix",
+          "members": [
+            {
+              "name": "Mayan sheik",
+              "envId": "ENV-000111",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "610039121375",
+      "registeredAt": "2026-04-10T05:25:37.051Z"
+    },
+    {
+      "id": 36,
+      "studentName": " Manohara",
+      "email": "manunaikmandarthi@gmail.com",
+      "phone": "09611251802",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": " Manohara",
+              "envId": "ENV-000160",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "789575739751",
+      "registeredAt": "2026-04-09T18:43:41.440Z"
+    },
+    {
+      "id": 35,
+      "studentName": "GOWRAV GOWRAV",
+      "email": "gowrav.24ec027@sode-edu.in",
+      "phone": "7204635182",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "GOWRAV GOWRAV",
+              "envId": "ENV-000103",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "239759187969",
+      "registeredAt": "2026-04-09T18:24:10.321Z"
+    },
+    {
+      "id": 34,
+      "studentName": "GOWRAV GOWRAV",
+      "email": "gowrav.24ec027@sode-edu.in",
+      "phone": "7204635182",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "LOC-17-2",
+          "members": [
+            {
+              "name": "GOWRAV GOWRAV",
+              "envId": "ENV-000103",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "752549455614",
+      "registeredAt": "2026-04-09T18:22:36.942Z"
+    },
+    {
+      "id": 33,
+      "studentName": "Gaurav shetty Gaurav shetty",
+      "email": "gauravshettygauravshetty8@gmail.com",
+      "phone": "7204635182",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Water Rocketry"
+      ],
+      "teams": [
+        {
+          "eventName": "Water Rocketry",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Gaurav shetty Gaurav shetty",
+              "envId": "ENV-000030",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "994614976119",
+      "registeredAt": "2026-04-09T18:13:20.690Z"
+    },
+    {
+      "id": 32,
+      "studentName": "Gaurav shetty Gaurav shetty",
+      "email": "gauravshettygauravshetty8@gmail.com",
+      "phone": "7204635182",
+      "college": "Shri Madhwa Vadiraja Institute of Technology and Management (SMVITM), Bantakal",
+      "events": [
+        "Line Follower"
+      ],
+      "teams": [
+        {
+          "eventName": "Line Follower",
+          "department": "Technical",
+          "teamName": "LOC-17-1",
+          "members": [
+            {
+              "name": "Gaurav shetty Gaurav shetty",
+              "envId": "ENV-000030",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "979796231855",
+      "registeredAt": "2026-04-09T18:12:17.400Z"
+    },
+    {
+      "id": 31,
+      "studentName": "Manish G suvarna",
+      "email": "manishgsuvarna44@gmail.com",
+      "phone": "9481853146",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000016",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "948185314994",
+      "registeredAt": "2026-04-09T16:10:46.682Z"
+    },
+    {
+      "id": 29,
+      "studentName": "BHAVISH",
+      "email": "bullhunter830@gmail.com",
+      "phone": "8147130813",
+      "college": "Vivekananda College of Engineering & Technology (VCET), Puttur",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": "",
+          "members": [
+            {
+              "name": "BHAVISH",
+              "envId": "ENV-000157",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "747724408945",
+      "registeredAt": "2026-04-09T16:03:44.328Z"
+    },
+    {
+      "id": 27,
+      "studentName": "Pundlik Marathe",
+      "email": "pundlikmarathe9765@gmail.com",
+      "phone": "8088257052",
+      "college": "Moodlakatte Institute of Technology (MITK), Kundapura",
+      "events": [
+        "Reverse Coding"
+      ],
+      "teams": [
+        {
+          "eventName": "Reverse Coding",
+          "department": "Technical",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Pundlik Marathe",
+              "envId": "ENV-000083",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "670578959631",
+      "registeredAt": "2026-04-08T17:09:52.162Z"
+    },
+    {
+      "id": 26,
+      "studentName": "Manish G suvarna",
+      "email": "mackd2556@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000079",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "948185314999",
+      "registeredAt": "2026-04-08T10:28:52.468Z"
+    },
+    {
+      "id": 25,
+      "studentName": "Manish G suvarna",
+      "email": "mackd2556@gmail.com",
+      "phone": "9481853149",
+      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": "",
+          "members": [
+            {
+              "name": "Manish G suvarna",
+              "envId": "ENV-000079",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "rejected",
+      "amountPaid": 100,
+      "utrId": "998877665544",
+      "registeredAt": "2026-04-08T10:21:04.515Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 2000,
+    "total": 170,
+    "totalPages": 1
+  }
+}

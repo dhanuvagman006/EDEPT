@@ -1,0 +1,10 @@
+{
+  "name": "e-dept-participants-viewer",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "fetch": "node ./fetch_participents.js",
+    "fetch:teams": "node ./team_details.js",
+    "start": "node ./server.js"
+  }
+}

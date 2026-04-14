@@ -1,0 +1,1075 @@
+{
+  "data": [
+    {
+      "id": 299,
+      "teamName": "Flash Force",
+      "eventName": "Mad Ad",
+      "department": "Technical",
+      "paymentStatus": "pending",
+      "utrId": "610343625159",
+      "amount": 100,
+      "leader": "Mohammed Tabrez",
+      "leaderEnvId": "ENV-000136",
+      "leaderEmail": "mohammedtabrez1413@gmail.com",
+      "members": [
+        {
+          "id": 310,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T17:41:10.981Z"
+    },
+    {
+      "id": 289,
+      "teamName": "Luna the charms ",
+      "eventName": "Rahasya",
+      "department": "Technical",
+      "paymentStatus": "pending",
+      "utrId": "646907313175",
+      "amount": 100,
+      "leader": "Priya ",
+      "leaderEnvId": "ENV-000296",
+      "leaderEmail": "priyapoojary1611@gmail.com",
+      "members": [
+        {
+          "id": 299,
+          "name": "Priya ",
+          "envId": "ENV-000296",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T16:09:38.024Z"
+    },
+    {
+      "id": 280,
+      "teamName": "Spectrum Studio",
+      "eventName": "Mad Ad",
+      "department": "Technical",
+      "paymentStatus": "pending",
+      "utrId": "610397722319",
+      "amount": 100,
+      "leader": "ANKITH ACHARYA",
+      "leaderEnvId": "ENV-000055",
+      "leaderEmail": "ankithacharya238@gmail.com",
+      "members": [
+        {
+          "id": 290,
+          "name": "ANKITH ACHARYA",
+          "envId": "ENV-000055",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T14:54:56.938Z"
+    },
+    {
+      "id": 276,
+      "teamName": "Amigos SDIT",
+      "eventName": "Free Fire",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610372913819",
+      "amount": 100,
+      "leader": "Mahamood Mashhoor ",
+      "leaderEnvId": "ENV-000427",
+      "leaderEmail": "mahamoodunofficial@gmail.com",
+      "members": [
+        {
+          "id": 286,
+          "name": "Mahamood Mashhoor ",
+          "envId": "ENV-000427",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T14:30:19.845Z"
+    },
+    {
+      "id": 259,
+      "teamName": "KVA",
+      "eventName": "Dumb Charades",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "962803458144",
+      "amount": 100,
+      "leader": "Krishna Reddy",
+      "leaderEnvId": "ENV-000318",
+      "leaderEmail": "kr9684198@gmail.com",
+      "members": [
+        {
+          "id": 269,
+          "name": "Krishna Reddy",
+          "envId": "ENV-000318",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T10:45:44.875Z"
+    },
+    {
+      "id": 254,
+      "teamName": "S-squad",
+      "eventName": "Rahasya",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "610324872003",
+      "amount": 100,
+      "leader": "Sowjna R Achar",
+      "leaderEnvId": "ENV-000301",
+      "leaderEmail": "sowjnaachar17@gmail.com",
+      "members": [
+        {
+          "id": 263,
+          "name": "Sowjna R Achar",
+          "envId": "ENV-000301",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T10:40:15.983Z"
+    },
+    {
+      "id": 252,
+      "teamName": "Innovators ",
+      "eventName": "Circuit Heist",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "610382291901",
+      "amount": 100,
+      "leader": " Shravya ",
+      "leaderEnvId": "ENV-000294",
+      "leaderEmail": "sjv3shetty@gmail.com",
+      "members": [
+        {
+          "id": 261,
+          "name": " Shravya ",
+          "envId": "ENV-000294",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T10:37:28.325Z"
+    },
+    {
+      "id": 245,
+      "teamName": "Yeah_Fahh",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "001686977350",
+      "amount": 100,
+      "leader": "champana D S",
+      "leaderEnvId": "ENV-000290",
+      "leaderEmail": "champanads2005@gmail.com",
+      "members": [
+        {
+          "id": 254,
+          "name": "champana D S",
+          "envId": "ENV-000290",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T10:18:27.140Z"
+    },
+    {
+      "id": 231,
+      "teamName": "Infrared Eye (IR-eye)",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "934780841036",
+      "amount": 100,
+      "leader": "Jnanesh L",
+      "leaderEnvId": "ENV-000082",
+      "leaderEmail": "jnaneshl587@gmail.com",
+      "members": [
+        {
+          "id": 240,
+          "name": "Jnanesh L",
+          "envId": "ENV-000082",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T09:59:43.317Z"
+    },
+    {
+      "id": 224,
+      "teamName": "R A Square",
+      "eventName": "Mad Ad",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "728443252606",
+      "amount": 100,
+      "leader": "Rohit R",
+      "leaderEnvId": "ENV-000275",
+      "leaderEmail": "rohithrohith8709@gmail.com",
+      "members": [
+        {
+          "id": 233,
+          "name": "Rohit R",
+          "envId": "ENV-000275",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T09:50:31.551Z"
+    },
+    {
+      "id": 223,
+      "teamName": "SanikaSurabhi",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "919251319671",
+      "amount": 100,
+      "leader": "sanika k m",
+      "leaderEnvId": "ENV-000272",
+      "leaderEmail": "sanikakm555@gmail.com",
+      "members": [
+        {
+          "id": 232,
+          "name": "sanika k m",
+          "envId": "ENV-000272",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T09:41:24.992Z"
+    },
+    {
+      "id": 213,
+      "teamName": "Pickachu ",
+      "eventName": "Anime Quiz",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "646902784774",
+      "amount": 100,
+      "leader": "Hithesh R Shetty",
+      "leaderEnvId": "ENV-000263",
+      "leaderEmail": "shettyhitheshr@gmail.com",
+      "members": [
+        {
+          "id": 222,
+          "name": "Hithesh R Shetty",
+          "envId": "ENV-000263",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T08:56:39.330Z"
+    },
+    {
+      "id": 207,
+      "teamName": "Zorojuro",
+      "eventName": "Anime Quiz",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "646982855995",
+      "amount": 100,
+      "leader": "Durgaprasad m",
+      "leaderEnvId": "ENV-000209",
+      "leaderEmail": "durgaprasadm647@gmail.com",
+      "members": [
+        {
+          "id": 216,
+          "name": "Durgaprasad m",
+          "envId": "ENV-000209",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T08:42:03.507Z"
+    },
+    {
+      "id": 202,
+      "teamName": "Beyonder",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "956872134641",
+      "amount": 100,
+      "leader": "Ahmad",
+      "leaderEnvId": "ENV-000101",
+      "leaderEmail": "ahmadbnomar09@gmail.com",
+      "members": [
+        {
+          "id": 211,
+          "name": "Ahmad",
+          "envId": "ENV-000101",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T08:34:05.129Z"
+    },
+    {
+      "id": 189,
+      "teamName": "rcb",
+      "eventName": "Dumb Charades",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "318458666948",
+      "amount": 100,
+      "leader": "Sharath Tilavalli",
+      "leaderEnvId": "ENV-000251",
+      "leaderEmail": "rockeysharath994@gmail.com",
+      "members": [
+        {
+          "id": 198,
+          "name": "Sharath Tilavalli",
+          "envId": "ENV-000251",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T07:35:27.330Z"
+    },
+    {
+      "id": 185,
+      "teamName": "PN Rockers",
+      "eventName": "Anime Quiz",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610368627925",
+      "amount": 100,
+      "leader": "Preeti Prabhu",
+      "leaderEnvId": "ENV-000250",
+      "leaderEmail": "preetiprabhu21@gmail.com",
+      "members": [
+        {
+          "id": 194,
+          "name": "Preeti Prabhu",
+          "envId": "ENV-000250",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T07:28:39.459Z"
+    },
+    {
+      "id": 177,
+      "teamName": "J Boss",
+      "eventName": "Anime Quiz",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610366181292",
+      "amount": 100,
+      "leader": "Darshan Gunaga",
+      "leaderEnvId": "ENV-000228",
+      "leaderEmail": "darshangunaga99@gmail.com",
+      "members": [
+        {
+          "id": 186,
+          "name": "Darshan Gunaga",
+          "envId": "ENV-000228",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T06:53:55.339Z"
+    },
+    {
+      "id": 150,
+      "teamName": "CamBot",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "pending",
+      "utrId": "646960664528",
+      "amount": 100,
+      "leader": "Roshan Kumar",
+      "leaderEnvId": "ENV-000207",
+      "leaderEmail": "roshpadavu@gmail.com",
+      "members": [
+        {
+          "id": 159,
+          "name": "Roshan Kumar",
+          "envId": "ENV-000207",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T06:33:52.254Z"
+    },
+    {
+      "id": 147,
+      "teamName": "Rahul enterprises",
+      "eventName": "Mad Ad",
+      "department": "Technical",
+      "paymentStatus": "pending",
+      "utrId": "316309309413",
+      "amount": 100,
+      "leader": "Manish Waingankar",
+      "leaderEnvId": "ENV-000188",
+      "leaderEmail": "manishwaingankar517@gmail.com",
+      "members": [
+        {
+          "id": 156,
+          "name": "Manish Waingankar",
+          "envId": "ENV-000188",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T06:31:35.829Z"
+    },
+    {
+      "id": 133,
+      "teamName": "Team SDIT",
+      "eventName": "Cricket",
+      "department": "Mega",
+      "paymentStatus": "pending",
+      "utrId": "937683510590",
+      "amount": 100,
+      "leader": "Jagath",
+      "leaderEnvId": "ENV-000181",
+      "leaderEmail": "vikijagath@gmail.com",
+      "members": [
+        {
+          "id": 142,
+          "name": "Jagath",
+          "envId": "ENV-000181",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T05:59:32.342Z"
+    },
+    {
+      "id": 126,
+      "teamName": "Spartans Valachil",
+      "eventName": "Cricket",
+      "department": "Mega",
+      "paymentStatus": "verified",
+      "utrId": "121518560997",
+      "amount": 100,
+      "leader": "Srujan Ps",
+      "leaderEnvId": "ENV-000034",
+      "leaderEmail": "srujanps58@gmail.com",
+      "members": [
+        {
+          "id": 128,
+          "name": "Srujan Ps",
+          "envId": "ENV-000034",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-13T04:18:20.398Z"
+    },
+    {
+      "id": 117,
+      "teamName": "Kaala Hit",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "pending",
+      "utrId": "450436389801",
+      "amount": 100,
+      "leader": "Pundlik Marathe",
+      "leaderEnvId": "ENV-000083",
+      "leaderEmail": "pundlikmarathe9765@gmail.com",
+      "members": [
+        {
+          "id": 119,
+          "name": "Pundlik Marathe",
+          "envId": "ENV-000083",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-12T17:19:35.970Z"
+    },
+    {
+      "id": 108,
+      "teamName": "TEST ADMIN TEAM",
+      "eventName": "Group Dance",
+      "department": "Mega",
+      "paymentStatus": "rejected",
+      "utrId": null,
+      "amount": 100,
+      "leader": "Manish G suvarna",
+      "leaderEnvId": "ENV-000015",
+      "leaderEmail": "manishgsuvarna40@gmail.com",
+      "members": [
+        {
+          "id": 110,
+          "name": "Manish G suvarna",
+          "envId": "ENV-000015",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-12T18:56:16.382Z"
+    },
+    {
+      "id": 105,
+      "teamName": "Hunter",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "121498763661",
+      "amount": 100,
+      "leader": "SADHANA",
+      "leaderEnvId": "ENV-000106",
+      "leaderEmail": "244008@sdmcujire.in",
+      "members": [
+        {
+          "id": 104,
+          "name": "SADHANA",
+          "envId": "ENV-000106",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-12T14:08:28.981Z"
+    },
+    {
+      "id": 104,
+      "teamName": "Soluna",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "193221893921",
+      "amount": 100,
+      "leader": "moksha murdeshwar",
+      "leaderEnvId": "ENV-000107",
+      "leaderEmail": "mokshamurdeshwar19@gmail.com",
+      "members": [
+        {
+          "id": 102,
+          "name": "moksha murdeshwar",
+          "envId": "ENV-000107",
+          "isLeader": true
+        },
+        {
+          "id": 300,
+          "name": " Mohammed junaid ",
+          "envId": "ENV-000050",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-12T14:02:58.262Z"
+    },
+    {
+      "id": 101,
+      "teamName": "Admjn",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "rejected",
+      "utrId": "335577994411",
+      "amount": 100,
+      "leader": "Manish G suvarna",
+      "leaderEnvId": "ENV-000015",
+      "leaderEmail": "manishgsuvarna40@gmail.com",
+      "members": [
+        {
+          "id": 98,
+          "name": "Manish G suvarna",
+          "envId": "ENV-000015",
+          "isLeader": true
+        },
+        {
+          "id": 101,
+          "name": "Manish G suvarna",
+          "envId": "ENV-000079",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-12T10:57:16.643Z"
+    },
+    {
+      "id": 100,
+      "teamName": "Core",
+      "eventName": "BGMI",
+      "department": "Non-Technical",
+      "paymentStatus": "rejected",
+      "utrId": "222222222222",
+      "amount": 100,
+      "leader": "Chirag.B",
+      "leaderEnvId": "ENV-000004",
+      "leaderEmail": "chiragbchiragb4@gmail.com",
+      "members": [
+        {
+          "id": 97,
+          "name": "Chirag.B",
+          "envId": "ENV-000004",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-12T10:19:53.658Z"
+    },
+    {
+      "id": 98,
+      "teamName": "Memoria ",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "001665828496",
+      "amount": 100,
+      "leader": "Rohan Mendon",
+      "leaderEnvId": "ENV-000147",
+      "leaderEmail": "rohanmendon26@gmail.com",
+      "members": [
+        {
+          "id": 95,
+          "name": "Rohan Mendon",
+          "envId": "ENV-000147",
+          "isLeader": true
+        },
+        {
+          "id": 107,
+          "name": "Nandan Nayak",
+          "envId": "ENV-000053",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-12T09:22:31.805Z"
+    },
+    {
+      "id": 92,
+      "teamName": "UN Espada",
+      "eventName": "Free Fire",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610264716016",
+      "amount": 100,
+      "leader": "Adit Rodrigues",
+      "leaderEnvId": "ENV-000090",
+      "leaderEmail": "aditrodrigues12@gmail.com",
+      "members": [
+        {
+          "id": 89,
+          "name": "Adit Rodrigues",
+          "envId": "ENV-000090",
+          "isLeader": true
+        },
+        {
+          "id": 103,
+          "name": "Preetham M",
+          "envId": "ENV-000178",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-12T02:57:09.852Z"
+    },
+    {
+      "id": 76,
+      "teamName": "OMX",
+      "eventName": "BGMI",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "550576859006",
+      "amount": 100,
+      "leader": "OMKAR NARAYAN RANE ",
+      "leaderEnvId": "ENV-000066",
+      "leaderEmail": "omkarrane68635@gmail.com",
+      "members": [
+        {
+          "id": 73,
+          "name": "OMKAR NARAYAN RANE ",
+          "envId": "ENV-000066",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-11T10:42:03.200Z"
+    },
+    {
+      "id": 75,
+      "teamName": "SE7EN ESPORTS",
+      "eventName": "BGMI",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610103542065",
+      "amount": 100,
+      "leader": "Venkatesh K s",
+      "leaderEnvId": "ENV-000061",
+      "leaderEmail": "ksvenkateshbhat@gmail.com",
+      "members": [
+        {
+          "id": 72,
+          "name": "Venkatesh K s",
+          "envId": "ENV-000061",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-11T10:21:37.671Z"
+    },
+    {
+      "id": 45,
+      "teamName": "Which_team_eliminated",
+      "eventName": "Operation Cipher Chase",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "001636398440",
+      "amount": 100,
+      "leader": "Manjunath Achari",
+      "leaderEnvId": "ENV-000159",
+      "leaderEmail": "manjunathachari6361@gmail.com",
+      "members": [
+        {
+          "id": 52,
+          "name": "Manjunath Achari",
+          "envId": "ENV-000159",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-10T16:30:09.213Z"
+    },
+    {
+      "id": 42,
+      "teamName": "Navaneeth A N ",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "121379867461",
+      "amount": 100,
+      "leader": "Navaneeth A N",
+      "leaderEnvId": "ENV-000164",
+      "leaderEmail": "navnavaneeth581@gmail.com",
+      "members": [
+        {
+          "id": 48,
+          "name": "Navaneeth A N",
+          "envId": "ENV-000164",
+          "isLeader": true
+        },
+        {
+          "id": 50,
+          "name": "Pruthvi Shetty",
+          "envId": "ENV-000180",
+          "isLeader": false
+        },
+        {
+          "id": 6,
+          "name": "Shamna Ayisha",
+          "envId": "ENV-000010",
+          "isLeader": false
+        },
+        {
+          "id": 7,
+          "name": "Shamna Ayisha",
+          "envId": "ENV-000010",
+          "isLeader": false
+        },
+        {
+          "id": 15,
+          "name": "Swizel rebelo",
+          "envId": "ENV-000021",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-10T10:42:55.668Z"
+    },
+    {
+      "id": 41,
+      "teamName": "Team flash",
+      "eventName": "Dumb Charades",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "121376669325",
+      "amount": 100,
+      "leader": "Ayshatul Faahiza",
+      "leaderEnvId": "ENV-000176",
+      "leaderEmail": "ayshatulfaahiza@gmail.com",
+      "members": [
+        {
+          "id": 47,
+          "name": "Ayshatul Faahiza",
+          "envId": "ENV-000176",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-10T09:30:21.191Z"
+    },
+    {
+      "id": 38,
+      "teamName": "Digital duo",
+      "eventName": "Memoria",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "808709472680",
+      "amount": 100,
+      "leader": "Adnan Mohammed",
+      "leaderEnvId": "ENV-000166",
+      "leaderEmail": "adnan02mohammed@gmail.com",
+      "members": [
+        {
+          "id": 42,
+          "name": "Adnan Mohammed",
+          "envId": "ENV-000166",
+          "isLeader": true
+        },
+        {
+          "id": 46,
+          "name": " Muhammad Musthafa ",
+          "envId": "ENV-000170",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-10T05:32:00.716Z"
+    },
+    {
+      "id": 37,
+      "teamName": "Pheonix",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "610039121375",
+      "amount": 100,
+      "leader": "Mayan sheik",
+      "leaderEnvId": "ENV-000111",
+      "leaderEmail": "mayansheik1@gmail.com",
+      "members": [
+        {
+          "id": 41,
+          "name": "Mayan sheik",
+          "envId": "ENV-000111",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-10T05:25:37.051Z"
+    },
+    {
+      "id": 34,
+      "teamName": "LOC-17-2",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "752549455614",
+      "amount": 100,
+      "leader": "GOWRAV GOWRAV",
+      "leaderEnvId": "ENV-000103",
+      "leaderEmail": "gowrav.24ec027@sode-edu.in",
+      "members": [
+        {
+          "id": 38,
+          "name": "GOWRAV GOWRAV",
+          "envId": "ENV-000103",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-09T18:22:36.942Z"
+    },
+    {
+      "id": 32,
+      "teamName": "LOC-17-1",
+      "eventName": "Line Follower",
+      "department": "Technical",
+      "paymentStatus": "verified",
+      "utrId": "979796231855",
+      "amount": 100,
+      "leader": "Gaurav shetty Gaurav shetty",
+      "leaderEnvId": "ENV-000030",
+      "leaderEmail": "gauravshettygauravshetty8@gmail.com",
+      "members": [
+        {
+          "id": 36,
+          "name": "Gaurav shetty Gaurav shetty",
+          "envId": "ENV-000030",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-09T18:12:17.400Z"
+    },
+    {
+      "id": 19,
+      "teamName": "ONE PIECE",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "121426688271",
+      "amount": 100,
+      "leader": "Harshitha SP",
+      "leaderEnvId": "ENV-000052",
+      "leaderEmail": "spharshitha7@gmail.com",
+      "members": [
+        {
+          "id": 30,
+          "name": "Harshitha SP",
+          "envId": "ENV-000052",
+          "isLeader": true
+        },
+        {
+          "id": 62,
+          "name": "C K Prakhyath",
+          "envId": "ENV-000056",
+          "isLeader": false
+        },
+        {
+          "id": 63,
+          "name": "ANKITH ACHARYA",
+          "envId": "ENV-000055",
+          "isLeader": false
+        },
+        {
+          "id": 64,
+          "name": "Megharaj Gururaj naik",
+          "envId": "ENV-000059",
+          "isLeader": false
+        },
+        {
+          "id": 69,
+          "name": "AISHWARYA H",
+          "envId": "ENV-000058",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-11T08:28:45.434Z"
+    },
+    {
+      "id": 15,
+      "teamName": "Scavenger hunt ",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "577070202524",
+      "amount": 100,
+      "leader": "Krithi Shetty",
+      "leaderEnvId": "ENV-000051",
+      "leaderEmail": "krithishetty2006@gmail.com",
+      "members": [
+        {
+          "id": 26,
+          "name": "Krithi Shetty",
+          "envId": "ENV-000051",
+          "isLeader": true
+        },
+        {
+          "id": 60,
+          "name": "Chaithresh Chinnu",
+          "envId": "ENV-000054",
+          "isLeader": false
+        },
+        {
+          "id": 65,
+          "name": "Chintana Naik",
+          "envId": "ENV-000057",
+          "isLeader": false
+        },
+        {
+          "id": 68,
+          "name": "Lathaks86",
+          "envId": "ENV-000060",
+          "isLeader": false
+        },
+        {
+          "id": 133,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 134,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 135,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 136,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 137,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 138,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        },
+        {
+          "id": 139,
+          "name": "Mohammed Tabrez",
+          "envId": "ENV-000136",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-11T08:27:39.081Z"
+    },
+    {
+      "id": 14,
+      "teamName": "Team Z",
+      "eventName": "Anime Quiz",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610162923050",
+      "amount": 100,
+      "leader": "Rohan Mendon",
+      "leaderEnvId": "ENV-000147",
+      "leaderEmail": "rohanmendon26@gmail.com",
+      "members": [
+        {
+          "id": 24,
+          "name": "Rohan Mendon",
+          "envId": "ENV-000147",
+          "isLeader": true
+        },
+        {
+          "id": 108,
+          "name": " Mohammed junaid ",
+          "envId": "ENV-000050",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-11T08:26:14.232Z"
+    },
+    {
+      "id": 3,
+      "teamName": "AJIET",
+      "eventName": "BGMI",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "938375931137",
+      "amount": 100,
+      "leader": "Vishwas G",
+      "leaderEnvId": "ENV-000179",
+      "leaderEmail": "vishwasg0730@gmail.com",
+      "members": [
+        {
+          "id": 8,
+          "name": "Vishwas G",
+          "envId": "ENV-000179",
+          "isLeader": true
+        },
+        {
+          "id": 12,
+          "name": "Shrisha Avadhani",
+          "envId": "ENV-000011",
+          "isLeader": false
+        },
+        {
+          "id": 13,
+          "name": "Thanvith Poojary",
+          "envId": "ENV-000013",
+          "isLeader": false
+        },
+        {
+          "id": 16,
+          "name": "Tejas",
+          "envId": "ENV-000012",
+          "isLeader": false
+        }
+      ],
+      "registeredAt": "2026-04-11T05:47:03.295Z"
+    },
+    {
+      "id": 1,
+      "teamName": "HackOrbit ",
+      "eventName": "Treasure Hunt",
+      "department": "Non-Technical",
+      "paymentStatus": "verified",
+      "utrId": "610117961780",
+      "amount": 100,
+      "leader": "SHASHANK KAMATH",
+      "leaderEnvId": "ENV-000196",
+      "leaderEmail": "shashank.24cs137@sode-edu.in",
+      "members": [
+        {
+          "id": 1,
+          "name": "SHASHANK KAMATH",
+          "envId": "ENV-000196",
+          "isLeader": true
+        }
+      ],
+      "registeredAt": "2026-04-11T05:10:54.833Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 1000,
+    "total": 43,
+    "totalPages": 1
+  }
+}
