@@ -1,6 +1,118 @@
 {
   "data": [
     {
+      "id": 328,
+      "studentName": "Chandana Km",
+      "email": "kmchandana244@gmail.com",
+      "phone": "9148036285",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Chandana Km",
+              "envId": "ENV-000501",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "271687056783",
+      "registeredAt": "2026-04-14T05:49:30.164Z"
+    },
+    {
+      "id": 326,
+      "studentName": "Abdul Rasheed Shaikh",
+      "email": "abdulrasheedshaikh013@gmail.com",
+      "phone": "09448379637",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Abdul Rasheed Shaikh",
+              "envId": "ENV-000236",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "pending",
+      "amountPaid": 100,
+      "utrId": "697871882245",
+      "registeredAt": "2026-04-14T05:36:36.400Z"
+    },
+    {
+      "id": 324,
+      "studentName": "Thejasvi K",
+      "email": "thejukolchar@gmail.com",
+      "phone": "8431254306",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Cricket"
+      ],
+      "teams": [
+        {
+          "eventName": "Cricket",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Thejasvi K",
+              "envId": "ENV-000261",
+              "isLeader": false
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "977441454532",
+      "registeredAt": "2026-04-14T04:42:26.103Z"
+    },
+    {
+      "id": 322,
+      "studentName": "Shashank Holla",
+      "email": "shashankanna71@gmail.com",
+      "phone": "7676421745",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
+      "events": [
+        "Singing"
+      ],
+      "teams": [
+        {
+          "eventName": "Singing",
+          "department": "Mega",
+          "teamName": null,
+          "members": [
+            {
+              "name": "Shashank Holla",
+              "envId": "ENV-000452",
+              "isLeader": true
+            }
+          ]
+        }
+      ],
+      "paymentStatus": "verified",
+      "amountPaid": 100,
+      "utrId": "121570510044",
+      "registeredAt": "2026-04-14T04:05:15.425Z"
+    },
+    {
       "id": 320,
       "studentName": "Mohammed Tabrez",
       "email": "mohammedtabrez1413@gmail.com",
@@ -23,7 +135,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "610343625159",
       "registeredAt": "2026-04-13T17:41:10.981Z"
@@ -51,7 +163,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "610313109017",
       "registeredAt": "2026-04-13T17:05:43.975Z"
@@ -79,7 +191,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "121561993030",
       "registeredAt": "2026-04-13T17:00:13.028Z"
@@ -107,7 +219,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "001696623981",
       "registeredAt": "2026-04-13T16:46:32.649Z"
@@ -135,7 +247,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "646907313175",
       "registeredAt": "2026-04-13T16:09:38.024Z"
@@ -163,7 +275,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "212017006135",
       "registeredAt": "2026-04-13T15:51:04.751Z"
@@ -191,7 +303,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "646932523571",
       "registeredAt": "2026-04-13T15:30:18.080Z"
@@ -219,7 +331,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "002134741229",
       "registeredAt": "2026-04-13T15:07:40.633Z"
@@ -229,7 +341,7 @@
       "studentName": "Harshitha SP",
       "email": "spharshitha7@gmail.com",
       "phone": "8549072635",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "college": "Shree Devi Institute of Technology, Kenjar",
       "events": [
         "Mad Ad"
       ],
@@ -247,7 +359,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "121555481835",
       "registeredAt": "2026-04-13T15:06:32.600Z"
@@ -275,7 +387,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "610397722319",
       "registeredAt": "2026-04-13T14:54:56.938Z"
@@ -1731,7 +1843,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "646981576411",
       "registeredAt": "2026-04-13T06:45:28.853Z"
@@ -1759,7 +1871,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "931106583343",
       "registeredAt": "2026-04-13T06:42:15.523Z"
@@ -1815,7 +1927,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "243240931949",
       "registeredAt": "2026-04-13T06:40:48.257Z"
@@ -1843,7 +1955,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "121525550930",
       "registeredAt": "2026-04-13T06:40:11.379Z"
@@ -1871,7 +1983,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "624238636295",
       "registeredAt": "2026-04-13T06:40:10.529Z"
@@ -1899,7 +2011,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "396838838425",
       "registeredAt": "2026-04-13T06:37:10.943Z"
@@ -1927,7 +2039,7 @@
           ]
         }
       ],
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "amountPaid": 100,
       "utrId": "610393955844",
       "registeredAt": "2026-04-13T06:37:05.019Z"
@@ -2337,6 +2449,11 @@
               "name": "Srujan Ps",
               "envId": "ENV-000034",
               "isLeader": true
+            },
+            {
+              "name": "Thejasvi K",
+              "envId": "ENV-000261",
+              "isLeader": false
             }
           ]
         }
@@ -2351,7 +2468,7 @@
       "studentName": "Manish G suvarna",
       "email": "manishgsuvarna40@gmail.com",
       "phone": "9481853149",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
       "events": [
         "Group Dance"
       ],
@@ -2720,7 +2837,7 @@
       "studentName": "Manish G suvarna",
       "email": "manishgsuvarna40@gmail.com",
       "phone": "9481853149",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
       "events": [
         "Line Follower"
       ],
@@ -3221,7 +3338,7 @@
       "studentName": "Manish G suvarna",
       "email": "manishgsuvarna40@gmail.com",
       "phone": "9481853149",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "college": "Srinivas Institute of Technology (SIT), Valachil",
       "events": [
         "Blind Coding"
       ],
@@ -3487,6 +3604,11 @@
               "name": "Venkatesh K s",
               "envId": "ENV-000061",
               "isLeader": true
+            },
+            {
+              "name": "Ayush Banavalikar",
+              "envId": "ENV-000073",
+              "isLeader": false
             }
           ]
         }
@@ -3781,7 +3903,7 @@
       "studentName": "Harshitha SP",
       "email": "spharshitha7@gmail.com",
       "phone": "8549072635",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "college": "Shree Devi Institute of Technology, Kenjar",
       "events": [
         "Treasure Hunt"
       ],
@@ -3828,8 +3950,8 @@
       "id": 15,
       "studentName": "Krithi Shetty",
       "email": "krithishetty2006@gmail.com",
-      "phone": "9591728705",
-      "college": "National Institute of Technology Karnataka (NITK), Surathkal",
+      "phone": "7356674006",
+      "college": "Shree Devi Institute of Technology, Kenjar",
       "events": [
         "Treasure Hunt"
       ],
@@ -4913,7 +5035,7 @@
   "pagination": {
     "page": 1,
     "limit": 2000,
-    "total": 170,
+    "total": 174,
     "totalPages": 1
   }
 }

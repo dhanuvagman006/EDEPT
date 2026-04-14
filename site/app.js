@@ -106,8 +106,6 @@ function renderParticipantsList(participants) {
 
 function renderParticipantCard(p) {
   const name = safeText(p.studentName || p.name);
-  const paymentStatus = safeText(p.paymentStatus);
-  const badgeText = paymentStatus !== '—' ? `Payment: ${paymentStatus}` : 'Payment: —';
 
   const events = Array.isArray(p.events) ? p.events : [];
   const teams = Array.isArray(p.teams) ? p.teams : [];
@@ -153,7 +151,6 @@ function renderParticipantCard(p) {
       <div class="cardHeader">
         <div class="cardTitle">
           <h2>${escapeHtml(name)}</h2>
-          <span class="badge">${escapeHtml(badgeText)}</span>
         </div>
         <div class="muted">ID: ${escapeHtml(safeText(p.id))}</div>
       </div>
@@ -215,7 +212,6 @@ function applyParticipantsFilter() {
     return true;
   });
 
-  renderParticipantsSummary(filtered);
   renderParticipantsList(filtered);
 
   if (nameQ || eventQ) {

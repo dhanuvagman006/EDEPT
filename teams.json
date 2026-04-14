@@ -5,7 +5,7 @@
       "teamName": "Flash Force",
       "eventName": "Mad Ad",
       "department": "Technical",
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "utrId": "610343625159",
       "amount": 100,
       "leader": "Mohammed Tabrez",
@@ -26,7 +26,7 @@
       "teamName": "Luna the charms ",
       "eventName": "Rahasya",
       "department": "Technical",
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "utrId": "646907313175",
       "amount": 100,
       "leader": "Priya ",
@@ -47,7 +47,7 @@
       "teamName": "Spectrum Studio",
       "eventName": "Mad Ad",
       "department": "Technical",
-      "paymentStatus": "pending",
+      "paymentStatus": "verified",
       "utrId": "610397722319",
       "amount": 100,
       "leader": "ANKITH ACHARYA",
@@ -437,6 +437,12 @@
           "name": "Srujan Ps",
           "envId": "ENV-000034",
           "isLeader": true
+        },
+        {
+          "id": 320,
+          "name": "Thejasvi K",
+          "envId": "ENV-000261",
+          "isLeader": false
         }
       ],
       "registeredAt": "2026-04-13T04:18:20.398Z"
@@ -671,6 +677,12 @@
           "name": "Venkatesh K s",
           "envId": "ENV-000061",
           "isLeader": true
+        },
+        {
+          "id": 311,
+          "name": "Ayush Banavalikar",
+          "envId": "ENV-000073",
+          "isLeader": false
         }
       ],
       "registeredAt": "2026-04-11T10:21:37.671Z"
