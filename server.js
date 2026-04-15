@@ -27,6 +27,18 @@ let refreshInProgress = false;
 let cachedParticipantsPayload = null;
 let cachedParticipantsAt = 0;
 
+// Pre-load response.json into memory on startup so the first request is instant.
+async function preloadCache() {
+  try {
+    const payload = await readJsonFile('response.json');
+    cachedParticipantsPayload = payload;
+    cachedParticipantsAt = Date.now();
+    console.log('Participants cache pre-loaded from response.json');
+  } catch {
+    // File doesn't exist yet — first fetch will populate it.
+  }
+}
+
 async function fetchParticipantsPayloadFromApi() {
   const res = await fetch(PARTICIPANTS_ENDPOINT, {
     method: 'GET',
@@ -56,21 +68,28 @@ async function fetchParticipantsPayloadFromApi() {
 }
 
 async function getParticipantsPayload({ allowFileFallback = true } = {}) {
-  const now = Date.now();
-  if (cachedParticipantsPayload && now - cachedParticipantsAt < PARTICIPANTS_CACHE_MS) {
+  // Serve from cache if fresh — always fast.
+  if (cachedParticipantsPayload) {
+    const age = Date.now() - cachedParticipantsAt;
+    if (age < PARTICIPANTS_CACHE_MS) {
+      return cachedParticipantsPayload;
+    }
+    // Cache stale: return existing data immediately and refresh in background.
+    fetchParticipantsPayloadFromApi().catch(() => {});
     return cachedParticipantsPayload;
   }
 
-  try {
-    return await fetchParticipantsPayloadFromApi();
-  } catch (e) {
-    if (!allowFileFallback) throw e;
-    // Fall back to file if API is temporarily unavailable.
-    const payload = await readJsonFile('response.json');
-    cachedParticipantsPayload = payload;
-    cachedParticipantsAt = now;
-    return payload;
+  // No cache yet — try file first (fast), then API as last resort.
+  if (allowFileFallback) {
+    try {
+      const payload = await readJsonFile('response.json');
+      cachedParticipantsPayload = payload;
+      cachedParticipantsAt = Date.now();
+      return payload;
+    } catch { /* fall through to live fetch */ }
   }
+
+  return await fetchParticipantsPayloadFromApi();
 }
 
 function runNodeScript(scriptFile) {
@@ -261,7 +280,20 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      const filtered = filterParticipantsForDepartment(participants, dept);
+      const deptFiltered = filterParticipantsForDepartment(participants, dept);
+
+      // Optional ?event= param: filter further to a single event
+      const eventParam = normalize(url.searchParams.get('event') || '');
+      const filtered = eventParam
+        ? deptFiltered.filter((p) => {
+            const events = Array.isArray(p.events) ? p.events : [];
+            return events.some((e) => {
+              const name = typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title || '') : '');
+              return normalize(name) === eventParam;
+            });
+          })
+        : deptFiltered;
+
       sendJson(res, 200, { department: { key: dept.key, name: dept.name }, data: filtered });
       return;
     } catch (e) {
@@ -326,6 +358,8 @@ server.on('error', (err) => {
 
 server.listen(PORT, () => {
   console.log(`Server running: http://localhost:${PORT}/site/`);
+
+  preloadCache();
 
   if (AUTO_REFRESH) {
     console.log(`Auto-refresh: ON${REFRESH_INTERVAL_MS ? ` (every ${REFRESH_INTERVAL_MINUTES} min)` : ''}`);

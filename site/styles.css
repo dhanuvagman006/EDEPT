@@ -179,6 +179,62 @@ p {
   color: var(--primary);
 }
 
+.pill--clickable {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pill-main {
+  flex: 1;
+}
+
+.pill-download {
+  flex-shrink: 0;
+  padding: 4px 8px;
+  font-size: 15px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--primary);
+  cursor: pointer;
+  box-shadow: none;
+  line-height: 1;
+}
+
+.pill-download:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: none;
+}
+
+.pill--active {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.pill--active .label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.pill--active .value {
+  color: #ffffff;
+}
+
+.pill--active .pill-download {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.pill--active .pill-download:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .toolbar {
   display: flex;
   align-items: center;
