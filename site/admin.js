@@ -73,7 +73,7 @@ async function loadAdmin() {
   summaryEl.innerHTML = '';
   deptTableBodyEl.innerHTML = '';
 
-  const url = `../sup/sec/admin?ts=${Date.now()}`;
+  const url = `../api/sup/sec/admin?ts=${Date.now()}`;
 
   let res;
   try {

@@ -247,6 +247,15 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
 
   // API
+  const acceptHeader = String(req.headers.accept || '');
+  const wantsAdminJson = url.searchParams.get('format') === 'json' || acceptHeader.includes('application/json');
+
+  if (url.pathname === '/sup/sec/admin' && !wantsAdminJson) {
+    res.writeHead(302, { location: '/site/admin.html' });
+    res.end();
+    return;
+  }
+
   if (url.pathname === '/sup/sec/admin' || url.pathname === '/api/sup/sec/admin') {
     try {
       const payload = await getParticipantsPayload({ allowFileFallback: true });
