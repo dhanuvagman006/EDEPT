@@ -1,7 +1,12 @@
 const deptSelect = document.getElementById('deptSelect');
+const eventSelect = document.getElementById('eventSelect');
 const loginBtn = document.getElementById('loginBtn');
 const statusEl = document.getElementById('status');
+const countEl = document.getElementById('count');
 const contentEl = document.getElementById('content');
+
+let lastLoadedDeptKey = '';
+let lastLoadedParticipants = [];
 
 function setStatus(msg) {
   statusEl.textContent = msg;
@@ -22,12 +27,17 @@ function safeText(v) {
   return String(v);
 }
 
+function extractEventNames(events) {
+  if (!Array.isArray(events)) return [];
+  return events
+    .map((e) => (typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title) : '')))
+    .map((s) => (typeof s === 'string' ? s.trim() : ''))
+    .filter(Boolean);
+}
+
 function renderParticipantCard(p) {
   const name = safeText(p.studentName || p.name);
-  const events = Array.isArray(p.events) ? p.events : [];
-  const eventNames = events
-    .map((e) => (typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title) : '')))
-    .filter(Boolean);
+  const eventNames = extractEventNames(p.events);
 
   return `
     <article class="card">
@@ -54,6 +64,51 @@ function renderParticipantCard(p) {
       </div>
     </article>
   `;
+}
+
+function setCount(visible, total) {
+  if (!countEl) return;
+  if (!total) {
+    countEl.textContent = '';
+    return;
+  }
+
+  countEl.textContent = `Showing ${visible} of ${total}`;
+}
+
+function populateEventFilter(participants) {
+  if (!eventSelect) return;
+
+  const unique = new Set();
+  for (const p of participants) {
+    for (const name of extractEventNames(p.events)) unique.add(name);
+  }
+
+  const eventNames = Array.from(unique).sort((a, b) => a.localeCompare(b));
+  eventSelect.innerHTML = '<option value="">All events</option>';
+  for (const name of eventNames) {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    eventSelect.appendChild(opt);
+  }
+  eventSelect.disabled = false;
+  eventSelect.value = '';
+}
+
+function renderParticipants() {
+  const selectedEvent = eventSelect ? eventSelect.value : '';
+  const all = Array.isArray(lastLoadedParticipants) ? lastLoadedParticipants : [];
+
+  const filtered = selectedEvent
+    ? all.filter((p) => extractEventNames(p.events).includes(selectedEvent))
+    : all;
+
+  contentEl.innerHTML = filtered.length
+    ? filtered.map(renderParticipantCard).join('')
+    : '<div class="card">No students found for this selection.</div>';
+
+  setCount(filtered.length, all.length);
 }
 
 async function loadDepartments() {
@@ -86,6 +141,12 @@ async function login() {
 
   setStatus('Loading students…');
   contentEl.innerHTML = '<div class="card">Loading…</div>';
+  setCount(0, 0);
+  if (eventSelect) {
+    eventSelect.disabled = true;
+    eventSelect.value = '';
+    eventSelect.innerHTML = '<option value="">All events</option>';
+  }
 
   try {
     const res = await fetch(`../api/departments/${encodeURIComponent(deptKey)}/participants?ts=${Date.now()}`, { cache: 'no-store' });
@@ -93,16 +154,24 @@ async function login() {
     const payload = await res.json();
     const participants = Array.isArray(payload.data) ? payload.data : [];
 
-    contentEl.innerHTML = participants.length
-      ? participants.map(renderParticipantCard).join('')
-      : '<div class="card">No students found for this department.</div>';
+    lastLoadedDeptKey = deptKey;
+    lastLoadedParticipants = participants;
+    populateEventFilter(participants);
+    renderParticipants();
 
     setStatus('');
   } catch (e) {
     setStatus('Failed to load students');
+    setCount(0, 0);
     contentEl.innerHTML = '<div class="card">Could not load department students.</div>';
   }
 }
 
 loginBtn.addEventListener('click', login);
+if (eventSelect) {
+  eventSelect.addEventListener('change', () => {
+    if (!lastLoadedDeptKey) return;
+    renderParticipants();
+  });
+}
 loadDepartments();
