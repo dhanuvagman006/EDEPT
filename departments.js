@@ -37,7 +37,7 @@ const DEPARTMENTS = [
   {
     key: 'me',
     name: 'Mechanical Engineering',
-    events: ['Sports', 'Reverse Engineering', 'Treasure Hunt'],
+    events: ['Cricket', 'Reverse Engineering', 'Treasure Hunt'],
   },
   {
     key: 'marine',
@@ -47,12 +47,12 @@ const DEPARTMENTS = [
   {
     key: 'auto',
     name: 'Automobile Engineering',
-    events: ['Sports', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
+    events: ['Cricket', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
   },
   {
     key: 'aero',
     name: 'Aeronautical Engineering',
-    events: ['Sports', 'Water Rocketry', 'Flight Simulator'],
+    events: ['Cricket', 'Water Rocketry', 'Flight Simulator'],
   },
 ];
 
@@ -70,7 +70,7 @@ const _manualMega = [
   'mr & ms envision',   // CSD_ISE
   'mr & mrs envision',  // Marine (same event, different label)
   'singing battle',     // CSE + EEE
-  'sports',             // ME + AUTO + AERO
+  'cricket',            // ME + AUTO + AERO
   'dance battle',       // AIML + CSBS
   'group dance',        // AIDS + ECE
 ];
