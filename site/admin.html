@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1>Admin</h1>
+          <p class="muted">Department-wise registrations and collections.</p>
+        </div>
+
+        <nav class="nav" aria-label="Back to main">
+          <a href="./index.html" title="Back to Participants and Teams">← Main</a>
+        </nav>
+      </header>
+
+      <section class="summary" id="summary" aria-live="polite"></section>
+
+      <section>
+        <div class="toolbar">
+          <button id="reloadBtn" type="button">Reload</button>
+          <span class="muted" id="status"></span>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <div class="cardTitle">
+              <h2>Department stats (highest → lowest)</h2>
+            </div>
+            <div class="muted">Collection = sum of <code>amountPaid</code> for <code>verified</code> payments in that department.</div>
+          </div>
+
+          <div class="tableWrap" role="region" aria-label="Department stats table" tabindex="0">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Department</th>
+                  <th style="text-align:right;">Registrations</th>
+                  <th style="text-align:right;">Verified payments</th>
+                  <th style="text-align:right;">Collection</th>
+                </tr>
+              </thead>
+              <tbody id="deptTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer muted">
+        Data source: <code>GET /sup/sec/admin</code>
+      </footer>
+    </main>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>

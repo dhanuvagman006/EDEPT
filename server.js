@@ -154,6 +154,16 @@ function extractArray(payload) {
   return null;
 }
 
+function getEventDepartmentForParticipant(p) {
+  const events = Array.isArray(p?.events) ? p.events : [];
+  for (const e of events) {
+    if (e && typeof e === 'object' && typeof e.department === 'string' && e.department.trim()) {
+      return e.department.trim();
+    }
+  }
+  return 'Unknown';
+}
+
 async function readJsonFile(fileName) {
   const filePath = path.join(ROOT, fileName);
   const text = await fs.readFile(filePath, 'utf8');
@@ -218,6 +228,85 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
 
   // API
+  if (url.pathname === '/sup/sec/admin' || url.pathname === '/api/sup/sec/admin') {
+    try {
+      const payload = await getParticipantsPayload({ allowFileFallback: true });
+      const participants = extractArray(payload);
+      if (!participants) {
+        sendJson(res, 500, { error: 'Participants payload has unexpected shape' });
+        return;
+      }
+
+      const totalUsers = participants.length;
+
+      let totalAmountCollected = 0;
+      for (const p of participants) {
+        const status = String(p?.paymentStatus || '').toLowerCase();
+        if (status !== 'verified') continue;
+        const n = Number(p?.amountPaid);
+        if (Number.isFinite(n)) totalAmountCollected += n;
+      }
+
+      const byEventDepartment = new Map();
+      for (const p of participants) {
+        const dept = getEventDepartmentForParticipant(p);
+        byEventDepartment.set(dept, (byEventDepartment.get(dept) || 0) + 1);
+      }
+
+      let topEventDepartment = '';
+      let topEventDepartmentRegistrations = 0;
+      for (const [dept, count] of byEventDepartment.entries()) {
+        if (count > topEventDepartmentRegistrations) {
+          topEventDepartment = dept;
+          topEventDepartmentRegistrations = count;
+        }
+      }
+
+      const departmentStats = DEPARTMENTS.map((d) => {
+        const deptParticipants = filterParticipantsForDepartment(participants, d);
+
+        let amountCollected = 0;
+        let verifiedPayments = 0;
+        for (const p of deptParticipants) {
+          const status = String(p?.paymentStatus || '').toLowerCase();
+          if (status !== 'verified') continue;
+          verifiedPayments += 1;
+          const n = Number(p?.amountPaid);
+          if (Number.isFinite(n)) amountCollected += n;
+        }
+
+        return {
+          key: d.key,
+          name: d.name,
+          registrations: deptParticipants.length,
+          verifiedPayments,
+          amountCollected,
+        };
+      }).sort((a, b) => (b.registrations - a.registrations) || a.name.localeCompare(b.name));
+
+      const topCollegeDept = departmentStats[0] || null;
+
+      sendJson(res, 200, {
+        totalUsers,
+        totalAmountCollected,
+        highestRegistrationDept: topEventDepartment
+          ? { department: topEventDepartment, registrations: topEventDepartmentRegistrations }
+          : null,
+        highestRegistrationCollegeDept: topCollegeDept
+          ? { key: topCollegeDept.key, name: topCollegeDept.name, registrations: topCollegeDept.registrations }
+          : null,
+        departmentStats,
+      });
+      return;
+    } catch (e) {
+      sendJson(res, 500, {
+        error: 'Failed to load participants',
+        message: e?.message || String(e),
+      });
+      return;
+    }
+  }
+
   if (url.pathname === '/api/departments') {
     const list = DEPARTMENTS.map((d) => ({ key: d.key, name: d.name, events: d.events }));
     sendJson(res, 200, { data: list });

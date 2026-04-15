@@ -301,6 +301,45 @@ button:active {
   background: var(--gray-100);
 }
 
+.tableWrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  vertical-align: top;
+}
+
+.table th {
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background: var(--gray-100);
+  position: sticky;
+  top: 0;
+}
+
+.table tr:hover td {
+  background: var(--surface-hover);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .kv {
   display: grid;
   grid-template-columns: 1fr;
