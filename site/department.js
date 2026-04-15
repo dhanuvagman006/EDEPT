@@ -25,6 +25,9 @@ function safeText(v) {
 function renderParticipantCard(p) {
   const name = safeText(p.studentName || p.name);
   const events = Array.isArray(p.events) ? p.events : [];
+  const eventNames = events
+    .map((e) => (typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title) : '')))
+    .filter(Boolean);
 
   return `
     <article class="card">
@@ -33,7 +36,7 @@ function renderParticipantCard(p) {
           <h2>${escapeHtml(name)}</h2>
           <span class="badge">${escapeHtml(safeText(p.paymentStatus))}</span>
         </div>
-        <div class="muted">ID: ${escapeHtml(safeText(p.id))}</div>
+        <div class="muted">ID: ${escapeHtml(safeText(p.participantId ?? p.id))}</div>
       </div>
 
       <div class="kv">
@@ -47,7 +50,7 @@ function renderParticipantCard(p) {
         <div class="v">${escapeHtml(safeText(p.college))}</div>
 
         <div class="k">Events</div>
-        <div class="v">${events.length ? `<ul class="list">${events.map((e) => `<li>${escapeHtml(String(e))}</li>`).join('')}</ul>` : '<div class="muted">—</div>'}</div>
+        <div class="v">${eventNames.length ? `<ul class="list">${eventNames.map((e) => `<li>${escapeHtml(String(e))}</li>`).join('')}</ul>` : '<div class="muted">—</div>'}</div>
       </div>
     </article>
   `;

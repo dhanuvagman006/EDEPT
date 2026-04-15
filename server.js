@@ -8,6 +8,14 @@ const { DEPARTMENTS } = require('./departments');
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
 
+const PARTICIPANTS_ENDPOINT = String(
+  process.env.PARTICIPANTS_ENDPOINT || 'https://envisionsit.in/api/v1/registrations/export/all-participants'
+);
+const PARTICIPANTS_CACHE_MS = (() => {
+  const n = Number(process.env.PARTICIPANTS_CACHE_MS || 30000);
+  return Number.isFinite(n) && n >= 0 ? n : 30000;
+})();
+
 const AUTO_REFRESH = String(process.env.AUTO_REFRESH || '').toLowerCase() !== '0';
 const REFRESH_INTERVAL_MINUTES = Number(process.env.REFRESH_INTERVAL_MINUTES || 10);
 const REFRESH_INTERVAL_MS = Number.isFinite(REFRESH_INTERVAL_MINUTES) && REFRESH_INTERVAL_MINUTES > 0
@@ -15,6 +23,55 @@ const REFRESH_INTERVAL_MS = Number.isFinite(REFRESH_INTERVAL_MINUTES) && REFRESH
   : 0;
 
 let refreshInProgress = false;
+
+let cachedParticipantsPayload = null;
+let cachedParticipantsAt = 0;
+
+async function fetchParticipantsPayloadFromApi() {
+  const res = await fetch(PARTICIPANTS_ENDPOINT, {
+    method: 'GET',
+    headers: {
+      accept: 'application/json, text/plain;q=0.9, */*;q=0.8',
+    },
+  });
+
+  const text = await res.text();
+  if (!res.ok) {
+    const msg = `Upstream participants API failed: ${res.status} ${res.statusText}`;
+    const err = new Error(msg);
+    err.statusCode = res.status;
+    err.body = text;
+    throw err;
+  }
+
+  const payload = JSON.parse(text);
+
+  cachedParticipantsPayload = payload;
+  cachedParticipantsAt = Date.now();
+
+  // Best-effort write to disk so /response.json still works.
+  fs.writeFile(path.join(ROOT, 'response.json'), JSON.stringify(payload, null, 2), 'utf8').catch(() => {});
+
+  return payload;
+}
+
+async function getParticipantsPayload({ allowFileFallback = true } = {}) {
+  const now = Date.now();
+  if (cachedParticipantsPayload && now - cachedParticipantsAt < PARTICIPANTS_CACHE_MS) {
+    return cachedParticipantsPayload;
+  }
+
+  try {
+    return await fetchParticipantsPayloadFromApi();
+  } catch (e) {
+    if (!allowFileFallback) throw e;
+    // Fall back to file if API is temporarily unavailable.
+    const payload = await readJsonFile('response.json');
+    cachedParticipantsPayload = payload;
+    cachedParticipantsAt = now;
+    return payload;
+  }
+}
 
 function runNodeScript(scriptFile) {
   return new Promise((resolve, reject) => {
@@ -42,7 +99,13 @@ async function refreshData() {
   const startedAt = Date.now();
   try {
     await runNodeScript('fetch_participents.js');
-    await runNodeScript('team_details.js');
+    const wantsTeams = ['1', 'true', 'yes'].includes(String(process.env.FETCH_TEAMS || '').toLowerCase());
+    const hasTeamsAuth = Boolean(String(process.env.ENVISIONSIT_BEARER_TOKEN || '').trim())
+      || Boolean(String(process.env.ENVISIONSIT_COOKIE || '').trim());
+
+    if (wantsTeams || hasTeamsAuth) {
+      await runNodeScript('team_details.js');
+    }
     const ms = Date.now() - startedAt;
     console.log(`Data refreshed in ${ms}ms`);
   } catch (e) {
@@ -103,8 +166,21 @@ function filterParticipantsForDepartment(participants, dept) {
     const events = Array.isArray(p.events) ? p.events : [];
     const teams = Array.isArray(p.teams) ? p.teams : [];
 
-    const inEvents = events.some((e) => allowed.has(normalize(e)));
-    const inTeams = teams.some((t) => allowed.has(normalize(t && t.eventName)));
+    const eventNames = [];
+    for (const e of events) {
+      if (typeof e === 'string') {
+        eventNames.push(e);
+        continue;
+      }
+      if (e && typeof e === 'object') {
+        if (typeof e.eventName === 'string') eventNames.push(e.eventName);
+        if (typeof e.name === 'string') eventNames.push(e.name);
+        if (typeof e.title === 'string') eventNames.push(e.title);
+      }
+    }
+
+    const inEvents = eventNames.some((name) => allowed.has(normalize(name)));
+    const inTeams = teams.some((t) => allowed.has(normalize(t && (t.eventName || t.name))));
     return inEvents || inTeams;
   });
 }
@@ -148,6 +224,26 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  if (url.pathname === '/api/participants') {
+    try {
+      const payload = await getParticipantsPayload({ allowFileFallback: true });
+      const participants = extractArray(payload);
+      if (!participants) {
+        sendJson(res, 500, { error: 'Participants payload has unexpected shape' });
+        return;
+      }
+
+      sendJson(res, 200, { data: participants });
+      return;
+    } catch (e) {
+      sendJson(res, 502, {
+        error: 'Failed to fetch participants from upstream API',
+        message: e?.message || String(e),
+      });
+      return;
+    }
+  }
+
   const deptMatch = url.pathname.match(/^\/api\/departments\/([^/]+)\/participants$/);
   if (deptMatch) {
     const deptKey = deptMatch[1];
@@ -158,7 +254,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     try {
-      const payload = await readJsonFile('response.json');
+      const payload = await getParticipantsPayload({ allowFileFallback: true });
       const participants = extractArray(payload);
       if (!participants) {
         sendJson(res, 500, { error: 'response.json has unexpected shape' });

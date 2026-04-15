@@ -16,6 +16,15 @@ Fetch teams (writes `teams.json`):
 npm run fetch:teams
 ```
 
+Teams fetch now requires auth via environment variables (optional):
+
+```powershell
+$env:ENVISIONSIT_BEARER_TOKEN = "..."
+# OR
+$env:ENVISIONSIT_COOKIE = "..."
+npm run fetch:teams
+```
+
 ## 2) Start the local website
 
 ```powershell
@@ -37,6 +46,7 @@ API endpoints:
 
 ## Notes
 - The server auto-refreshes `response.json` and `teams.json` on startup, and then every 10 minutes.
+- Teams auto-refresh runs only if `FETCH_TEAMS=1` or teams auth env vars are set.
 - To disable auto-refresh:
 
 ```powershell

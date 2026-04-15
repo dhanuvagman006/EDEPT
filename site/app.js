@@ -110,8 +110,12 @@ function renderParticipantCard(p) {
   const events = Array.isArray(p.events) ? p.events : [];
   const teams = Array.isArray(p.teams) ? p.teams : [];
 
-  const eventsHtml = events.length
-    ? `<ul class="list">${events.map((e) => `<li>${escapeHtml(String(e))}</li>`).join('')}</ul>`
+  const eventNames = events
+    .map((e) => (typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title) : '')))
+    .filter(Boolean);
+
+  const eventsHtml = eventNames.length
+    ? `<ul class="list">${eventNames.map((e) => `<li>${escapeHtml(String(e))}</li>`).join('')}</ul>`
     : '<div class="muted">—</div>';
 
   const teamsHtml = teams.length
@@ -152,7 +156,7 @@ function renderParticipantCard(p) {
         <div class="cardTitle">
           <h2>${escapeHtml(name)}</h2>
         </div>
-        <div class="muted">ID: ${escapeHtml(safeText(p.id))}</div>
+        <div class="muted">ID: ${escapeHtml(safeText(p.participantId ?? p.id))}</div>
       </div>
 
       <div class="kv">
@@ -203,7 +207,14 @@ function applyParticipantsFilter() {
       const events = Array.isArray(p.events) ? p.events : [];
       const teams = Array.isArray(p.teams) ? p.teams : [];
 
-      const eventMatch = events.some((e) => String(e || '').toLowerCase().includes(eventQ));
+      const eventMatch = events.some((e) => {
+        if (typeof e === 'string') return e.toLowerCase().includes(eventQ);
+        if (e && typeof e === 'object') {
+          const name = String(e.eventName || e.name || e.title || '');
+          return name.toLowerCase().includes(eventQ);
+        }
+        return false;
+      });
       const teamMatch = teams.some((t) => String(t?.eventName || '').toLowerCase().includes(eventQ));
 
       if (!eventMatch && !teamMatch) return false;
@@ -220,20 +231,20 @@ async function loadParticipants() {
   participantsContentEl.innerHTML = '<div class="card">Loading…</div>';
   participantsSummaryEl.innerHTML = '';
 
-  const url = `../response.json?ts=${Date.now()}`;
+  const url = `../api/participants?ts=${Date.now()}`;
 
   let res;
   try {
     res = await fetch(url, { cache: 'no-store' });
   } catch {
-    setParticipantsStatus('Failed to load response.json');
-    participantsContentEl.innerHTML = `<div class="card">Could not fetch <code>response.json</code>. Run <code>npm run fetch</code> and refresh.</div>`;
+    setParticipantsStatus('Failed to load participants');
+    participantsContentEl.innerHTML = `<div class="card">Could not fetch participants. Ensure the server is running and refresh.</div>`;
     return;
   }
 
   if (!res.ok) {
     setParticipantsStatus(`HTTP ${res.status}`);
-    participantsContentEl.innerHTML = `<div class="card">Server returned ${res.status} when requesting <code>response.json</code>.</div>`;
+    participantsContentEl.innerHTML = `<div class="card">Server returned ${res.status} when requesting participants.</div>`;
     return;
   }
 
@@ -243,8 +254,8 @@ async function loadParticipants() {
   try {
     payload = JSON.parse(text);
   } catch {
-    setParticipantsStatus('response.json is not valid JSON');
-    participantsContentEl.innerHTML = `<div class="card"><code>response.json</code> is not valid JSON.</div>`;
+    setParticipantsStatus('Response is not valid JSON');
+    participantsContentEl.innerHTML = `<div class="card">Participants response is not valid JSON.</div>`;
     return;
   }
 
