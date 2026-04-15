@@ -56,6 +56,30 @@ const DEPARTMENTS = [
   },
 ];
 
-module.exports = {
-  DEPARTMENTS,
-};
+// Events shared by 2+ departments — auto-detected
+const _eventCount = {};
+for (const dept of DEPARTMENTS) {
+  for (const event of dept.events) {
+    const key = event.toLowerCase();
+    _eventCount[key] = (_eventCount[key] || 0) + 1;
+  }
+}
+
+// Additional events manually marked as mega (same event, slightly different names across depts)
+const _manualMega = [
+  'mr & ms envision',   // CSD_ISE
+  'mr & mrs envision',  // Marine (same event, different label)
+  'singing battle',     // CSE + EEE
+  'sports',             // ME + AUTO + AERO
+  'dance battle',       // AIML + CSBS
+  'group dance',        // AIDS + ECE
+];
+
+const MEGA_EVENTS = new Set([
+  ...Object.entries(_eventCount)
+    .filter(([, count]) => count >= 2)
+    .map(([name]) => name),
+  ..._manualMega,
+]);
+
+module.exports = { DEPARTMENTS, MEGA_EVENTS };
