@@ -47,7 +47,7 @@ const DEPARTMENTS = [
   {
     key: 'auto',
     name: 'Automobile Engineering',
-    events: ['Cricket', 'Slow Bike Racing', 'Food Fiesta'],
+    events: ['Cricket', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
   },
   {
     key: 'aero',
