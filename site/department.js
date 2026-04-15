@@ -8,6 +8,8 @@ const countSummaryEl = document.getElementById('countSummary');
 let currentDeptKey = '';
 let allDeptParticipants = [];   // full dept list — used only to build count cards
 let activeEventFilter = '';     // '' = all
+let megaEvents = new Set();     // event names that are shared across departments
+let deptEventsList = {};        // deptKey → [{ name, isMega }] from API
 
 function setStatus(msg) {
   statusEl.textContent = msg;
@@ -149,16 +151,24 @@ function esc(str) {
 
 // Build count cards from the full dept list and attach click handlers
 function renderCountCard() {
-  if (!countCardEl || !countSummaryEl || !allDeptParticipants.length) {
+  if (!countCardEl || !countSummaryEl) {
     if (countCardEl) countCardEl.hidden = true;
     return;
   }
 
+  // Count participants per event from actual data
   const eventCounts = {};
   for (const p of allDeptParticipants) {
     for (const name of extractEventNames(p.events)) {
       eventCounts[name] = (eventCounts[name] || 0) + 1;
     }
+  }
+
+  // Ensure all dept-defined events appear, even with 0 participants
+  const definedEvents = deptEventsList[currentDeptKey] || [];
+  for (const e of definedEvents) {
+    const name = typeof e === 'string' ? e : e.name;
+    if (!(name in eventCounts)) eventCounts[name] = 0;
   }
 
   const sorted = Object.entries(eventCounts).sort((a, b) => b[1] - a[1]);
@@ -176,11 +186,13 @@ function renderCountCard() {
 
   for (const [name, count] of sorted) {
     const active = activeEventFilter === name;
+    const isMega = megaEvents.has(name.toLowerCase());
     html += `
       <div class="pill pill--clickable ${active ? 'pill--active' : ''}" data-event="${escapeHtml(name)}">
         <div class="pill-main">
           <div class="label">${escapeHtml(name)}</div>
           <div class="value">${count}</div>
+          ${isMega ? '<span class="mega-badge">MEGA EVENT</span>' : ''}
         </div>
         <button class="pill-download" title="Download PDF" data-event="${escapeHtml(name)}">&#8681;</button>
       </div>
@@ -242,6 +254,14 @@ async function loadDepartments() {
     const list = Array.isArray(payload.data) ? payload.data : [];
 
     for (const d of list) {
+      // Store events list per dept key
+      deptEventsList[d.key] = d.events || [];
+
+      // Build the global mega events set
+      for (const e of (d.events || [])) {
+        if (e.isMega) megaEvents.add(e.name.toLowerCase());
+      }
+
       const opt = document.createElement('option');
       opt.value = d.key;
       opt.textContent = d.name;

@@ -151,6 +151,7 @@ p {
 }
 
 .pill {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -194,8 +195,10 @@ p {
 
 .pill-download {
   flex-shrink: 0;
-  padding: 4px 8px;
-  font-size: 15px;
+  padding: 3px 5px;
+  font-size: 12px;
+  width: 26px;
+  text-align: center;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--surface);
@@ -203,6 +206,7 @@ p {
   cursor: pointer;
   box-shadow: none;
   line-height: 1;
+  align-self: flex-end;
 }
 
 .pill-download:hover {
@@ -233,6 +237,32 @@ p {
 
 .pill--active .pill-download:hover {
   background: rgba(255, 255, 255, 0.3);
+}
+
+.mega-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde68a, #fbbf24, #f59e0b);
+  background-size: 200% auto;
+  color: #78350f;
+  animation: shimmer 2s linear infinite;
+  white-space: nowrap;
+  pointer-events: none;
+  max-width: calc(100% - 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .toolbar {

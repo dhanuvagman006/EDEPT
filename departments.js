@@ -12,12 +12,12 @@ const DEPARTMENTS = [
   {
     key: 'csd_ise',
     name: 'Computer Science and Design & Information Science Engineering',
-    events: ['Mr & Ms Envision', 'Reverse Coding', 'Dumb Charades'],
+    events: ['Mr or Ms Envision', 'Reverse Coding', 'Dumb Charades'],
   },
   {
     key: 'cse',
     name: 'Computer Science Engineering',
-    events: ['Singing Battle', 'Operation Cipher Chase', 'BGMI'],
+    events: ['Singing', 'Operation Cipher Chase', 'BGMI'],
   },
   {
     key: 'csbs',
@@ -27,7 +27,7 @@ const DEPARTMENTS = [
   {
     key: 'eee',
     name: 'Electrical and Electronics Engineering',
-    events: ['Singing Battle', 'Line Follower', 'Free Fire'],
+    events: ['Singing', 'Line Follower', 'Free Fire'],
   },
   {
     key: 'ece',
@@ -37,25 +37,46 @@ const DEPARTMENTS = [
   {
     key: 'me',
     name: 'Mechanical Engineering',
-    events: ['Sports', 'Reverse Engineering', 'Treasure Hunt'],
+    events: ['Cricket', 'Reverse Engineering', 'Treasure Hunt'],
   },
   {
     key: 'marine',
     name: 'Marine Engineering',
-    events: ['Mr & Mrs Envision', 'Memoria', 'Nautical Riders'],
+    events: ['Mr or Ms Envision', 'Memoria', 'Nautical Rides'],
   },
   {
     key: 'auto',
     name: 'Automobile Engineering',
-    events: ['Sports', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
+    events: ['Cricket', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
   },
   {
     key: 'aero',
     name: 'Aeronautical Engineering',
-    events: ['Sports', 'Water Rocketry', 'Flight Simulator'],
+    events: ['Cricket', 'Water Rocketry', 'VR Flight Landing'],
   },
 ];
 
-module.exports = {
-  DEPARTMENTS,
-};
+// Events shared by 2+ departments — auto-detected
+const _eventCount = {};
+for (const dept of DEPARTMENTS) {
+  for (const event of dept.events) {
+    const key = event.toLowerCase();
+    _eventCount[key] = (_eventCount[key] || 0) + 1;
+  }
+}
+
+// Additional events manually marked as mega (e.g. similar names across depts)
+const _manualMega = [
+  'mr or ms envision',  // CSD_ISE + Marine (same event, same name in data)
+  'singing',            // CSE + EEE (stored as "Singing" in response.json)
+  'cricket',            // ME + AUTO + AERO
+];
+
+const MEGA_EVENTS = new Set([
+  ...Object.entries(_eventCount)
+    .filter(([, count]) => count >= 2)
+    .map(([name]) => name),
+  ..._manualMega,
+]);
+
+module.exports = { DEPARTMENTS, MEGA_EVENTS };

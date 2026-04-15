@@ -3,7 +3,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { URL } = require('node:url');
 const { spawn } = require('node:child_process');
-const { DEPARTMENTS } = require('./departments');
+const { DEPARTMENTS, MEGA_EVENTS } = require('./departments');
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
@@ -238,7 +238,14 @@ const server = http.createServer(async (req, res) => {
 
   // API
   if (url.pathname === '/api/departments') {
-    const list = DEPARTMENTS.map((d) => ({ key: d.key, name: d.name, events: d.events }));
+    const list = DEPARTMENTS.map((d) => ({
+      key: d.key,
+      name: d.name,
+      events: d.events.map((e) => ({
+        name: e,
+        isMega: MEGA_EVENTS.has(e.toLowerCase()),
+      })),
+    }));
     sendJson(res, 200, { data: list });
     return;
   }
