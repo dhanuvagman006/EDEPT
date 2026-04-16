@@ -3,7 +3,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const { URL } = require('node:url');
 const { spawn } = require('node:child_process');
-const { DEPARTMENTS } = require('./departments');
+const { DEPARTMENTS, MEGA_EVENTS } = require('./departments');
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
@@ -26,6 +26,18 @@ let refreshInProgress = false;
 
 let cachedParticipantsPayload = null;
 let cachedParticipantsAt = 0;
+
+// Pre-load response.json into memory on startup so the first request is instant.
+async function preloadCache() {
+  try {
+    const payload = await readJsonFile('response.json');
+    cachedParticipantsPayload = payload;
+    cachedParticipantsAt = Date.now();
+    console.log('Participants cache pre-loaded from response.json');
+  } catch {
+    // File doesn't exist yet — first fetch will populate it.
+  }
+}
 
 async function fetchParticipantsPayloadFromApi() {
   const res = await fetch(PARTICIPANTS_ENDPOINT, {
@@ -56,21 +68,28 @@ async function fetchParticipantsPayloadFromApi() {
 }
 
 async function getParticipantsPayload({ allowFileFallback = true } = {}) {
-  const now = Date.now();
-  if (cachedParticipantsPayload && now - cachedParticipantsAt < PARTICIPANTS_CACHE_MS) {
+  // Serve from cache if fresh — always fast.
+  if (cachedParticipantsPayload) {
+    const age = Date.now() - cachedParticipantsAt;
+    if (age < PARTICIPANTS_CACHE_MS) {
+      return cachedParticipantsPayload;
+    }
+    // Cache stale: return existing data immediately and refresh in background.
+    fetchParticipantsPayloadFromApi().catch(() => {});
     return cachedParticipantsPayload;
   }
 
-  try {
-    return await fetchParticipantsPayloadFromApi();
-  } catch (e) {
-    if (!allowFileFallback) throw e;
-    // Fall back to file if API is temporarily unavailable.
-    const payload = await readJsonFile('response.json');
-    cachedParticipantsPayload = payload;
-    cachedParticipantsAt = now;
-    return payload;
+  // No cache yet — try file first (fast), then API as last resort.
+  if (allowFileFallback) {
+    try {
+      const payload = await readJsonFile('response.json');
+      cachedParticipantsPayload = payload;
+      cachedParticipantsAt = Date.now();
+      return payload;
+    } catch { /* fall through to live fetch */ }
   }
+
+  return await fetchParticipantsPayloadFromApi();
 }
 
 function runNodeScript(scriptFile) {
@@ -154,6 +173,16 @@ function extractArray(payload) {
   return null;
 }
 
+function getEventDepartmentForParticipant(p) {
+  const events = Array.isArray(p?.events) ? p.events : [];
+  for (const e of events) {
+    if (e && typeof e === 'object' && typeof e.department === 'string' && e.department.trim()) {
+      return e.department.trim();
+    }
+  }
+  return 'Unknown';
+}
+
 async function readJsonFile(fileName) {
   const filePath = path.join(ROOT, fileName);
   const text = await fs.readFile(filePath, 'utf8');
@@ -218,8 +247,103 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
 
   // API
+  const acceptHeader = String(req.headers.accept || '');
+  const wantsAdminJson = url.searchParams.get('format') === 'json' || acceptHeader.includes('application/json');
+
+  if (url.pathname === '/sup/sec/admin' && !wantsAdminJson) {
+    res.writeHead(302, { location: '/site/admin.html' });
+    res.end();
+    return;
+  }
+
+  if (url.pathname === '/sup/sec/admin' || url.pathname === '/api/sup/sec/admin') {
+    try {
+      const payload = await getParticipantsPayload({ allowFileFallback: true });
+      const participants = extractArray(payload);
+      if (!participants) {
+        sendJson(res, 500, { error: 'Participants payload has unexpected shape' });
+        return;
+      }
+
+      const totalUsers = participants.length;
+
+      let totalAmountCollected = 0;
+      for (const p of participants) {
+        const status = String(p?.paymentStatus || '').toLowerCase();
+        if (status !== 'verified') continue;
+        const n = Number(p?.amountPaid);
+        if (Number.isFinite(n)) totalAmountCollected += n;
+      }
+
+      const byEventDepartment = new Map();
+      for (const p of participants) {
+        const dept = getEventDepartmentForParticipant(p);
+        byEventDepartment.set(dept, (byEventDepartment.get(dept) || 0) + 1);
+      }
+
+      let topEventDepartment = '';
+      let topEventDepartmentRegistrations = 0;
+      for (const [dept, count] of byEventDepartment.entries()) {
+        if (count > topEventDepartmentRegistrations) {
+          topEventDepartment = dept;
+          topEventDepartmentRegistrations = count;
+        }
+      }
+
+      const departmentStats = DEPARTMENTS.map((d) => {
+        const deptParticipants = filterParticipantsForDepartment(participants, d);
+
+        let amountCollected = 0;
+        let verifiedPayments = 0;
+        for (const p of deptParticipants) {
+          const status = String(p?.paymentStatus || '').toLowerCase();
+          if (status !== 'verified') continue;
+          verifiedPayments += 1;
+          const n = Number(p?.amountPaid);
+          if (Number.isFinite(n)) amountCollected += n;
+        }
+
+        return {
+          key: d.key,
+          name: d.name,
+          registrations: deptParticipants.length,
+          verifiedPayments,
+          amountCollected,
+        };
+      }).sort((a, b) => (b.registrations - a.registrations) || a.name.localeCompare(b.name));
+
+      const topCollegeDept = departmentStats[0] || null;
+
+      sendJson(res, 200, {
+        totalUsers,
+        totalAmountCollected,
+        highestRegistrationDept: topEventDepartment
+          ? { department: topEventDepartment, registrations: topEventDepartmentRegistrations }
+          : null,
+        highestRegistrationCollegeDept: topCollegeDept
+          ? { key: topCollegeDept.key, name: topCollegeDept.name, registrations: topCollegeDept.registrations }
+          : null,
+        departmentStats,
+      });
+      return;
+    } catch (e) {
+      sendJson(res, 500, {
+        error: 'Failed to load participants',
+        message: e?.message || String(e),
+      });
+      return;
+    }
+  }
+
   if (url.pathname === '/api/departments') {
-    const list = DEPARTMENTS.map((d) => ({ key: d.key, name: d.name, events: d.events }));
+    const list = DEPARTMENTS.map((d) => ({
+      key: d.key,
+      name: d.name,
+      events: d.events.map((e) => ({
+        name: e,
+        isMega: MEGA_EVENTS.has(e.toLowerCase()),
+      })),
+    }));
     sendJson(res, 200, { data: list });
     return;
   }
@@ -261,7 +385,20 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      const filtered = filterParticipantsForDepartment(participants, dept);
+      const deptFiltered = filterParticipantsForDepartment(participants, dept);
+
+      // Optional ?event= param: filter further to a single event
+      const eventParam = normalize(url.searchParams.get('event') || '');
+      const filtered = eventParam
+        ? deptFiltered.filter((p) => {
+            const events = Array.isArray(p.events) ? p.events : [];
+            return events.some((e) => {
+              const name = typeof e === 'string' ? e : (e && typeof e === 'object' ? (e.eventName || e.name || e.title || '') : '');
+              return normalize(name) === eventParam;
+            });
+          })
+        : deptFiltered;
+
       sendJson(res, 200, { department: { key: dept.key, name: dept.name }, data: filtered });
       return;
     } catch (e) {
@@ -326,6 +463,8 @@ server.on('error', (err) => {
 
 server.listen(PORT, () => {
   console.log(`Server running: http://localhost:${PORT}/site/`);
+
+  preloadCache();
 
   if (AUTO_REFRESH) {
     console.log(`Auto-refresh: ON${REFRESH_INTERVAL_MS ? ` (every ${REFRESH_INTERVAL_MINUTES} min)` : ''}`);
