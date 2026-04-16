@@ -53,6 +53,8 @@
       <section id="teamsView" class="view" hidden>
         <section class="summary" id="teamsSummary" aria-live="polite"></section>
 
+        <div id="teamsPillsContainer" class="pills-grid" hidden></div>
+
         <section>
           <div class="toolbar">
             <label class="search" aria-label="Search teams">
@@ -62,7 +64,7 @@
                   <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                 </svg>
               </span>
-              <input id="teamsSearchInput" type="search" placeholder="Search team…" autocomplete="off" />
+              <input id="teamsSearchInput" type="search" placeholder="Search team or member…" autocomplete="off" />
             </label>
             <button id="teamsReloadBtn" type="button">Reload data</button>
             <span class="muted" id="teamsStatus"></span>

@@ -337,6 +337,17 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (url.pathname === '/api/teams') {
+    try {
+      const payload = await readJsonFile('teams.json');
+      const teams = extractArray(payload) || [];
+      sendJson(res, 200, { data: teams });
+    } catch {
+      sendJson(res, 200, { data: [] });
+    }
+    return;
+  }
+
   if (url.pathname === '/api/departments') {
     const list = DEPARTMENTS.map((d) => ({
       key: d.key,

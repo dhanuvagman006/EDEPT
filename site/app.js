@@ -24,6 +24,7 @@ const teamsSearchInput = document.getElementById('teamsSearchInput');
 let allParticipants = [];
 let allTeams = [];
 let teamsLoadedOnce = false;
+let activeTeamEventFilter = null; // null = all events
 
 function setParticipantsStatus(msg) {
   participantsStatusEl.textContent = msg;
@@ -289,37 +290,97 @@ function renderTeamsSummary(teams) {
   ].join('');
 }
 
-function renderTeamsList(teams) {
-  teamsContentEl.innerHTML = '';
+function buildTeamEventPills() {
+  const pillsEl = document.getElementById('teamsPillsContainer');
+  if (!pillsEl) return;
 
-  if (teams.length === 0) {
-    teamsContentEl.innerHTML = `<div class="card">No teams found in teams.json.</div>`;
+  if (allTeams.length === 0) {
+    pillsEl.innerHTML = '';
+    pillsEl.hidden = true;
     return;
   }
 
+  // Count teams per event, sorted by count desc
+  const eventCounts = new Map();
+  for (const t of allTeams) {
+    const ev = safeText(t.eventName);
+    if (ev === '—') continue;
+    eventCounts.set(ev, (eventCounts.get(ev) || 0) + 1);
+  }
+  const sorted = [...eventCounts.entries()].sort((a, b) => b[1] - a[1]);
+  const allActive = activeTeamEventFilter === null;
+
+  const allPill = `
+    <div class="event-pill event-pill--clickable${allActive ? ' event-pill--active' : ''}"
+         data-event="" role="button" tabindex="0" aria-pressed="${allActive}">
+      <div class="event-pill__body">
+        <div class="event-pill__head">
+          <div class="event-pill__label">All Events</div>
+        </div>
+        <div class="event-pill__count">${allTeams.length}</div>
+      </div>
+    </div>`;
+
+  const eventPills = sorted.map(([ev, count]) => {
+    const isActive = activeTeamEventFilter === ev;
+    return `
+      <div class="event-pill event-pill--clickable${isActive ? ' event-pill--active' : ''}"
+           data-event="${escapeHtml(ev)}" role="button" tabindex="0" aria-pressed="${isActive}">
+        <div class="event-pill__body">
+          <div class="event-pill__head">
+            <div class="event-pill__label">${escapeHtml(ev)}</div>
+          </div>
+          <div class="event-pill__count">${count}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  pillsEl.innerHTML = allPill + eventPills;
+  pillsEl.hidden = false;
+
+  pillsEl.querySelectorAll('.event-pill--clickable').forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const raw = pill.dataset.event;
+      activeTeamEventFilter = raw === '' ? null : raw;
+      buildTeamEventPills();
+      applyTeamsFilter();
+    });
+  });
+}
+
+function renderTeamsList(teams) {
+  teamsContentEl.innerHTML = '';
+  if (teams.length === 0) {
+    teamsContentEl.innerHTML = `<div class="card">No teams found for this selection.</div>`;
+    return;
+  }
   teamsContentEl.innerHTML = teams.map(renderTeamCard).join('');
 }
 
 function applyTeamsFilter() {
   const q = (teamsSearchInput?.value || '').trim().toLowerCase();
 
-  const filtered = q
-    ? allTeams.filter((t) => {
-        const teamName = safeText(t.teamName).toLowerCase();
-        const eventName = safeText(t.eventName).toLowerCase();
-        const leader = safeText(t.leader).toLowerCase();
-        return teamName.includes(q) || eventName.includes(q) || leader.includes(q);
-      })
+  let filtered = activeTeamEventFilter
+    ? allTeams.filter((t) => safeText(t.eventName) === activeTeamEventFilter)
     : allTeams;
+
+  if (q) {
+    filtered = filtered.filter((t) => {
+      const members = Array.isArray(t.members) ? t.members : [];
+      return safeText(t.teamName).toLowerCase().includes(q)
+        || safeText(t.eventName).toLowerCase().includes(q)
+        || safeText(t.department).toLowerCase().includes(q)
+        || members.some((m) => safeText(m.name).toLowerCase().includes(q));
+    });
+  }
+
+  const base = activeTeamEventFilter
+    ? allTeams.filter((t) => safeText(t.eventName) === activeTeamEventFilter).length
+    : allTeams.length;
 
   renderTeamsSummary(filtered);
   renderTeamsList(filtered);
-
-  if (q) {
-    setTeamsStatus(`Showing ${filtered.length} of ${allTeams.length}`);
-  } else {
-    setTeamsStatus(`Loaded ${allTeams.length} team(s)`);
-  }
+  setTeamsStatus(q ? `Showing ${filtered.length} of ${base}` : `${base} team${base !== 1 ? 's' : ''}`);
 }
 
 function renderTeamCard(t) {
@@ -359,43 +420,51 @@ async function loadTeams() {
   setTeamsStatus('Loading…');
   teamsContentEl.innerHTML = '<div class="card">Loading…</div>';
   teamsSummaryEl.innerHTML = '';
+  activeTeamEventFilter = null;
 
-  const url = `../teams.json?ts=${Date.now()}`;
+  const pillsEl = document.getElementById('teamsPillsContainer');
+  if (pillsEl) { pillsEl.innerHTML = ''; pillsEl.hidden = true; }
 
   let res;
   try {
-    res = await fetch(url, { cache: 'no-store' });
+    res = await fetch(`../api/teams?ts=${Date.now()}`, { cache: 'no-store' });
   } catch {
-    setTeamsStatus('Failed to load teams.json');
-    teamsContentEl.innerHTML = `<div class="card">Could not fetch <code>teams.json</code>. Run <code>node team_details.js</code> and refresh.</div>`;
+    setTeamsStatus('Failed to connect');
+    teamsContentEl.innerHTML = `<div class="card">Could not reach the server. Make sure it is running.</div>`;
     return;
   }
 
   if (!res.ok) {
     setTeamsStatus(`HTTP ${res.status}`);
-    teamsContentEl.innerHTML = `<div class="card">Server returned ${res.status} when requesting <code>teams.json</code>.</div>`;
+    teamsContentEl.innerHTML = `<div class="card">Server error ${res.status}.</div>`;
     return;
   }
 
-  const text = await res.text();
-
   let payload;
   try {
-    payload = JSON.parse(text);
+    payload = await res.json();
   } catch {
-    setTeamsStatus('teams.json is not valid JSON');
-    teamsContentEl.innerHTML = `<div class="card"><code>teams.json</code> is not valid JSON.</div>`;
+    setTeamsStatus('Invalid response');
+    teamsContentEl.innerHTML = `<div class="card">Server returned invalid JSON.</div>`;
     return;
   }
 
   const teams = asArray(payload);
-  if (!teams) {
-    setTeamsStatus('Unrecognized JSON shape');
-    teamsContentEl.innerHTML = `<div class="card">Loaded JSON but couldn't find a teams array. Expected an array or an object with <code>data</code>/<code>teams</code>/<code>items</code>.</div>`;
+  if (!teams || teams.length === 0) {
+    setTeamsStatus('No teams data');
+    teamsContentEl.innerHTML = `
+      <div class="card">
+        No teams data available yet.<br><br>
+        To load teams, provide auth credentials and run:<br>
+        <code>$env:ENVISIONSIT_BEARER_TOKEN = "your-token"; npm run fetch:teams</code><br>
+        then restart the server.
+      </div>`;
+    teamsSummaryEl.innerHTML = '';
     return;
   }
 
   allTeams = teams;
+  buildTeamEventPills();
   applyTeamsFilter();
   teamsLoadedOnce = true;
 }
