@@ -145,7 +145,7 @@ function sendJson(res, status, payload) {
 const EVENT_NAME_ALIASES = new Map([
   // Common upstream / spelling variations
   ['operation chiper chase', 'operation cipher chase'],
-  ['feast fiesta', 'food fiesta'],
+  ['food fiesta', 'feast fiesta'],
 ]);
 
 function normalize(str) {

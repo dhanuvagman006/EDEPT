@@ -7,6 +7,7 @@ const contentEl = document.getElementById('content');
 
 let lastLoadedDeptKey = '';
 let lastLoadedParticipants = [];
+const departmentsByKey = new Map();
 
 function setStatus(msg) {
   statusEl.textContent = msg;
@@ -25,6 +26,30 @@ function safeText(v) {
   if (v === null || v === undefined || v === '') return '—';
   if (typeof v === 'string') return v.trim() || '—';
   return String(v);
+}
+
+const EVENT_NAME_ALIASES = new Map([
+  ['operation chiper chase', 'operation cipher chase'],
+  ['food fiesta', 'feast fiesta'],
+]);
+
+function normalizeEventName(str) {
+  const raw = String(str || '').trim().toLowerCase();
+  if (!raw) return '';
+
+  const noParens = raw.replace(/\([^)]*\)/g, ' ');
+  const cleaned = noParens
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+  const tokens = cleaned
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((t) => t !== 'and' && t !== 'or');
+
+  const normalized = tokens.join(' ');
+  return EVENT_NAME_ALIASES.get(normalized) || normalized;
 }
 
 function extractEventNames(events) {
@@ -76,20 +101,37 @@ function setCount(visible, total) {
   countEl.textContent = `Showing ${visible} of ${total}`;
 }
 
-function populateEventFilter(participants) {
+function populateEventFilter(deptKey, participants) {
   if (!eventSelect) return;
 
-  const unique = new Set();
-  for (const p of participants) {
-    for (const name of extractEventNames(p.events)) unique.add(name);
+  const dept = departmentsByKey.get(deptKey);
+  const configured = Array.isArray(dept?.events) ? dept.events : [];
+
+  // Use normalized event name as the key to avoid duplicates from naming variations.
+  const uniqueByNorm = new Map();
+
+  for (const name of configured) {
+    const display = typeof name === 'string' ? name.trim() : '';
+    if (!display) continue;
+    uniqueByNorm.set(normalizeEventName(display), display);
   }
 
-  const eventNames = Array.from(unique).sort((a, b) => a.localeCompare(b));
+  for (const p of participants) {
+    for (const name of extractEventNames(p.events)) {
+      const display = String(name).trim();
+      const norm = normalizeEventName(display);
+      if (!norm) continue;
+      if (!uniqueByNorm.has(norm)) uniqueByNorm.set(norm, display);
+    }
+  }
+
+  const eventNames = Array.from(uniqueByNorm.entries()).sort((a, b) => a[1].localeCompare(b[1]));
+
   eventSelect.innerHTML = '<option value="">All events</option>';
-  for (const name of eventNames) {
+  for (const [norm, display] of eventNames) {
     const opt = document.createElement('option');
-    opt.value = name;
-    opt.textContent = name;
+    opt.value = norm;
+    opt.textContent = display;
     eventSelect.appendChild(opt);
   }
   eventSelect.disabled = false;
@@ -97,11 +139,11 @@ function populateEventFilter(participants) {
 }
 
 function renderParticipants() {
-  const selectedEvent = eventSelect ? eventSelect.value : '';
+  const selectedEventNorm = eventSelect ? eventSelect.value : '';
   const all = Array.isArray(lastLoadedParticipants) ? lastLoadedParticipants : [];
 
-  const filtered = selectedEvent
-    ? all.filter((p) => extractEventNames(p.events).includes(selectedEvent))
+  const filtered = selectedEventNorm
+    ? all.filter((p) => extractEventNames(p.events).some((n) => normalizeEventName(n) === selectedEventNorm))
     : all;
 
   contentEl.innerHTML = filtered.length
@@ -119,7 +161,15 @@ async function loadDepartments() {
     const payload = await res.json();
     const list = Array.isArray(payload.data) ? payload.data : [];
 
+    departmentsByKey.clear();
+
+    // Keep the placeholder option, clear any existing items (in case of reload).
+    while (deptSelect.options.length > 1) deptSelect.remove(1);
+
     for (const d of list) {
+      if (!d || !d.key) continue;
+      departmentsByKey.set(d.key, d);
+
       const opt = document.createElement('option');
       opt.value = d.key;
       opt.textContent = d.name;
@@ -156,7 +206,7 @@ async function login() {
 
     lastLoadedDeptKey = deptKey;
     lastLoadedParticipants = participants;
-    populateEventFilter(participants);
+    populateEventFilter(deptKey, participants);
     renderParticipants();
 
     setStatus('');
