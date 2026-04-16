@@ -12,8 +12,8 @@ const PARTICIPANTS_ENDPOINT = String(
   process.env.PARTICIPANTS_ENDPOINT || 'https://envisionsit.in/api/v1/registrations/export/all-participants'
 );
 const PARTICIPANTS_CACHE_MS = (() => {
-  const n = Number(process.env.PARTICIPANTS_CACHE_MS || 30000);
-  return Number.isFinite(n) && n >= 0 ? n : 30000;
+  const n = Number(process.env.PARTICIPANTS_CACHE_MS || 300000); // default 5 min
+  return Number.isFinite(n) && n >= 0 ? n : 300000;
 })();
 
 const AUTO_REFRESH = String(process.env.AUTO_REFRESH || '').toLowerCase() !== '0';
@@ -26,6 +26,7 @@ let refreshInProgress = false;
 
 let cachedParticipantsPayload = null;
 let cachedParticipantsAt = 0;
+let backgroundRefreshPromise = null;
 
 async function fetchParticipantsPayloadFromApi() {
   const res = await fetch(PARTICIPANTS_ENDPOINT, {
@@ -55,17 +56,37 @@ async function fetchParticipantsPayloadFromApi() {
   return payload;
 }
 
+async function refreshCacheInBackground() {
+  if (backgroundRefreshPromise) return;
+  backgroundRefreshPromise = (async () => {
+    try {
+      await fetchParticipantsPayloadFromApi();
+    } catch {
+      // API unavailable — re-stamp the cache so we don't retry every request
+      if (cachedParticipantsPayload) cachedParticipantsAt = Date.now();
+    }
+  })().finally(() => { backgroundRefreshPromise = null; });
+}
+
 async function getParticipantsPayload({ allowFileFallback = true } = {}) {
   const now = Date.now();
+
+  // Cache hit — return immediately
   if (cachedParticipantsPayload && now - cachedParticipantsAt < PARTICIPANTS_CACHE_MS) {
     return cachedParticipantsPayload;
   }
 
+  // Stale cache exists — return it instantly, refresh in background
+  if (cachedParticipantsPayload) {
+    refreshCacheInBackground();
+    return cachedParticipantsPayload;
+  }
+
+  // No cache at all (first request) — must wait
   try {
     return await fetchParticipantsPayloadFromApi();
   } catch (e) {
     if (!allowFileFallback) throw e;
-    // Fall back to file if API is temporarily unavailable.
     const payload = await readJsonFile('response.json');
     cachedParticipantsPayload = payload;
     cachedParticipantsAt = now;
@@ -317,7 +338,12 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (url.pathname === '/api/departments') {
-    const list = DEPARTMENTS.map((d) => ({ key: d.key, name: d.name, events: d.events }));
+    const list = DEPARTMENTS.map((d) => ({
+      key: d.key,
+      name: d.name,
+      events: d.events,
+      megaEvents: d.megaEvents || [],
+    }));
     sendJson(res, 200, { data: list });
     return;
   }
@@ -360,7 +386,15 @@ const server = http.createServer(async (req, res) => {
       }
 
       const filtered = filterParticipantsForDepartment(participants, dept);
-      sendJson(res, 200, { department: { key: dept.key, name: dept.name }, data: filtered });
+      sendJson(res, 200, {
+        department: {
+          key: dept.key,
+          name: dept.name,
+          events: dept.events,
+          megaEvents: dept.megaEvents || [],
+        },
+        data: filtered,
+      });
       return;
     } catch (e) {
       sendJson(res, 500, { error: 'Failed to read response.json' });
@@ -424,6 +458,15 @@ server.on('error', (err) => {
 
 server.listen(PORT, () => {
   console.log(`Server running: http://localhost:${PORT}/site/`);
+
+  // Pre-load cache from file so the very first request is instant
+  readJsonFile('response.json').then((payload) => {
+    if (!cachedParticipantsPayload) {
+      cachedParticipantsPayload = payload;
+      cachedParticipantsAt = Date.now();
+      console.log('Cache pre-loaded from response.json');
+    }
+  }).catch(() => {});
 
   if (AUTO_REFRESH) {
     console.log(`Auto-refresh: ON${REFRESH_INTERVAL_MS ? ` (every ${REFRESH_INTERVAL_MINUTES} min)` : ''}`);
