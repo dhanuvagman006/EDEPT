@@ -142,8 +142,31 @@ function sendJson(res, status, payload) {
   );
 }
 
+const EVENT_NAME_ALIASES = new Map([
+  // Common upstream / spelling variations
+  ['operation chiper chase', 'operation cipher chase'],
+  ['feast fiesta', 'food fiesta'],
+]);
+
 function normalize(str) {
-  return String(str || '').trim().toLowerCase();
+  const raw = String(str || '').trim().toLowerCase();
+  if (!raw) return '';
+
+  // Remove parenthetical details (e.g. "(Eating Challenge)") and normalize punctuation.
+  const noParens = raw.replace(/\([^)]*\)/g, ' ');
+  const cleaned = noParens
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+
+  // Drop common connectors so "Mr & Ms" and "Mr or Ms" normalize the same.
+  const tokens = cleaned
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((t) => t !== 'and' && t !== 'or');
+
+  const normalized = tokens.join(' ');
+  return EVENT_NAME_ALIASES.get(normalized) || normalized;
 }
 
 function extractArray(payload) {

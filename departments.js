@@ -2,7 +2,7 @@ const DEPARTMENTS = [
   {
     key: 'aiml',
     name: 'Artificial Intelligence and Machine Learning',
-    events: ['Dance Battle', 'Rahasya', 'Super Minute'],
+    events: ['Dance Battle', 'RAHASYA', 'Super Minute'],
   },
   {
     key: 'aids',
@@ -17,17 +17,17 @@ const DEPARTMENTS = [
   {
     key: 'cse',
     name: 'Computer Science Engineering',
-    events: ['Singing Battle', 'Operation Cipher Chase', 'BGMI'],
+    events: ['Singing Battle', 'Operation Chiper Chase', 'BGMI'],
   },
   {
     key: 'csbs',
     name: 'Computer Science and Business Systems',
-    events: ['Dance Battle', 'Mad Ad', 'Anime Quiz'],
+    events: ['Dance Battle', 'Mad AD', 'Anime Quiz'],
   },
   {
     key: 'eee',
     name: 'Electrical and Electronics Engineering',
-    events: ['Singing Battle', 'Line Follower', 'Free Fire'],
+    events: ['Singing Battle', 'Line Follower', 'Free-Fire'],
   },
   {
     key: 'ece',
@@ -47,7 +47,7 @@ const DEPARTMENTS = [
   {
     key: 'auto',
     name: 'Automobile Engineering',
-    events: ['Sports', 'Slow Bike Racing', 'Feast Fiesta(Eating Challenge)'],
+    events: ['Sports', 'Slow Bike Racing', 'Food Fiesta'],
   },
   {
     key: 'aero',
