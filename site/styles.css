@@ -301,6 +301,29 @@ button:active {
   background: var(--gray-100);
 }
 
+.badge--success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #065f46;
+}
+
+.badge--pending {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #92400e;
+}
+
+.couponToggleLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.couponToggle {
+  width: 16px;
+  height: 16px;
+}
+
 .tableWrap {
   overflow: auto;
   border: 1px solid var(--border);

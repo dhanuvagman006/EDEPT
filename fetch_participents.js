@@ -2,7 +2,9 @@ const fs = require('node:fs');
 const fsp = require('node:fs/promises');
 const { pipeline } = require('node:stream/promises');
 
-const ENDPOINT = 'https://envisionsit.in/api/v1/registrations/export/all-participants';
+const ENDPOINT = String(
+  process.env.PARTICIPANTS_ENDPOINT || 'https://envisionsit.in/api/v1/registrations/export/all-participants'
+);
 const OUTPUT_FILE = 'response.json';
 
 const quiet = String(process.env.QUIET || '').toLowerCase() === '1'

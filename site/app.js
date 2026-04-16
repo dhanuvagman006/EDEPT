@@ -57,7 +57,7 @@ function safeText(v) {
 }
 
 function escapeHtml(str) {
-  return str
+  return String(str || '')
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
@@ -79,17 +79,10 @@ function pill(label, value) {
 // ---------------------
 
 function renderParticipantsSummary(participants) {
-  const total = participants.length;
-  const verified = participants.filter((p) => String(p.paymentStatus || '').toLowerCase() === 'verified').length;
-  const paidTotal = participants.reduce((sum, p) => {
-    const n = Number(p.amountPaid);
-    return Number.isFinite(n) ? sum + n : sum;
-  }, 0);
+  const couponsReceived = participants.filter((p) => Boolean(p.foodCouponReceived)).length;
 
   participantsSummaryEl.innerHTML = [
-    pill('Total participants', total),
-    pill('Verified payments', verified),
-    pill('Total amount paid', paidTotal ? String(paidTotal) : '0'),
+    pill('Coupons received', couponsReceived),
   ].join('');
 }
 
@@ -107,6 +100,19 @@ function renderParticipantsList(participants) {
 
 function renderParticipantCard(p) {
   const name = safeText(p.studentName || p.name);
+
+  const participantId = String(p.participantId ?? p.id ?? '').trim();
+  const couponReceived = Boolean(p.foodCouponReceived);
+  const couponBadgeHtml = participantId
+    ? `<span class="badge ${couponReceived ? 'badge--success' : 'badge--pending'}">Coupon: ${couponReceived ? 'Received' : 'Not received'}</span>`
+    : '<span class="badge badge--pending">Coupon: —</span>';
+
+  const couponToggleHtml = participantId
+    ? `<label class="couponToggleLabel">
+        <input type="checkbox" class="couponToggle" data-participant-id="${escapeHtml(participantId)}" ${couponReceived ? 'checked' : ''} />
+        <span>${couponReceived ? 'Received' : 'Not received'}</span>
+      </label>`
+    : '<span class="muted">—</span>';
 
   const events = Array.isArray(p.events) ? p.events : [];
   const teams = Array.isArray(p.teams) ? p.teams : [];
@@ -156,11 +162,15 @@ function renderParticipantCard(p) {
       <div class="cardHeader">
         <div class="cardTitle">
           <h2>${escapeHtml(name)}</h2>
+          ${couponBadgeHtml}
         </div>
         <div class="muted">ID: ${escapeHtml(safeText(p.participantId ?? p.id))}</div>
       </div>
 
       <div class="kv">
+        <div class="k">Food coupon</div>
+        <div class="v">${couponToggleHtml}</div>
+
         <div class="k">Email</div>
         <div class="v">${escapeHtml(safeText(p.email))}</div>
 
@@ -227,6 +237,60 @@ function applyParticipantsFilter() {
   renderParticipantsList(filtered);
 }
 
+function participantKey(p) {
+  return String(p?.participantId ?? p?.id ?? '').trim();
+}
+
+async function setFoodCouponStatus(participantId, received) {
+  const res = await fetch('../api/food-coupons', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json; charset=utf-8',
+    },
+    cache: 'no-store',
+    body: JSON.stringify({ participantId, received }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(text || `HTTP ${res.status}`);
+  }
+
+  return res.json().catch(() => ({}));
+}
+
+if (participantsContentEl) {
+  participantsContentEl.addEventListener('change', async (e) => {
+    const target = e.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    if (!target.classList.contains('couponToggle')) return;
+
+    const participantId = String(target.dataset.participantId || '').trim();
+    if (!participantId) return;
+
+    const received = Boolean(target.checked);
+
+    target.disabled = true;
+    setParticipantsStatus('Saving coupon status…');
+
+    try {
+      await setFoodCouponStatus(participantId, received);
+
+      const p = allParticipants.find((x) => participantKey(x) === participantId);
+      if (p) p.foodCouponReceived = received;
+
+      renderParticipantsSummary(allParticipants);
+      setParticipantsStatus('');
+      applyParticipantsFilter();
+    } catch {
+      target.checked = !received;
+      setParticipantsStatus('Failed to save coupon status');
+    } finally {
+      target.disabled = false;
+    }
+  });
+}
+
 async function loadParticipants() {
   setParticipantsStatus('Loading…');
   participantsContentEl.innerHTML = '<div class="card">Loading…</div>';
@@ -268,6 +332,7 @@ async function loadParticipants() {
   }
 
   allParticipants = participants;
+  renderParticipantsSummary(allParticipants);
   applyParticipantsFilter();
 }
 

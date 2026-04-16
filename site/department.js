@@ -2,15 +2,30 @@ const deptSelect = document.getElementById('deptSelect');
 const statusEl = document.getElementById('status');
 const countEl = document.getElementById('count');
 const contentEl = document.getElementById('content');
+const pillsSectionEl = document.getElementById('pillsSection');
+const pillsContainerEl = document.getElementById('pillsContainer');
 
-let lastLoadedDeptKey = '';
-let lastLoadedParticipants = [];
+const apiDownOverlayEl = document.getElementById('apiDownOverlay');
+const popupBodyEl = document.getElementById('popupBody');
+const popupRetryBtn = document.getElementById('popupRetryBtn');
+const popupDismissBtn = document.getElementById('popupDismissBtn');
+
+const departmentsByKey = new Map();
+
+let allDeptParticipants = [];
+let deptEventsList = []; // [{ name, norm, isMega }]
+let activeEventFilter = null; // null = all
+let currentDeptName = '';
+
+let popupRetryHandler = null;
 
 function setStatus(msg) {
+  if (!statusEl) return;
   statusEl.textContent = msg;
 }
 
 function setCount(visible, total) {
+  if (!countEl) return;
   countEl.textContent = total ? `Showing ${visible} of ${total}` : '';
 }
 
@@ -28,6 +43,41 @@ function safeText(v) {
   if (typeof v === 'string') return v.trim() || '—';
   return String(v);
 }
+
+function hideApiDownPopup() {
+  if (!apiDownOverlayEl) return;
+  apiDownOverlayEl.hidden = true;
+  popupRetryHandler = null;
+}
+
+function showApiDownPopup(html, { onRetry } = {}) {
+  if (!apiDownOverlayEl || !popupBodyEl) return;
+  popupBodyEl.innerHTML = String(html || '');
+  apiDownOverlayEl.hidden = false;
+  popupRetryHandler = typeof onRetry === 'function' ? onRetry : null;
+}
+
+if (popupRetryBtn) {
+  popupRetryBtn.addEventListener('click', () => {
+    const fn = popupRetryHandler;
+    hideApiDownPopup();
+    if (fn) fn();
+  });
+}
+
+if (popupDismissBtn) {
+  popupDismissBtn.addEventListener('click', hideApiDownPopup);
+}
+
+if (apiDownOverlayEl) {
+  apiDownOverlayEl.addEventListener('click', (e) => {
+    if (e.target === apiDownOverlayEl) hideApiDownPopup();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') hideApiDownPopup();
+});
 
 const EVENT_NAME_ALIASES = new Map([
   ['operation chiper chase', 'operation cipher chase'],
@@ -61,24 +111,60 @@ function extractEventNames(events) {
     .filter(Boolean);
 }
 
-// ─── Event count computation ──────────────────────────────────────────────────
+function buildDeptEventsList(dept, participants) {
+  const megaNorms = new Set((dept?.megaEvents || []).map(normalizeEventName));
+
+  const baseEvents = Array.isArray(dept?.events) ? dept.events : [];
+  if (baseEvents.length) {
+    return baseEvents.map((name) => {
+      const norm = normalizeEventName(name);
+      return {
+        name,
+        norm,
+        isMega: megaNorms.has(norm),
+      };
+    });
+  }
+
+  // Fallback: derive from payload if the API didn't include department.events.
+  const unique = new Map(); // norm -> display
+  for (const p of participants) {
+    for (const n of extractEventNames(p?.events)) {
+      const norm = normalizeEventName(n);
+      if (!norm) continue;
+      if (!unique.has(norm)) unique.set(norm, n);
+    }
+  }
+
+  return [...unique.entries()]
+    .map(([norm, name]) => ({ name, norm, isMega: megaNorms.has(norm) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function participantMatchesEventNorm(p, targetNorm) {
+  if (!targetNorm) return false;
+  return extractEventNames(p?.events).some((n) => normalizeEventName(n) === targetNorm);
+}
 
 function computeEventCounts() {
   const counts = new Map();
+  const canonicalByNorm = new Map();
+
   for (const ev of deptEventsList) {
     counts.set(ev.name, 0);
+    canonicalByNorm.set(ev.norm, ev.name);
   }
+
   for (const p of allDeptParticipants) {
-    for (const name of extractEventNames(p.events)) {
-      if (counts.has(name)) {
-        counts.set(name, counts.get(name) + 1);
-      }
+    for (const n of extractEventNames(p?.events)) {
+      const canonical = canonicalByNorm.get(normalizeEventName(n));
+      if (!canonical) continue;
+      counts.set(canonical, (counts.get(canonical) || 0) + 1);
     }
   }
+
   return counts;
 }
-
-// ─── Pills ────────────────────────────────────────────────────────────────────
 
 const downloadSvg = `<svg viewBox="0 0 16 16" width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M8 2v8M5 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -86,6 +172,14 @@ const downloadSvg = `<svg viewBox="0 0 16 16" width="14" height="14" fill="none"
 </svg>`;
 
 function buildPills() {
+  if (!pillsSectionEl || !pillsContainerEl) return;
+
+  if (!deptEventsList.length) {
+    pillsContainerEl.innerHTML = '';
+    pillsSectionEl.hidden = true;
+    return;
+  }
+
   const counts = computeEventCounts();
 
   const sorted = [...deptEventsList]
@@ -102,7 +196,7 @@ function buildPills() {
         <div class="event-pill__label">All Students</div>
         <div class="event-pill__count">${allCount}</div>
       </div>
-      <button class="event-pill__download" data-event="" type="button" title="Download PDF" aria-label="Download all students as PDF">
+      <button class="event-pill__download" data-event="" type="button" title="Download" aria-label="Print all students">
         ${downloadSvg}
       </button>
     </div>`;
@@ -120,7 +214,7 @@ function buildPills() {
           <div class="event-pill__count">${ev.count}</div>
         </div>
         <button class="event-pill__download" data-event="${escapeHtml(ev.name)}" type="button"
-                title="Download ${escapeHtml(ev.name)} PDF" aria-label="Download ${escapeHtml(ev.name)} as PDF">
+                title="Download" aria-label="Print ${escapeHtml(ev.name)}">
           ${downloadSvg}
         </button>
       </div>`;
@@ -135,6 +229,7 @@ function buildPills() {
       const raw = pill.dataset.event;
       setActiveFilter(raw === '' ? null : raw);
     });
+
     pill.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -152,22 +247,41 @@ function buildPills() {
   });
 }
 
-// ─── Participants rendering ───────────────────────────────────────────────────
-
 function renderParticipantCard(p) {
   const name = safeText(p.studentName || p.name);
   const eventNames = extractEventNames(p.events);
+
+  const participantId = String(p.participantId ?? p.id ?? '').trim();
+  const couponReceived = Boolean(p.foodCouponReceived);
+
+  const paymentBadgeHtml = `<span class="badge">${escapeHtml(safeText(p.paymentStatus))}</span>`;
+  const couponBadgeHtml = participantId
+    ? `<span class="badge ${couponReceived ? 'badge--success' : 'badge--pending'}">Coupon: ${couponReceived ? 'Received' : 'Not received'}</span>`
+    : '<span class="badge badge--pending">Coupon: —</span>';
+
+  const couponToggleHtml = participantId
+    ? `<label class="couponToggleLabel">
+        <input type="checkbox" class="couponToggle" data-participant-id="${escapeHtml(participantId)}" ${couponReceived ? 'checked' : ''} />
+        <span>${couponReceived ? 'Received' : 'Not received'}</span>
+      </label>`
+    : '<span class="muted">—</span>';
 
   return `
     <article class="card">
       <div class="cardHeader">
         <div class="cardTitle">
           <h2>${escapeHtml(name)}</h2>
-          <span class="badge">${escapeHtml(safeText(p.paymentStatus))}</span>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+            ${paymentBadgeHtml}
+            ${couponBadgeHtml}
+          </div>
         </div>
         <div class="muted">ID: ${escapeHtml(safeText(p.participantId ?? p.id))}</div>
       </div>
       <div class="kv">
+        <div class="k">Food coupon</div>
+        <div class="v">${couponToggleHtml}</div>
+
         <div class="k">Email</div>
         <div class="v">${escapeHtml(safeText(p.email))}</div>
         <div class="k">Phone</div>
@@ -184,52 +298,77 @@ function renderParticipantCard(p) {
   `;
 }
 
-function setCount(visible, total) {
-  if (!countEl) return;
-  if (!total) {
-    countEl.textContent = '';
-    return;
-  }
-
-  countEl.textContent = `Showing ${visible} of ${total}`;
+function participantKey(p) {
+  return String(p?.participantId ?? p?.id ?? '').trim();
 }
 
-function populateEventFilter(participants) {
-  if (!eventSelect) return;
+async function setFoodCouponStatus(participantId, received) {
+  const res = await fetch('../api/food-coupons', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json; charset=utf-8',
+    },
+    cache: 'no-store',
+    body: JSON.stringify({ participantId, received }),
+  });
 
-  const unique = new Set();
-  for (const p of participants) {
-    for (const name of extractEventNames(p.events)) unique.add(name);
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(text || `HTTP ${res.status}`);
   }
 
-  const eventNames = Array.from(unique).sort((a, b) => a.localeCompare(b));
-  eventSelect.innerHTML = '<option value="">All events</option>';
-  for (const name of eventNames) {
-    const opt = document.createElement('option');
-    opt.value = name;
-    opt.textContent = name;
-    eventSelect.appendChild(opt);
-  }
-  eventSelect.disabled = false;
-  eventSelect.value = '';
+  return res.json().catch(() => ({}));
+}
+
+if (contentEl) {
+  contentEl.addEventListener('change', async (e) => {
+    const target = e.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    if (!target.classList.contains('couponToggle')) return;
+
+    const participantId = String(target.dataset.participantId || '').trim();
+    if (!participantId) return;
+
+    const received = Boolean(target.checked);
+
+    target.disabled = true;
+    setStatus('Saving coupon status…');
+
+    try {
+      await setFoodCouponStatus(participantId, received);
+
+      const p = allDeptParticipants.find((x) => participantKey(x) === participantId);
+      if (p) p.foodCouponReceived = received;
+
+      setStatus('');
+      renderParticipants();
+    } catch {
+      target.checked = !received;
+      setStatus('Failed to save coupon status');
+    } finally {
+      target.disabled = false;
+    }
+  });
 }
 
 function renderParticipants() {
-  const selectedEvent = eventSelect ? eventSelect.value : '';
-  const all = Array.isArray(lastLoadedParticipants) ? lastLoadedParticipants : [];
+  if (!contentEl) return;
 
-  const filtered = selectedEvent
-    ? all.filter((p) => extractEventNames(p.events).includes(selectedEvent))
-    : all;
+  const all = Array.isArray(allDeptParticipants) ? allDeptParticipants : [];
+
+  let filtered = all;
+  if (activeEventFilter) {
+    const ev = deptEventsList.find((x) => x.name === activeEventFilter);
+    const norm = ev?.norm;
+    filtered = norm ? all.filter((p) => participantMatchesEventNorm(p, norm)) : all;
+  }
 
   contentEl.innerHTML = filtered.length
     ? filtered.map(renderParticipantCard).join('')
     : '<div class="card">No students found for this selection.</div>';
 
-  setCount(filtered.length, allDeptParticipants.length);
+  setCount(filtered.length, all.length);
 }
-
-// ─── Filter + render ──────────────────────────────────────────────────────────
 
 function setActiveFilter(eventName) {
   activeEventFilter = eventName;
@@ -241,8 +380,6 @@ function renderAll() {
   buildPills();
   renderParticipants();
 }
-
-// ─── PDF download ─────────────────────────────────────────────────────────────
 
 function buildPrintHtml(title, participants) {
   const rows = participants.map((p, i) => {
@@ -294,14 +431,17 @@ function buildPrintHtml(title, participants) {
 
 function downloadPdf(eventName) {
   const participants = eventName
-    ? allDeptParticipants.filter((p) => extractEventNames(p.events).includes(eventName))
+    ? (() => {
+      const ev = deptEventsList.find((x) => x.name === eventName);
+      const norm = ev?.norm;
+      return norm ? allDeptParticipants.filter((p) => participantMatchesEventNorm(p, norm)) : allDeptParticipants;
+    })()
     : allDeptParticipants;
 
   const label = eventName || 'All Students';
   const title = currentDeptName ? `${currentDeptName} — ${label}` : label;
   const html = buildPrintHtml(title, participants);
 
-  // Use a hidden iframe so no popup blocker is triggered
   const old = document.getElementById('__printFrame');
   if (old) old.remove();
 
@@ -323,15 +463,31 @@ function downloadPdf(eventName) {
   iframe.src = url;
 }
 
-// ─── Data loading ─────────────────────────────────────────────────────────────
-
 async function loadDepartments() {
+  if (!deptSelect) return;
+
+  // Common mistake: opening the HTML directly from disk.
+  if (window.location.protocol === 'file:') {
+    setStatus('');
+    showApiDownPopup(
+      'This page must be opened from the local server.<br>' +
+      'Run <code>npm start</code> and open <code>http://localhost:3000/site/department.html</code>.',
+      { onRetry: () => window.location.reload() }
+    );
+    return;
+  }
+
   setStatus('Loading departments…');
+
   try {
     const res = await fetch('../api/departments', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
     const payload = await res.json();
     const list = Array.isArray(payload.data) ? payload.data : [];
+
+    // Keep the placeholder option, clear the rest.
+    while (deptSelect.options.length > 1) deptSelect.remove(1);
 
     for (const d of list) {
       if (!d || !d.key) continue;
@@ -342,16 +498,20 @@ async function loadDepartments() {
       opt.textContent = d.name;
       deptSelect.appendChild(opt);
     }
+
     setStatus('');
   } catch {
     setStatus('Failed to load departments');
     showApiDownPopup(
-      'Could not reach the server to load departments.<br>Make sure <code>npm start</code> is running, then retry.'
+      'Could not reach the server to load departments.<br>Make sure <code>npm start</code> is running, then retry.',
+      { onRetry: loadDepartments }
     );
   }
 }
 
 async function onDeptChange() {
+  if (!deptSelect) return;
+
   const deptKey = deptSelect.value;
 
   if (!deptKey) {
@@ -359,51 +519,59 @@ async function onDeptChange() {
     deptEventsList = [];
     activeEventFilter = null;
     currentDeptName = '';
-    pillsSectionEl.hidden = true;
-    pillsContainerEl.innerHTML = '';
-    contentEl.innerHTML = '';
+
+    if (pillsSectionEl) pillsSectionEl.hidden = true;
+    if (pillsContainerEl) pillsContainerEl.innerHTML = '';
+    if (contentEl) contentEl.innerHTML = '';
+
     setStatus('');
     setCount(0, 0);
     return;
   }
 
+  const deptMeta = departmentsByKey.get(deptKey);
+  currentDeptName = deptMeta?.name || deptKey;
+
   setStatus('Loading…');
-  contentEl.innerHTML = '<div class="card">Loading…</div>';
-  pillsSectionEl.hidden = true;
-  pillsContainerEl.innerHTML = '';
+  if (contentEl) contentEl.innerHTML = '<div class="card">Loading…</div>';
+  if (pillsSectionEl) pillsSectionEl.hidden = true;
+  if (pillsContainerEl) pillsContainerEl.innerHTML = '';
   allDeptParticipants = [];
   deptEventsList = [];
   activeEventFilter = null;
   setCount(0, 0);
 
   try {
-    const res = await fetch(
-      `../api/departments/${encodeURIComponent(deptKey)}/participants?ts=${Date.now()}`,
-      { cache: 'no-store' }
-    );
+    const res = await fetch(`../api/departments/${encodeURIComponent(deptKey)}/participants?ts=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
     const payload = await res.json();
     const participants = Array.isArray(payload.data) ? payload.data : [];
 
-    lastLoadedDeptKey = deptKey;
-    lastLoadedParticipants = participants;
-    populateEventFilter(participants);
-    renderParticipants();
+    const deptFromApi = payload?.department && typeof payload.department === 'object' ? payload.department : null;
+    currentDeptName = deptFromApi?.name || deptMeta?.name || deptKey;
+
+    allDeptParticipants = participants;
+    deptEventsList = buildDeptEventsList(deptFromApi || deptMeta || {}, participants);
+    activeEventFilter = null;
 
     setStatus('');
     renderAll();
   } catch {
     setStatus('Failed to load students');
-    contentEl.innerHTML = '';
+    if (contentEl) contentEl.innerHTML = '';
     setCount(0, 0);
+
     showApiDownPopup(
       `Could not load students for <strong>${escapeHtml(currentDeptName || deptKey)}</strong>.<br>` +
-      `The participant API may be down. Place a valid <code>response.json</code> in the <code>EDEPT/</code> folder and restart the server.`
+      `The participant API may be down. Place a valid <code>response.json</code> in the <code>EDEPT/</code> folder and restart the server.`,
+      { onRetry: onDeptChange }
     );
   }
 }
 
-// ─── Init ─────────────────────────────────────────────────────────────────────
+if (deptSelect) {
+  deptSelect.addEventListener('change', onDeptChange);
+}
 
-deptSelect.addEventListener('change', onDeptChange);
 loadDepartments();

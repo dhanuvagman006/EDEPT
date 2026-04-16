@@ -28,6 +28,126 @@ let cachedParticipantsPayload = null;
 let cachedParticipantsAt = 0;
 let backgroundRefreshPromise = null;
 
+const FOOD_COUPON_FILE = path.join(ROOT, 'food_coupons.json');
+const MAX_JSON_BODY_BYTES = 32 * 1024;
+
+let foodCouponState = { version: 1, updatedAt: null, items: {} };
+let foodCouponLoadPromise = null;
+let foodCouponWriteChain = Promise.resolve();
+
+function participantKey(p) {
+  const v = p?.participantId ?? p?.id;
+  const s = String(v ?? '').trim();
+  return s && s !== '—' ? s : '';
+}
+
+async function loadFoodCouponStateFromDisk() {
+  try {
+    const text = await fs.readFile(FOOD_COUPON_FILE, 'utf8');
+    const parsed = JSON.parse(text);
+
+    if (!parsed || typeof parsed !== 'object') throw new Error('Invalid JSON');
+    const items = parsed.items && typeof parsed.items === 'object' ? parsed.items : {};
+
+    foodCouponState = {
+      version: 1,
+      updatedAt: typeof parsed.updatedAt === 'string' ? parsed.updatedAt : null,
+      items,
+    };
+  } catch (e) {
+    if (e && e.code !== 'ENOENT') {
+      console.error('Failed to read food_coupons.json:', e?.message || e);
+    }
+    foodCouponState = { version: 1, updatedAt: null, items: {} };
+  }
+}
+
+async function getFoodCouponState() {
+  if (!foodCouponLoadPromise) {
+    foodCouponLoadPromise = loadFoodCouponStateFromDisk();
+  }
+  await foodCouponLoadPromise;
+  return foodCouponState;
+}
+
+async function writeJsonAtomic(filePath, payload) {
+  const dir = path.dirname(filePath);
+  await fs.mkdir(dir, { recursive: true }).catch(() => {});
+
+  const tmp = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  const data = Buffer.from(JSON.stringify(payload, null, 2), 'utf8');
+
+  await fs.writeFile(tmp, data);
+
+  try {
+    await fs.rename(tmp, filePath);
+  } catch (e) {
+    if (e && (e.code === 'EPERM' || e.code === 'EEXIST')) {
+      await fs.unlink(filePath).catch(() => {});
+      await fs.rename(tmp, filePath);
+    } else {
+      await fs.unlink(tmp).catch(() => {});
+      throw e;
+    }
+  }
+}
+
+async function setFoodCouponReceived(participantId, received) {
+  const id = String(participantId ?? '').trim();
+  if (!id) {
+    const err = new Error('participantId is required');
+    err.statusCode = 400;
+    throw err;
+  }
+
+  const state = await getFoodCouponState();
+  const now = new Date().toISOString();
+
+  state.items[id] = { received: Boolean(received), updatedAt: now };
+  state.updatedAt = now;
+
+  foodCouponWriteChain = foodCouponWriteChain.then(() => writeJsonAtomic(FOOD_COUPON_FILE, state));
+  await foodCouponWriteChain;
+
+  return state.items[id];
+}
+
+function attachFoodCouponFields(p, items) {
+  const id = participantKey(p);
+  const rec = id && items && typeof items === 'object' ? items[id] : null;
+  return {
+    ...p,
+    foodCouponReceived: Boolean(rec && rec.received),
+    foodCouponUpdatedAt: rec && typeof rec.updatedAt === 'string' ? rec.updatedAt : null,
+  };
+}
+
+async function readJsonBody(req, maxBytes = MAX_JSON_BODY_BYTES) {
+  let total = 0;
+  const chunks = [];
+
+  for await (const chunk of req) {
+    total += chunk.length;
+    if (total > maxBytes) {
+      const err = new Error('Request body too large');
+      err.statusCode = 413;
+      throw err;
+    }
+    chunks.push(chunk);
+  }
+
+  const text = Buffer.concat(chunks).toString('utf8').trim();
+  if (!text) return null;
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    const err = new Error('Invalid JSON');
+    err.statusCode = 400;
+    throw err;
+  }
+}
+
 async function fetchParticipantsPayloadFromApi() {
   const res = await fetch(PARTICIPANTS_ENDPOINT, {
     method: 'GET',
@@ -360,6 +480,46 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
+  if (url.pathname === '/api/food-coupons') {
+    if (req.method === 'GET') {
+      const state = await getFoodCouponState();
+      sendJson(res, 200, state);
+      return;
+    }
+
+    if (req.method === 'POST') {
+      let body;
+      try {
+        body = await readJsonBody(req);
+      } catch (e) {
+        sendJson(res, e?.statusCode || 400, { error: e?.message || 'Bad request' });
+        return;
+      }
+
+      const participantId = String(body?.participantId ?? '').trim();
+      if (!participantId) {
+        sendJson(res, 400, { error: 'participantId is required' });
+        return;
+      }
+
+      if (typeof body?.received !== 'boolean') {
+        sendJson(res, 400, { error: 'received must be a boolean' });
+        return;
+      }
+
+      try {
+        const rec = await setFoodCouponReceived(participantId, body.received);
+        sendJson(res, 200, { ok: true, participantId, ...rec });
+      } catch (e) {
+        sendJson(res, e?.statusCode || 500, { error: e?.message || 'Failed to update' });
+      }
+      return;
+    }
+
+    sendJson(res, 405, { error: 'Method not allowed' });
+    return;
+  }
+
   if (url.pathname === '/api/teams') {
     try {
       const payload = await readJsonFile('teams.json');
@@ -391,7 +551,10 @@ const server = http.createServer(async (req, res) => {
         return;
       }
 
-      sendJson(res, 200, { data: participants });
+      const coupons = await getFoodCouponState();
+      const data = participants.map((p) => attachFoodCouponFields(p, coupons.items));
+
+      sendJson(res, 200, { data });
       return;
     } catch (e) {
       sendJson(res, 502, {
@@ -420,6 +583,10 @@ const server = http.createServer(async (req, res) => {
       }
 
       const filtered = filterParticipantsForDepartment(participants, dept);
+
+      const coupons = await getFoodCouponState();
+      const data = filtered.map((p) => attachFoodCouponFields(p, coupons.items));
+
       sendJson(res, 200, {
         department: {
           key: dept.key,
@@ -427,7 +594,7 @@ const server = http.createServer(async (req, res) => {
           events: dept.events,
           megaEvents: dept.megaEvents || [],
         },
-        data: filtered,
+        data,
       });
       return;
     } catch (e) {
