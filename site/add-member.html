@@ -111,7 +111,7 @@
         border: 1px solid #f5c6cb;
       }
 
-      .utrLookupBox {
+      .utrBox {
         margin-bottom: 2rem;
         padding: 1.25rem 1.5rem;
         background: #f0f6ff;
@@ -119,21 +119,27 @@
         border-radius: 8px;
       }
 
-      .utrLookupBox h3 {
-        margin: 0 0 0.75rem 0;
+      .utrBox h3 {
+        margin: 0 0 1rem 0;
         font-size: 1rem;
         color: #1a3a5c;
       }
 
-      .utrLookupRow {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
+      .utrBox label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #1a3a5c;
       }
 
-      .utrLookupRow input {
+      .utrInputRow {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .utrInputRow input {
         flex: 1;
-        padding: 0.65rem 0.9rem;
+        padding: 0.7rem 0.9rem;
         border: 1px solid #b8d4f8;
         border-radius: 4px;
         font-size: 1rem;
@@ -141,14 +147,14 @@
         background: #fff;
       }
 
-      .utrLookupRow input:focus {
+      .utrInputRow input:focus {
         outline: none;
         border-color: #0066cc;
         box-shadow: 0 0 0 2px rgba(0,102,204,0.15);
       }
 
-      .utrLookupRow button {
-        padding: 0.65rem 1.25rem;
+      .utrInputRow button {
+        padding: 0.7rem 1.25rem;
         background: #0066cc;
         color: #fff;
         border: none;
@@ -160,8 +166,8 @@
         transition: background 0.2s;
       }
 
-      .utrLookupRow button:hover:not(:disabled) { background: #0052a3; }
-      .utrLookupRow button:disabled { background: #aaa; cursor: not-allowed; }
+      .utrInputRow button:hover:not(:disabled) { background: #0052a3; }
+      .utrInputRow button:disabled { background: #aaa; cursor: not-allowed; }
 
       .utrResult {
         margin-top: 1rem;
@@ -183,23 +189,9 @@
         color: #856404;
       }
 
-      .utrResult table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 0.5rem;
-      }
-
-      .utrResult td {
-        padding: 2px 8px 2px 0;
-        vertical-align: top;
-      }
-
-      .utrResult td:first-child {
-        font-weight: 600;
-        white-space: nowrap;
-        color: #0d4b27;
-        width: 130px;
-      }
+      .utrResult table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+      .utrResult td { padding: 2px 8px 2px 0; vertical-align: top; }
+      .utrResult td:first-child { font-weight: 600; white-space: nowrap; width: 130px; color: #0d4b27; }
 
     </style>
   </head>
@@ -226,10 +218,11 @@
           <button type="button" id="downloadBtn" style="padding: 0.75rem 1.5rem; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500; white-space: nowrap; transition: background-color 0.2s;">📥 Download CSV</button>
         </div>
 
-        <div class="utrLookupBox">
+        <div class="utrBox">
           <h3>UTR ID Lookup</h3>
-          <div class="utrLookupRow">
-            <input type="text" id="utrLookupInput" placeholder="Enter UTR ID to search…" autocomplete="off" />
+          <label for="utrLookupInput">UTR ID</label>
+          <div class="utrInputRow">
+            <input type="text" id="utrLookupInput" placeholder="e.g. UTR12345" autocomplete="off" />
             <button type="button" id="utrLookupBtn">Look Up</button>
           </div>
           <div id="utrResult" hidden></div>

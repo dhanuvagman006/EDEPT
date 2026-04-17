@@ -1,3 +1,7 @@
+function escapeHtml(str) {
+  return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 const utrLookupInput = document.getElementById('utrLookupInput');
 const utrLookupBtn = document.getElementById('utrLookupBtn');
 const utrResultEl = document.getElementById('utrResult');
@@ -16,8 +20,8 @@ async function lookupUtr() {
     const participants = data.data || [];
 
     const match = participants.find((p) => {
-      const utrid = String(p.utrid || p.utrId || p.studentId || p.participantId || '').trim().toLowerCase();
-      return utrid === query.toLowerCase();
+      const id = String(p.utrid || p.utrId || p.studentId || p.participantId || '').trim().toLowerCase();
+      return id === query.toLowerCase();
     });
 
     if (match) {
@@ -35,13 +39,12 @@ async function lookupUtr() {
           <tr><td>College</td><td>${escapeHtml(match.college || '—')}</td></tr>
           <tr><td>Events</td><td>${escapeHtml(events || '—')}</td></tr>
           <tr><td>Payment</td><td>${escapeHtml(match.paymentStatus || '—')}</td></tr>
-          <tr><td>Amount Paid</td><td>${match.amountPaid != null ? '₹' + match.amountPaid : '—'}</td></tr>
+          <tr><td>Amount Paid</td><td>${match.amountPaid != null ? '&#8377;' + match.amountPaid : '—'}</td></tr>
         </table>`;
     } else {
       utrResultEl.className = 'utrResult utrResult--notfound';
       utrResultEl.innerHTML = `No participant found with UTR ID <strong>${escapeHtml(query)}</strong>.`;
     }
-
     utrResultEl.hidden = false;
   } catch (err) {
     utrResultEl.className = 'utrResult utrResult--notfound';
@@ -51,10 +54,6 @@ async function lookupUtr() {
     utrLookupBtn.disabled = false;
     utrLookupBtn.textContent = 'Look Up';
   }
-}
-
-function escapeHtml(str) {
-  return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 utrLookupBtn.addEventListener('click', lookupUtr);
