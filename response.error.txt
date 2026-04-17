@@ -1,3 +1,3 @@
-Request failed: 404 Not Found
+Request failed: 429 Too Many Requests
 
-{"error": {"code": "404", "message": "The deployment could not be found on Vercel."}}
+{"error":"Too many requests, please try again later."}

@@ -542,6 +542,81 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  if (url.pathname === '/api/members/add' && req.method === 'POST') {
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+    });
+    req.on('end', async () => {
+      try {
+        const newMember = JSON.parse(body);
+
+        // Validate required fields
+        if (!newMember.firstName || !newMember.lastName || !newMember.email || !newMember.phone || !newMember.utrid || !newMember.college || !newMember.department || !Array.isArray(newMember.events) || newMember.events.length === 0 || !newMember.paymentStatus) {
+          sendJson(res, 400, { error: 'Missing required fields. Please ensure: firstName, lastName, email, phone, utrid, college, department, events (array with at least one item), and paymentStatus are provided.' });
+          return;
+        }
+
+        // Load current participants
+        const payload = await readJsonFile('response.json');
+        let participants = extractArray(payload);
+        if (!participants) participants = [];
+
+        // Generate an ID for the new member
+        const maxId = participants.reduce((max, p) => {
+          const id = Number(p.id || 0);
+          return id > max ? id : max;
+        }, 0);
+
+        // Add new member to the list with all fields
+        const memberToAdd = {
+          id: String(maxId + 1),
+          firstName: newMember.firstName,
+          lastName: newMember.lastName,
+          email: newMember.email,
+          phone: newMember.phone,
+          utrid: newMember.utrid,
+          rollNumber: newMember.rollNumber,
+          college: newMember.college,
+          semester: newMember.semester,
+          department: newMember.department,
+          events: Array.isArray(newMember.events) ? newMember.events : [],
+          paymentStatus: newMember.paymentStatus,
+          amountPaid: newMember.amountPaid || 0,
+          gender: newMember.gender,
+          dateOfBirth: newMember.dateOfBirth,
+          address: newMember.address,
+          notes: newMember.notes,
+          registrationDate: newMember.registrationDate || new Date().toISOString(),
+          addedAt: new Date().toISOString(),
+          addedManually: true,
+        };
+
+        participants.push(memberToAdd);
+
+        // Save updated participants to response.json
+        await fs.writeFile(path.join(ROOT, 'response.json'), JSON.stringify(participants, null, 2), 'utf8');
+
+        // Update in-memory cache
+        cachedParticipantsPayload = participants;
+        cachedParticipantsAt = Date.now();
+
+        sendJson(res, 201, {
+          success: true,
+          message: 'Member added successfully',
+          memberId: memberToAdd.id,
+        });
+      } catch (e) {
+        console.error('Error adding member:', e);
+        sendJson(res, 500, {
+          error: 'Failed to add member',
+          message: e?.message || String(e),
+        });
+      }
+    });
+    return;
+  }
+
   if (url.pathname === '/api/participants') {
     try {
       const payload = await getParticipantsPayload({ allowFileFallback: true });

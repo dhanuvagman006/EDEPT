@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Add Member - Admin</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .formContainer {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .formGroup {
+        margin-bottom: 1.5rem;
+      }
+
+      .formGroup label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--text, #333);
+      }
+
+      .formGroup input,
+      .formGroup select,
+      .formGroup textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: inherit;
+        box-sizing: border-box;
+      }
+
+      .formGroup textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .formGroup input:focus,
+      .formGroup select:focus,
+      .formGroup textarea:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+      }
+
+      .formRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .formActions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .formActions button {
+        flex: 1;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.2s;
+      }
+
+      .submitBtn {
+        background-color: #0066cc;
+        color: white;
+      }
+
+      .submitBtn:hover:not(:disabled) {
+        background-color: #0052a3;
+      }
+
+      .submitBtn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .cancelBtn {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      .cancelBtn:hover {
+        background-color: #e0e0e0;
+      }
+
+      .alert {
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+
+      .alertSuccess {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .alertError {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .requiredField::after {
+        content: " *";
+        color: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <h1>Add Member</h1>
+          <p class="muted">Add a new participant to the student list.</p>
+        </div>
+        <nav class="nav" aria-label="Back to admin">
+          <a href="./admin.html" title="Back to Admin Dashboard">← Admin</a>
+        </nav>
+      </header>
+
+      <section class="formContainer">
+        <div id="alert" class="alert" style="display: none;"></div>
+
+        <form id="addMemberForm">
+          <div class="formRow">
+            <div class="formGroup">
+              <label for="firstName"><span class="requiredField">First Name</span></label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                placeholder="John"
+              />
+            </div>
+            <div class="formGroup">
+              <label for="lastName"><span class="requiredField">Last Name</span></label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                placeholder="Doe"
+              />
+            </div>
+          </div>
+
+          <div class="formRow">
+            <div class="formGroup">
+              <label for="email"><span class="requiredField">Email</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="john@example.com"
+              />
+            </div>
+            <div class="formGroup">
+              <label for="phone"><span class="requiredField">Phone</span></label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="+91 98765 43210"
+              />
+            </div>
+          </div>
+
+          <div class="formRow">
+            <div class="formGroup">
+              <label for="utrid"><span class="requiredField">UTRID / Student ID</span></label>
+              <input
+                type="text"
+                id="utrid"
+                name="utrid"
+                required
+                placeholder="UTR12345"
+              />
+            </div>
+            <div class="formGroup">
+              <label for="rollNumber">Roll Number</label>
+              <input
+                type="text"
+                id="rollNumber"
+                name="rollNumber"
+                placeholder="CS001"
+              />
+            </div>
+          </div>
+
+          <div class="formRow">
+            <div class="formGroup">
+              <label for="college"><span class="requiredField">College Name</span></label>
+              <input
+                type="text"
+                id="college"
+                name="college"
+                required
+                placeholder="e.g., Your College University"
+              />
+            </div>
+            <div class="formGroup">
+              <label for="semester">Semester</label>
+              <input
+                type="number"
+                id="semester"
+                name="semester"
+                placeholder="e.g., 4"
+                min="1"
+                max="8"
+              />
+            </div>
+          </div>
+
+          <div class="formGroup">
+            <label for="department"><span class="requiredField">Department</span></label>
+            <select id="department" name="department" required>
+              <option value="">Select Department</option>
+            </select>
+          </div>
+
+          <div class="formGroup">
+            <label for="events"><span class="requiredField">Events</span></label>
+            <textarea
+              id="events"
+              name="events"
+              required
+              placeholder="e.g., Dance Battle, Singing, Cricket (one per line or comma-separated)"
+            ></textarea>
+          </div>
+
+          <div class="formRow">
+            <div class="formGroup">
+              <label for="paymentStatus"><span class="requiredField">Payment Status</span></label>
+              <select id="paymentStatus" name="paymentStatus" required>
+                <option value="">Select Payment Status</option>
+                <option value="pending">Pending</option>
+                <option value="verified">Verified</option>
+                <option value="failed">Failed</option>
+              </select>
+            </div>
+            <div class="formGroup">
+              <label for="amountPaid"><span class="requiredField">Amount Paid (₹)</span></label>
+              <input
+                type="number"
+                id="amountPaid"
+                name="amountPaid"
+                required
+                placeholder="0"
+                min="0"
+                step="0.01"
+                value="0"
+              />
+            </div>
+          </div>
+
+          <div class="formGroup">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="formGroup">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input
+              type="date"
+              id="dateOfBirth"
+              name="dateOfBirth"
+            />
+          </div>
+
+          <div class="formGroup">
+            <label for="address">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              placeholder="Full residential address"
+            ></textarea>
+          </div>
+
+          <div class="formGroup">
+            <label for="notes">Notes / Additional Information</label>
+            <textarea
+              id="notes"
+              name="notes"
+              placeholder="Any additional information about the participant..."
+            ></textarea>
+          </div>
+
+          <div class="formActions">
+            <button type="submit" class="submitBtn" id="submitBtn">Add Member</button>
+            <button type="button" class="cancelBtn" id="cancelBtn">Cancel</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="./add-member.js"></script>
+  </body>
+</html>
