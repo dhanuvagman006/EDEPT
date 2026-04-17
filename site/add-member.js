@@ -73,6 +73,7 @@ const departmentSelect = document.getElementById('department');
 const eventsInput = document.getElementById('events');
 const paymentStatusSelect = document.getElementById('paymentStatus');
 const amountPaidInput = document.getElementById('amountPaid');
+const paymentUtrInput = document.getElementById('paymentUtr');
 const genderSelect = document.getElementById('gender');
 const notesInput = document.getElementById('notes');
 const submitBtn = document.getElementById('submitBtn');
@@ -275,6 +276,7 @@ async function handleSubmit(e) {
     events: eventsArray,
     paymentStatus: paymentStatusSelect.value,
     amountPaid: amountPaidInput.value ? Number(amountPaidInput.value) : 0,
+    paymentUtr: paymentUtrInput.value.trim() || undefined,
     gender: genderSelect.value || undefined,
     notes: notesInput.value.trim() || undefined,
     registrationDate: new Date().toISOString(),
