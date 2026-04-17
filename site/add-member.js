@@ -13,8 +13,6 @@ const eventsInput = document.getElementById('events');
 const paymentStatusSelect = document.getElementById('paymentStatus');
 const amountPaidInput = document.getElementById('amountPaid');
 const genderSelect = document.getElementById('gender');
-const dateOfBirthInput = document.getElementById('dateOfBirth');
-const addressInput = document.getElementById('address');
 const notesInput = document.getElementById('notes');
 const submitBtn = document.getElementById('submitBtn');
 const cancelBtn = document.getElementById('cancelBtn');
@@ -37,7 +35,7 @@ async function downloadStudentsCSV() {
   try {
     const res = await fetch('../api/participants');
     const data = await res.json();
-    const participants = data.data || [];
+    let participants = data.data || [];
 
     if (participants.length === 0) {
       showAlert('No participants to download', 'error');
@@ -45,6 +43,13 @@ async function downloadStudentsCSV() {
       downloadBtn.textContent = '📥 Download CSV';
       return;
     }
+
+    // Sort participants by ID (numerically)
+    participants.sort((a, b) => {
+      const idA = parseInt(a.participantId || a.id, 10) || 0;
+      const idB = parseInt(b.participantId || b.id, 10) || 0;
+      return idA - idB;
+    });
 
     // Define CSV headers - based on actual API structure
     const headers = [
@@ -210,8 +215,6 @@ async function handleSubmit(e) {
     paymentStatus: paymentStatusSelect.value,
     amountPaid: amountPaidInput.value ? Number(amountPaidInput.value) : 0,
     gender: genderSelect.value || undefined,
-    dateOfBirth: dateOfBirthInput.value || undefined,
-    address: addressInput.value.trim() || undefined,
     notes: notesInput.value.trim() || undefined,
     registrationDate: new Date().toISOString(),
   };

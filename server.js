@@ -584,8 +584,6 @@ const server = http.createServer(async (req, res) => {
           paymentStatus: newMember.paymentStatus,
           amountPaid: newMember.amountPaid || 0,
           gender: newMember.gender,
-          dateOfBirth: newMember.dateOfBirth,
-          address: newMember.address,
           notes: newMember.notes,
           registrationDate: newMember.registrationDate || new Date().toISOString(),
           addedAt: new Date().toISOString(),
