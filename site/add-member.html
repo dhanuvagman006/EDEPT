@@ -111,10 +111,6 @@
         border: 1px solid #f5c6cb;
       }
 
-      .requiredField::after {
-        content: " *";
-        color: #d32f2f;
-      }
     </style>
   </head>
   <body>
@@ -143,22 +139,20 @@
         <form id="addMemberForm">
           <div class="formRow">
             <div class="formGroup">
-              <label for="firstName"><span class="requiredField">First Name</span></label>
+              <label for="firstName">First Name</label>
               <input
                 type="text"
                 id="firstName"
                 name="firstName"
-                required
                 placeholder="John"
               />
             </div>
             <div class="formGroup">
-              <label for="lastName"><span class="requiredField">Last Name</span></label>
+              <label for="lastName">Last Name</label>
               <input
                 type="text"
                 id="lastName"
                 name="lastName"
-                required
                 placeholder="Doe"
               />
             </div>
@@ -166,22 +160,20 @@
 
           <div class="formRow">
             <div class="formGroup">
-              <label for="email"><span class="requiredField">Email</span></label>
+              <label for="email">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                required
                 placeholder="john@example.com"
               />
             </div>
             <div class="formGroup">
-              <label for="phone"><span class="requiredField">Phone</span></label>
+              <label for="phone">Phone</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
-                required
                 placeholder="+91 98765 43210"
               />
             </div>
@@ -189,12 +181,11 @@
 
           <div class="formRow">
             <div class="formGroup">
-              <label for="utrid"><span class="requiredField">UTRID / Student ID</span></label>
+              <label for="utrid">UTRID / Student ID</label>
               <input
                 type="text"
                 id="utrid"
                 name="utrid"
-                required
                 placeholder="UTR12345"
               />
             </div>
@@ -211,12 +202,11 @@
 
           <div class="formRow">
             <div class="formGroup">
-              <label for="college"><span class="requiredField">College Name</span></label>
+              <label for="college">College Name</label>
               <input
                 type="text"
                 id="college"
                 name="college"
-                required
                 placeholder="e.g., Your College University"
               />
             </div>
@@ -234,26 +224,25 @@
           </div>
 
           <div class="formGroup">
-            <label for="department"><span class="requiredField">Department</span></label>
-            <select id="department" name="department" required>
+            <label for="department">Department</label>
+            <select id="department" name="department">
               <option value="">Select Department</option>
             </select>
           </div>
 
           <div class="formGroup">
-            <label for="events"><span class="requiredField">Events</span></label>
+            <label for="events">Events</label>
             <textarea
               id="events"
               name="events"
-              required
               placeholder="e.g., Dance Battle, Singing, Cricket (one per line or comma-separated)"
             ></textarea>
           </div>
 
           <div class="formRow">
             <div class="formGroup">
-              <label for="paymentStatus"><span class="requiredField">Payment Status</span></label>
-              <select id="paymentStatus" name="paymentStatus" required>
+              <label for="paymentStatus">Payment Status</label>
+              <select id="paymentStatus" name="paymentStatus">
                 <option value="">Select Payment Status</option>
                 <option value="pending">Pending</option>
                 <option value="verified">Verified</option>
@@ -261,12 +250,11 @@
               </select>
             </div>
             <div class="formGroup">
-              <label for="amountPaid"><span class="requiredField">Amount Paid (₹)</span></label>
+              <label for="amountPaid">Amount Paid (₹)</label>
               <input
                 type="number"
                 id="amountPaid"
                 name="amountPaid"
-                required
                 placeholder="0"
                 min="0"
                 step="0.01"
