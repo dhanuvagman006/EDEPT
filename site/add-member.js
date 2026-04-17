@@ -1,4 +1,5 @@
 const formEl = document.getElementById('addMemberForm');
+const downloadBtn = document.getElementById('downloadBtn');
 const firstNameInput = document.getElementById('firstName');
 const lastNameInput = document.getElementById('lastName');
 const emailInput = document.getElementById('email');
@@ -18,6 +19,92 @@ const notesInput = document.getElementById('notes');
 const submitBtn = document.getElementById('submitBtn');
 const cancelBtn = document.getElementById('cancelBtn');
 const alertEl = document.getElementById('alert');
+
+// CSV Download functionality
+function escapeCSV(value) {
+  if (value === null || value === undefined) return '';
+  const str = String(value);
+  if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+    return `"${str.replace(/"/g, '""')}"`;
+  }
+  return str;
+}
+
+async function downloadStudentsCSV() {
+  downloadBtn.disabled = true;
+  downloadBtn.textContent = '⏳ Loading...';
+
+  try {
+    const res = await fetch('../api/participants');
+    const data = await res.json();
+    const participants = data.data || [];
+
+    if (participants.length === 0) {
+      showAlert('No participants to download', 'error');
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = '📥 Download CSV';
+      return;
+    }
+
+    // Define CSV headers - based on actual API structure
+    const headers = [
+      'Participant ID',
+      'Student Name',
+      'Email',
+      'Phone',
+      'College',
+      'Events',
+      'Payment Status',
+      'Amount Paid',
+      'Registration Date'
+    ];
+
+    // Build CSV rows - map actual API fields
+    const rows = participants.map((p) => {
+      // Extract event names from nested events array
+      const events = Array.isArray(p.events) 
+        ? p.events.map(e => e.eventName || e.name || '').filter(Boolean).join('; ')
+        : '';
+      
+      return [
+        escapeCSV(p.participantId || p.id),
+        escapeCSV(p.studentName || `${p.firstName || ''} ${p.lastName || ''}`.trim()),
+        escapeCSV(p.email),
+        escapeCSV(p.phone),
+        escapeCSV(p.college),
+        escapeCSV(events),
+        escapeCSV(p.paymentStatus),
+        escapeCSV(p.amountPaid),
+        escapeCSV(p.registeredAt || p.registrationDate)
+      ];
+    });
+
+    // Combine headers and rows
+    const csvContent = [
+      headers.map(escapeCSV).join(','),
+      ...rows.map((row) => row.join(','))
+    ].join('\n');
+
+    // Create blob and download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `participants_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showAlert(`Successfully downloaded ${participants.length} participants!`, 'success');
+  } catch (err) {
+    console.error('Error downloading CSV:', err);
+    showAlert(`Error: ${err.message}`, 'error');
+  } finally {
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = '📥 Download CSV';
+  }
+}
 
 // Load departments on page load
 async function loadDepartments() {
@@ -168,6 +255,7 @@ cancelBtn.addEventListener('click', () => {
   }
 });
 
+downloadBtn.addEventListener('click', downloadStudentsCSV);
 formEl.addEventListener('submit', handleSubmit);
 
 // Load departments when page loads
