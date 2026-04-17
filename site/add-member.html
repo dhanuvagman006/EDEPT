@@ -111,6 +111,96 @@
         border: 1px solid #f5c6cb;
       }
 
+      .utrLookupBox {
+        margin-bottom: 2rem;
+        padding: 1.25rem 1.5rem;
+        background: #f0f6ff;
+        border: 1px solid #b8d4f8;
+        border-radius: 8px;
+      }
+
+      .utrLookupBox h3 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1rem;
+        color: #1a3a5c;
+      }
+
+      .utrLookupRow {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .utrLookupRow input {
+        flex: 1;
+        padding: 0.65rem 0.9rem;
+        border: 1px solid #b8d4f8;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: inherit;
+        background: #fff;
+      }
+
+      .utrLookupRow input:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 2px rgba(0,102,204,0.15);
+      }
+
+      .utrLookupRow button {
+        padding: 0.65rem 1.25rem;
+        background: #0066cc;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+
+      .utrLookupRow button:hover:not(:disabled) { background: #0052a3; }
+      .utrLookupRow button:disabled { background: #aaa; cursor: not-allowed; }
+
+      .utrResult {
+        margin-top: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 6px;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .utrResult--found {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+      }
+
+      .utrResult--notfound {
+        background: #fff3cd;
+        border: 1px solid #ffeeba;
+        color: #856404;
+      }
+
+      .utrResult table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 0.5rem;
+      }
+
+      .utrResult td {
+        padding: 2px 8px 2px 0;
+        vertical-align: top;
+      }
+
+      .utrResult td:first-child {
+        font-weight: 600;
+        white-space: nowrap;
+        color: #0d4b27;
+        width: 130px;
+      }
+
     </style>
   </head>
   <body>
@@ -134,6 +224,15 @@
             <p class="muted" style="margin: 0; font-size: 0.9rem;">Download existing student data or add a new member</p>
           </div>
           <button type="button" id="downloadBtn" style="padding: 0.75rem 1.5rem; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500; white-space: nowrap; transition: background-color 0.2s;">📥 Download CSV</button>
+        </div>
+
+        <div class="utrLookupBox">
+          <h3>UTR ID Lookup</h3>
+          <div class="utrLookupRow">
+            <input type="text" id="utrLookupInput" placeholder="Enter UTR ID to search…" autocomplete="off" />
+            <button type="button" id="utrLookupBtn">Look Up</button>
+          </div>
+          <div id="utrResult" hidden></div>
         </div>
 
         <form id="addMemberForm">

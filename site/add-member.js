@@ -1,3 +1,65 @@
+const utrLookupInput = document.getElementById('utrLookupInput');
+const utrLookupBtn = document.getElementById('utrLookupBtn');
+const utrResultEl = document.getElementById('utrResult');
+
+async function lookupUtr() {
+  const query = utrLookupInput.value.trim();
+  if (!query) return;
+
+  utrLookupBtn.disabled = true;
+  utrLookupBtn.textContent = 'Searching…';
+  utrResultEl.hidden = true;
+
+  try {
+    const res = await fetch('../api/participants');
+    const data = await res.json();
+    const participants = data.data || [];
+
+    const match = participants.find((p) => {
+      const utrid = String(p.utrid || p.utrId || p.studentId || p.participantId || '').trim().toLowerCase();
+      return utrid === query.toLowerCase();
+    });
+
+    if (match) {
+      const events = Array.isArray(match.events)
+        ? match.events.map((e) => e.eventName || e.name || e).filter(Boolean).join(', ')
+        : (match.events || '—');
+
+      utrResultEl.className = 'utrResult utrResult--found';
+      utrResultEl.innerHTML = `
+        <strong>Participant found</strong>
+        <table>
+          <tr><td>Name</td><td>${escapeHtml(match.studentName || `${match.firstName || ''} ${match.lastName || ''}`.trim() || '—')}</td></tr>
+          <tr><td>Email</td><td>${escapeHtml(match.email || '—')}</td></tr>
+          <tr><td>Phone</td><td>${escapeHtml(match.phone || '—')}</td></tr>
+          <tr><td>College</td><td>${escapeHtml(match.college || '—')}</td></tr>
+          <tr><td>Events</td><td>${escapeHtml(events || '—')}</td></tr>
+          <tr><td>Payment</td><td>${escapeHtml(match.paymentStatus || '—')}</td></tr>
+          <tr><td>Amount Paid</td><td>${match.amountPaid != null ? '₹' + match.amountPaid : '—'}</td></tr>
+        </table>`;
+    } else {
+      utrResultEl.className = 'utrResult utrResult--notfound';
+      utrResultEl.innerHTML = `No participant found with UTR ID <strong>${escapeHtml(query)}</strong>.`;
+    }
+
+    utrResultEl.hidden = false;
+  } catch (err) {
+    utrResultEl.className = 'utrResult utrResult--notfound';
+    utrResultEl.textContent = `Lookup failed: ${err.message}`;
+    utrResultEl.hidden = false;
+  } finally {
+    utrLookupBtn.disabled = false;
+    utrLookupBtn.textContent = 'Look Up';
+  }
+}
+
+function escapeHtml(str) {
+  return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+utrLookupBtn.addEventListener('click', lookupUtr);
+utrLookupInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); lookupUtr(); } });
+
 const formEl = document.getElementById('addMemberForm');
 const downloadBtn = document.getElementById('downloadBtn');
 const firstNameInput = document.getElementById('firstName');
